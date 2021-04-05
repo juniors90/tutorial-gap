@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Inicializando y cerrando GAP &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Minicurso de GAP en español!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Inicializando y cerrando GAP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cargar-codigo-fuente-desde-un-archivo-externo">1.1. Cargar código fuente desde un archivo externo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#el-ciclo-de-impresion-de-lectura-y-evaluacion">1.2. El ciclo de impresión de lectura y evaluación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constantes-y-operadores">1.3. Constantes y Operadores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-aritmeticos">1.3.1. Operadores Aritméticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#el-operador-modulo">1.3.2. El operador Módulo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-de-comparacion">1.3.3. Operadores de Comparación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-logicos">1.3.4. Operadores Lógicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permutaciones">1.3.5. Permutaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caracteres">1.3.6. Caracteres</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diferencia-entre-variables-y-objetos">1.4. Diferencia entre Variables y Objetos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diferencia-entre-objetos-y-elementos">1.5. Diferencia entre Objetos y Elementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones">1.6. Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#help">1.7. Help</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Inicializando y cerrando GAP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/00-primeros-pasos-en-gap.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inicializando-y-cerrando-gap">
+<h1><span class="section-number">1. </span>Inicializando y cerrando GAP<a class="headerlink" href="#inicializando-y-cerrando-gap" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Si el programa está instalado correctamente, generalmente inicia <strong>GAP</strong> simplemente escribiendo <code class="docutils literal notranslate"><span class="pre">gap</span></code> en el <code class="docutils literal notranslate"><span class="pre">prompt</span></code> o <code class="docutils literal notranslate"><span class="pre">cmd</span></code> de su sistema operativo seguido de la tecla de retorno, a veces también se denomina tecla de nueva línea.</p>
+<div class="literal-block-wrapper docutils container" id="inicializando-gap">
+<div class="code-block-caption"><span class="caption-text">Inicializando GAP</span><a class="headerlink" href="#inicializando-gap" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$&gt; gap
+</pre></div>
+</div>
+</div>
+<p><strong>GAP</strong> responde a este comando abriendo una nueva ventana de comandos y luego muestra su propia entrada de linea de comandos <code class="docutils literal notranslate"><span class="pre">gap&gt;</span></code>. (Puede evitar el banner con la opción de línea de comando <code class="docutils literal notranslate"><span class="pre">-b</span></code>; hay más opciones de línea de comando descrito en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.1</span></code> del manual de referencia).</p>
+<div class="literal-block-wrapper docutils container" id="ventana-de-comandos-de-gap">
+<div class="code-block-caption"><span class="caption-text">ventana de comandos de GAP</span><a class="headerlink" href="#ventana-de-comandos-de-gap" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span>┌───────┐   <span class="nv">GAP</span><span class="o">,</span> <span class="nv">Version</span> <span class="nv">4</span><span class="o">.</span><span class="nv">7</span><span class="o">.</span><span class="nv">8</span> <span class="nv">of</span> <span class="nv">09</span><span class="o">-</span><span class="nv">Jun</span><span class="o">-</span><span class="nv">2015</span> <span class="p">(</span><span class="nv">free</span> <span class="nv">software</span><span class="o">,</span> <span class="nv">GPL</span><span class="p">)</span>
+│  <span class="nv">GAP</span>  │   <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span><span class="o">.</span><span class="nv">gap</span><span class="o">-</span><span class="nv">system</span><span class="o">.</span><span class="nv">org</span>
+└───────┘   <span class="nv">Architecture</span>: <span class="nv">i686</span><span class="o">-</span><span class="nv">pc</span><span class="o">-</span><span class="nv">cygwin</span><span class="o">-</span><span class="nv">gcc</span><span class="o">-</span><span class="nv">default32</span>
+<span class="nv">Libs</span> <span class="nv">used</span>:  <span class="nv">gmp</span><span class="o">,</span> <span class="nv">readline</span>
+<span class="nv">Loading</span> <span class="nv">the</span> <span class="nv">library</span> <span class="ow">and</span> <span class="nv">packages</span> <span class="o">...</span>
+<span class="nv">Components</span>: <span class="nv">trans</span> <span class="nv">1</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">prim</span> <span class="nv">2</span><span class="o">.</span><span class="nv">1</span><span class="o">,</span> <span class="nv">small</span><span class="o">*</span> <span class="nv">1</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">id</span><span class="o">*</span> <span class="nv">1</span><span class="o">.</span><span class="nv">0</span>
+<span class="nv">Packages</span>:   <span class="nv">AClib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">Alnuth</span> <span class="nv">3</span><span class="o">.</span><span class="nv">0</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">AtlasRep</span> <span class="nv">1</span><span class="o">.</span><span class="nv">5</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">AutPGrp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">6</span><span class="o">,</span> <span class="nv">Browse</span> <span class="nv">1</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">6</span><span class="o">,</span> <span class="nv">CRISP</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">8</span><span class="o">,</span>
+            <span class="nv">Cryst</span> <span class="nv">4</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">12</span><span class="o">,</span> <span class="nv">CrystCat</span> <span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">6</span><span class="o">,</span> <span class="nv">CTblLib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">FactInt</span> <span class="nv">1</span><span class="o">.</span><span class="nv">5</span><span class="o">.</span><span class="nv">3</span><span class="o">,</span> <span class="nv">FGA</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">GAPDoc</span> <span class="nv">1</span><span class="o">.</span><span class="nv">5</span><span class="o">.</span><span class="nv">1</span><span class="o">,</span>
+            <span class="nv">IO</span> <span class="nv">4</span><span class="o">.</span><span class="nv">4</span><span class="o">.</span><span class="nv">4</span><span class="o">,</span> <span class="nv">IRREDSOL</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">4</span><span class="o">,</span> <span class="nv">LAGUNA</span> <span class="nv">3</span><span class="o">.</span><span class="nv">7</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">Polenta</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">Polycyclic</span> <span class="nv">2</span><span class="o">.</span><span class="nv">11</span><span class="o">,</span> <span class="nv">RadiRoot</span> <span class="nv">2</span><span class="o">.</span><span class="nv">7</span><span class="o">,</span>
+            <span class="nv">ResClasses</span> <span class="nv">3</span><span class="o">.</span><span class="nv">4</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">Sophus</span> <span class="nv">1</span><span class="o">.</span><span class="nv">23</span><span class="o">,</span> <span class="nv">SpinSym</span> <span class="nv">1</span><span class="o">.</span><span class="nv">5</span><span class="o">,</span> <span class="nv">TomLib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">5</span>
+<span class="nv">Try</span> &#39;?<span class="nv">help</span>&#39; <span class="k">for</span> <span class="nv">help</span><span class="o">.</span> <span class="nv">See</span> <span class="nv">also</span>  &#39;?<span class="nv">copyright</span>&#39; <span class="ow">and</span>  &#39;?<span class="nv">authors</span>&#39;
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La forma habitual de <span class="underline">finalizar una sesión</span> <strong>GAP</strong> es escribir <code class="docutils literal notranslate"><span class="pre">quit;</span></code> en el indicador <code class="docutils literal notranslate"><span class="pre">gap&gt;</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>¡No omitir el punto y coma!</p>
+</div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="k">quit</span><span class="o">;</span>
+$
+</pre></div>
+</div>
+<p>En algunos sistemas, puede escribir <code class="docutils literal notranslate"><span class="pre">ctrl-D</span></code> para obtener el mismo efecto. En cualquier situación, <strong>GAP</strong> finaliza escribiendo <code class="docutils literal notranslate"><span class="pre">ctrl-C</span></code> dos veces en un segundo. Aquí, como siempre, una combinación como <code class="docutils literal notranslate"><span class="pre">ctrl-D</span></code> significa que debe presionar la tecla <code class="docutils literal notranslate"><span class="pre">D</span></code> mientras mantiene presionada la tecla <code class="docutils literal notranslate"><span class="pre">ctrl</span></code>.</p>
+<p>En algunos sistemas (por ejemplo, Apple Macintosh) pueden ser necesarios cambios menores. Esto se explica
+en el <code class="docutils literal notranslate"><span class="pre">Capítulo</span> <span class="pre">7.3</span></code> del manual de referencia.</p>
+<p>En la mayoría de los lugares, los caracteres de <strong>espacio en blanco</strong> (es decir, espacios, tabulaciones y retornos) son insignificantes para el significado de la entrada <strong>GAP</strong>. Sin embargo, los identificadores y las palabras clave no deben contener espacios en blanco. Por otro lado, a veces debe haber espacios en blanco alrededor de los identificadores y palabras clave para separarlos entre sí y de los números. Usaremos espacios en blanco para formatear comandos más complicados para una mejor legibilidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Un comentario en <strong>GAP</strong> comienza con el símbolo <code class="docutils literal notranslate"><span class="pre">#</span></code> y continúa hasta el final de la línea. Los comentarios son tratados como espacios en blanco por <strong>GAP</strong>. Usamos comentarios en los ejemplos impresos en este tutorial para explicar ciertas líneas de entrada o salida.</p>
+</div>
+<p>Debería poder reproducir los resultados de los ejemplos de sesiones de <strong>GAP</strong> en este manual, en el siguiente sentido. Si inicia la sesión <strong>GAP</strong> con los dos comandos</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SizeScreen</span><span class="p">(</span> <span class="p">[</span> <span class="nv">80</span><span class="o">,</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span> <span class="nv">LogTo</span><span class="p">(</span> <span class="s">&quot;logfile1&quot;</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>(que se utilizan para establecer la longitud de línea en <code class="docutils literal notranslate"><span class="pre">80</span></code> si esta no es ya la longitud de línea predeterminada y para guardar una lista de la sesión en algún archivo), luego elija cualquier capítulo y vuelva a ejecutar sus ejemplos en una sesión continua y en el orden dado , la salida <strong>GAP</strong> debe verse como la salida que se muestra en el manual, excepto por algunas líneas de salida que hemos editado un poco con respecto a espacios en blanco o saltos de línea para mejorar la legibilidad. Sin embargo, cuando se involucran procesos aleatorios, puede obtener resultados diferentes si extrae ejemplos únicos y los ejecuta por separado.</p>
+<div class="section" id="cargar-codigo-fuente-desde-un-archivo-externo">
+<h2><span class="section-number">1.1. </span>Cargar código fuente desde un archivo externo<a class="headerlink" href="#cargar-codigo-fuente-desde-un-archivo-externo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La forma más conveniente de crear piezas más grandes de código <strong>GAP</strong> es escribirlas en algún archivo de texto; para este propósito, simplemente puede usar su editor de texto favorito. Puede cargar un archivo de este tipo en <strong>GAP</strong> usando la función <code class="docutils literal notranslate"><span class="pre">Read</span></code>:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Read</span><span class="p">(</span><span class="s">&quot;../../GAPProgs/Example.g&quot;</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Puede dar el nombre de ruta de acceso absoluta del archivo de origen o su nombre de ruta de acceso relativa desde el directorio raíz de <strong>GAP</strong> (el directorio que contiene <code class="docutils literal notranslate"><span class="pre">bin/</span></code>, <code class="docutils literal notranslate"><span class="pre">doc/</span></code>, <code class="docutils literal notranslate"><span class="pre">lib/</span></code>, etc.).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>observemos que todos los archivos se guardan on la extension <code class="docutils literal notranslate"><span class="pre">.g</span></code></p>
+</div>
+</div>
+<div class="section" id="el-ciclo-de-impresion-de-lectura-y-evaluacion">
+<h2><span class="section-number">1.2. </span>El ciclo de impresión de lectura y evaluación<a class="headerlink" href="#el-ciclo-de-impresion-de-lectura-y-evaluacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>GAP</strong> es un sistema interactivo. Ejecuta continuamente un ciclo de impresión de evaluación de lectura. Cada expresión que escribe en el teclado es leída por <strong>GAP</strong>, evaluada y luego se muestra el resultado.</p>
+<p>La naturaleza interactiva de <strong>GAP</strong> le permite escribir una expresión en el teclado y ver su valor inmediatamente. Puede definir una función y aplicarla a argumentos para ver cómo funciona. Incluso puede escribir programas completos que contengan muchas funciones y probarlos sin salir del programa.</p>
+<dl class="simple">
+<dt>Cuando su programa sea grande, será más conveniente escribirlo en un archivo y luego leer ese archivo en <strong>GAP</strong>. Preparar sus funciones en un archivo tiene varias ventajas.</dt><dd><ul class="simple">
+<li><p>Puede componer sus funciones con más cuidado en un archivo (con su editor de texto favorito),</p></li>
+<li><p>Puede corregir errores sin volver a escribir toda la función,</p></li>
+<li><p>Puede guardar una copia para su uso posterior,</p></li>
+<li><p>Puede subir su proyecto a un repositorio de GitHub, GitLab, etc.</p></li>
+<li><p>Además, puede escribir muchos comentarios en el texto del programa, que <strong>GAP</strong> ignora, pero que son muy útiles para los desarrolladores del programa.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>GAP</strong> trata la entrada de un archivo de la misma manera que trata la entrada del teclado. Se pueden encontrar más detalles en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">9.7.1</span></code> del <span class="underline">Manual de referencia</span>.</p>
+</div>
+<p>Un cálculo simple con <strong>GAP</strong> es tan fácil como uno se puede imaginar. Escribe el problema justo después de la indicación, lo termina con un punto y coma y luego pasa el problema al programa con la tecla de retorno. Por ejemplo, para multiplicar la diferencia entre <span class="math notranslate nohighlight">\(9\)</span> y <span class="math notranslate nohighlight">\(7\)</span> por la suma de <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(6\)</span>, es decir para calcular <span class="math notranslate nohighlight">\((9 - 7) \ast (5 + 6)\)</span>, se escribe exactamente esta última secuencia de símbolos finalizada con <code class="docutils literal notranslate"><span class="pre">;</span></code> y retorna.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">5</span> <span class="o">+</span> <span class="nv">6</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">22</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Luego, <strong>GAP</strong> nos retorna el resultado <span class="math notranslate nohighlight">\(22\)</span> en la siguiente línea y muestra con el <em>prompt</em> que está listo para una siguiente entrada. De ahora en adelante, ya no imprimiremos este mensaje adicional.</p>
+<p>Si cometemos un error al escribir la línea, pero antes de escribir la devolución final, podemos usar la tecla de <em>eliminar</em> (o, a veces, la tecla de <em>retroceso</em>) para eliminar el último carácter escrito. También podemos mover el cursor hacia atrás y hacia adelante en la línea con <code class="docutils literal notranslate"><span class="pre">ctrl-B</span></code> y <code class="docutils literal notranslate"><span class="pre">ctrl-F</span></code> e insertar o eliminar caracteres en cualquier lugar de la línea. Los comandos de edición de línea se describen en su totalidad en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">6.9</span></code> del <strong>Manual de referencia</strong>.</p>
+<p>Entonces, la entrada puede constar de varias líneas, y <strong>GAP</strong> imprime un indicador <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> en cada línea de entrada excepto la primera, hasta que el comando se completa con un punto y coma. (Es posible que <strong>GAP</strong> ya evalúe parte de la entrada cuando se escribe <em>return</em>, por lo que para cálculos largos puede tomar algún tiempo hasta que aparezca la solicitud parcial). Siempre que vea la solicitud parcial y no pueda decidir qué <strong>GAP</strong> todavía está esperando, para escribir punto y coma hasta que vuelva el indicador normal. En cada situación, el significado exacto de la brecha de aviso es que el programa está esperando un nuevo problema.</p>
+<p>Pero incluso si escribimos mal una linea de comandos, no tenemos que volver a escribirlo nuevamente todo. Supongamos que escribimos mal u olvidamos el último paréntesis de cierre. Entonces su comando es sintácticamente incorrecto y <strong>GAP</strong> lo notará, incapaz de calcular el resultado deseado.</p>
+<div class="literal-block-wrapper docutils container" id="syntax-error">
+<div class="code-block-caption"><span class="caption-text">Syntax error</span><a class="headerlink" href="#syntax-error" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">5</span> <span class="o">+</span> <span class="nv">6</span><span class="o">;</span>
+<span class="nv">Syntax</span> <span class="nv">error</span>: <span class="p">)</span> <span class="nv">expected</span>
+<span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">5</span> <span class="o">+</span> <span class="nv">6</span><span class="o">;</span>
+                <span class="o">^</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>En lugar del resultado, aparece un mensaje de error que indica el lugar donde ocurrió un símbolo inesperado con un signo de flecha <code class="docutils literal notranslate"><span class="pre">^</span></code> debajo. Como un programa de computadora no puede saber cuáles eran realmente sus intenciones, esto es solo una pista. Pero en este caso, <strong>GAP</strong> tiene razón al afirmar que debería haber un paréntesis de cierre antes del punto y coma. Ahora puede escribir <code class="docutils literal notranslate"><span class="pre">ctrl-P</span></code> para recuperar la última línea de entrada. Se escribirá después del mensaje con el cursor en la primera posición. Escriba <code class="docutils literal notranslate"><span class="pre">ctrl-E</span></code> para llevar el cursor al final de la línea, luego <code class="docutils literal notranslate"><span class="pre">ctrl-B</span></code> para mover el cursor un carácter atrás. El cursor ahora está en la posición del punto y coma. Ingrese el paréntesis que falta simplemente escribiendo <code class="docutils literal notranslate"><span class="pre">)</span></code>. Ahora la línea es correcta y se puede pasar a <strong>GAP</strong> presionando la tecla de retorno. Tenga en cuenta que para esta acción no es necesario mover el cursor más allá del último carácter de la línea de entrada.</p>
+<p>Cada línea de comandos que escribe se envía a <strong>GAP</strong> para su evaluación presionando retorno independientemente de la posición del cursor en esa línea. Ya no mencionaremos la clave de retorno a partir de ahora.</p>
+<p>A veces, un error de sintaxis hará que <strong>GAP</strong> entre en un bucle de interrupción. Esto se indica mediante el mensaje especial <code class="docutils literal notranslate"><span class="pre">brk&gt;</span></code>. Si se produce otro error de sintaxis mientras <strong>GAP</strong> está en un bucle de interrupción, el indicador cambiará a <code class="docutils literal notranslate"><span class="pre">brk_02&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">brk_03&gt;</span></code> y así sucesivamente. Podemos dejar el ciclo de interrupción actual y salir al siguiente exterior escribiendo <code class="docutils literal notranslate"><span class="pre">quit;</span></code> o presionando <code class="docutils literal notranslate"><span class="pre">ctrl-D</span></code>. Con el tiempo, <strong>GAP</strong> volverá a su estado normal y mostrará su intervalo de aviso normal <code class="docutils literal notranslate"><span class="pre">gap&gt;</span></code> nuevamente.</p>
+</div>
+<div class="section" id="constantes-y-operadores">
+<h2><span class="section-number">1.3. </span>Constantes y Operadores<a class="headerlink" href="#constantes-y-operadores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="operadores-aritmeticos">
+<h3><span class="section-number">1.3.1. </span>Operadores Aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En una expresión como <span class="math notranslate nohighlight">\((9 - 7) \ast (5 + 6)\)</span> las constantes <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(6\)</span>, <span class="math notranslate nohighlight">\(7\)</span> y <span class="math notranslate nohighlight">\(9\)</span> están compuestas por los operadores <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">-</span></code> para dar como resultado un nuevo valor.</p>
+<p>Hay tres tipos de operadores en GAP, operadores aritméticos, operadores de comparación y operadores lógicos. Ya has visto que es posible formar la suma, la diferencia y el producto de dos valores enteros. Hay algunos operadores más aplicables a los números enteros en <strong>GAP</strong>. Por supuesto, los números enteros pueden dividirse entre sí, lo que posiblemente resulte en valores racionales no enteros.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">12345</span><span class="o">/</span><span class="nv">25</span><span class="o">;</span>
+<span class="nv">2469</span><span class="o">/</span><span class="nv">5</span>
+</pre></div>
+</div>
+<p>Tengamos en cuenta que el numerador y el denominador se dividen por su máximo común divisor y que el resultado se representa de forma única como una instrucción de división.</p>
+<p>Todavía no tenemos cifras negativas. Así que considere los siguientes ejemplos que se explican por sí mismos.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="o">-</span><span class="nv">3</span><span class="o">;</span> <span class="nv">17</span> <span class="o">-</span> <span class="nv">23</span><span class="o">;</span>
+<span class="o">-</span><span class="nv">3</span>
+<span class="o">-</span><span class="nv">6</span>
+</pre></div>
+</div>
+<p>El operador de exponenciación se escribe <code class="docutils literal notranslate"><span class="pre">^</span></code>. Esta operación en particular puede dar lugar a un gran número de personas. Esto no es un problema para <strong>GAP</strong>, ya que puede manejar números de (casi) cualquier tamaño.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span><span class="o">&gt;</span> <span class="mi">3</span><span class="o">^</span><span class="mi">132</span><span class="p">;</span>
+<span class="mi">955004950796825236893190701774414011919935138974343129836853841</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Los operadores aritméticos son:</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Suma</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Resta</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Multiplicación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>División</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="el-operador-modulo">
+<h3><span class="section-number">1.3.2. </span>El operador Módulo<a class="headerlink" href="#el-operador-modulo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">mod</span></code> le permite calcular un valor módulo otro.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">17</span> <span class="ow">mod</span> <span class="nv">3</span><span class="o">;</span>
+<span class="nv">2</span>
+</pre></div>
+</div>
+<p>Tengamos en cuenta que debe haber espacios en blanco alrededor de la palabra reservada <code class="docutils literal notranslate"><span class="pre">mod</span></code> en este ejemplo, ya que <code class="docutils literal notranslate"><span class="pre">17mod3</span></code> o <code class="docutils literal notranslate"><span class="pre">17mod</span></code> se interpretarían como identificadores. El espacio en blanco alrededor de los operadores que no constan de letras, por ejemplo, los operadores <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">-</span></code>, no es necesario.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>GAP</strong> conoce una precedencia entre operadores que puede ser reemplazada por paréntesis.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="nv">5</span> <span class="o">=</span> <span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span> <span class="o">*</span> <span class="nv">5</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="operadores-de-comparacion">
+<h3><span class="section-number">1.3.3. </span>Operadores de Comparación<a class="headerlink" href="#operadores-de-comparacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Además de estos operadores aritméticos, existen <span class="underline">operadores de comparación</span> en <strong>GAP</strong>. Una comparación da como resultado un <strong>valor booleano</strong> que es otro <em>tipo de constante</em>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Los operadores de comparación son:</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>igualdad</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code></p></td>
+<td><p>desigualdad</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>menor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>menor o igual</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>mayor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>mayor o igual</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">10</span><span class="o">^</span><span class="nv">5</span> <span class="o">&lt;</span> <span class="nv">10</span><span class="o">^</span><span class="nv">4</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores-logicos">
+<h3><span class="section-number">1.3.4. </span>Operadores Lógicos<a class="headerlink" href="#operadores-logicos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los valores booleanos <code class="docutils literal notranslate"><span class="pre">true</span></code> y <code class="docutils literal notranslate"><span class="pre">false</span></code> se pueden manipular mediante <span class="underline">operadores lógicos</span>, i. e., el <span class="underline">operador unitario</span> <code class="docutils literal notranslate"><span class="pre">not</span></code> y los <span class="underline">operadores binarios</span> <code class="docutils literal notranslate"><span class="pre">and</span></code> y <code class="docutils literal notranslate"><span class="pre">or</span></code>. Por supuesto, los valores booleanos también se pueden comparar.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="ow">not</span> <span class="no">true</span><span class="o">;</span> <span class="no">true</span> <span class="ow">and</span> <span class="no">false</span><span class="o">;</span> <span class="no">true</span> <span class="ow">or</span> <span class="no">false</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="no">false</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">10</span> <span class="o">&gt;</span> <span class="nv">0</span> <span class="ow">and</span> <span class="nv">10</span> <span class="o">&lt;</span> <span class="nv">100</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>En resumen,</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Los operadores de lógicos son:</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></th>
+<th class="head"><p>negación</p></th>
+</tr>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></th>
+<th class="head"><p>conjunción</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></th>
+<th class="head"><p>disjunción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Los valores de lógicos son:</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>Verdadero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Falso</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="permutaciones">
+<h3><span class="section-number">1.3.5. </span>Permutaciones<a class="headerlink" href="#permutaciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Otro tipo importante de constantes en <strong>GAP</strong> son las <strong>permutaciones</strong>. <span class="underline">Están escritos en notación cíclica y se pueden multiplicar</span>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><span class="underline">La inversa de la permutación</span> <code class="docutils literal notranslate"><span class="pre">(1,2,3)</span></code> se denota por <code class="docutils literal notranslate"><span class="pre">(1,2,3)^-1</span></code>. Además, el operador de exponenciación <code class="docutils literal notranslate"><span class="pre">^</span></code> se utiliza para determinar la imagen de un punto bajo una permutación y para conjugar una permutación con otra.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">^-</span><span class="nv">1</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">2</span><span class="o">^</span><span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">3</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Las otras constantes con las que puede lidiar <strong>GAP</strong> se introducirán cuando se utilicen, por ejemplo, hay <span class="underline">elementos de campos finitos</span> como <code class="docutils literal notranslate"><span class="pre">Z(8)</span></code> y <span class="underline">raíces complejas de unidad</span> como <code class="docutils literal notranslate"><span class="pre">E(4)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="caracteres">
+<h3><span class="section-number">1.3.6. </span>Caracteres<a class="headerlink" href="#caracteres" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El último <strong>tipo de constantes</strong> que queremos mencionar aquí son los <code class="docutils literal notranslate"><span class="pre">caracteres</span></code>, que son simplemente objetos en <strong>GAP</strong> que representan caracteres arbitrarios del conjunto de caracteres del sistema operativo. Los literales de caracteres se pueden ingresar en <strong>GAP</strong> encerrando el carácter entre <strong>comillas simples</strong> <code class="docutils literal notranslate"><span class="pre">'</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span>&#39;<span class="nv">a</span>&#39;<span class="o">;</span>
+&#39;<span class="nv">a</span>&#39;
+<span class="nv">gap</span><span class="o">&gt;</span> &#39;<span class="o">*</span>&#39;<span class="o">;</span>
+&#39;<span class="o">*</span>&#39;
+</pre></div>
+</div>
+<p>No hay operadores definidos para los caracteres, excepto que los caracteres se pueden comparar. En esta sección, hemos visto que los valores pueden estar precedidos por operadores unarios y combinados por operadores binarios colocados entre los operandos. Hay reglas de precedencia que pueden anularse con paréntesis.</p>
+<p>Una comparación da como resultado un valor booleano. Los valores booleanos se combinan mediante operadores lógicos. Además, hemos visto que <strong>GAP</strong> maneja números de tamaño arbitrario. Los números y los valores booleanos son constantes. Hay otros tipos de constantes en <strong>GAP</strong> como permutaciones. Ahora estamos en condiciones de usar <strong>GAP</strong> como una simple calculadora de escritorio.</p>
+</div>
+</div>
+<div class="section" id="diferencia-entre-variables-y-objetos">
+<h2><span class="section-number">1.4. </span>Diferencia entre Variables y Objetos<a class="headerlink" href="#diferencia-entre-variables-y-objetos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las constantes descritas en la última sección se especifican mediante ciertas combinaciones de dígitos y signos menos (en el caso de números enteros) o dígitos, comas y paréntesis (en el caso de permutaciones). Estas secuencias de caracteres siempre tienen el mismo significado para <strong>GAP</strong>. Por otro lado, existen variables, especificadas por una secuencia de letras y dígitos (incluyendo al menos una letra), y su significado depende de lo que se les haya asignado. Una asignación se realiza mediante una secuencia de comandos GAP de letras y dígitos igual a un significado, es decir,</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">sequence_of_letters_and_digits</span><span class="o">:=</span> <span class="nv">meaning</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>donde</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence_of_letters_and_digits</span></code>, la secuencia en el lado izquierdo, se llama <span class="underline">el identificador de la variable</span> y sirve como su nombre.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meaning</span></code>, el significado del lado derecho, puede ser una constante como un número entero o una permutación, pero también puede ser casi cualquier otro objeto <strong>GAP</strong>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>De ahora en adelante, usaremos el término <strong>objeto</strong> para denotar algo que se puede asignar a una variable.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>No debe haber espacios en blanco entre <code class="docutils literal notranslate"><span class="pre">:</span></code> y <code class="docutils literal notranslate"><span class="pre">=</span></code> en el operador de asignación. Además, no confunda el operador de asignación con el signo de igualdad único <code class="docutils literal notranslate"><span class="pre">=</span></code> que en <strong>GAP</strong> solo se usa para la prueba de igualdad.</p>
+</div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">:=</span> <span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">5</span> <span class="o">+</span> <span class="nv">6</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">22</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">;</span>
+<span class="nv">22</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span> <span class="o">*</span> <span class="p">(</span><span class="nv">a</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">506</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span> <span class="o">=</span> <span class="nv">10</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">:=</span> <span class="nv">10</span><span class="o">;</span>
+<span class="nv">10</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span> <span class="o">*</span> <span class="p">(</span><span class="nv">a</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">110</span>
+</pre></div>
+</div>
+<p>Después de una asignación, el objeto asignado se repite en la siguiente línea. La impresión del objeto de una declaración puede evitarse en todos los casos escribiendo un punto y coma doble.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">w</span><span class="o">:=</span> <span class="nv">2</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>Después de la asignación, la variable se evalúa como ese objeto si se evalúa. Por tanto, es posible referirse a ese objeto por el nombre de la variable en cualquier situación.</p>
+<p>Este es, de hecho, todo el secreto de una asignación. Un identificador está ligado a un objeto y desde este momento apunta a ese objeto. Nada más. Esta vinculación se cambia con la siguiente asignación a ese identificador. Un identificador no denota un bloque de memoria como en algunos otros lenguajes de programación. Simplemente apunta a un objeto, al que el administrador de almacenamiento <strong>GAP</strong> le ha asignado su lugar en la memoria. Este lugar puede cambiar durante una sesión de <strong>GAP</strong>, pero eso no molesta al identificador. El identificador apunta al objeto, no a un lugar en la memoria.</p>
+<p>Por la misma razón, no es el identificador el que tiene un tipo, sino el objeto. Esto significa, por otro lado, que el identificador a que ahora está vinculado a un objeto entero puede apuntar en la misma sesión a cualquier otro objeto independientemente de su tipo.</p>
+<p>Los identificadores pueden ser secuencias de letras y dígitos que contienen al menos una letra. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">abc</span></code> y <code class="docutils literal notranslate"><span class="pre">a0bc1</span></code> son identificadores válidos. Pero también <code class="docutils literal notranslate"><span class="pre">123a</span></code> es un identificador válido, ya que no se puede confundir con ningún número. Solo <code class="docutils literal notranslate"><span class="pre">1234</span></code> indica el número <code class="docutils literal notranslate"><span class="pre">1234</span></code> y no puede ser al mismo tiempo el nombre de una variable.</p>
+<p>Dado que <strong>GAP</strong> distingue mayúsculas y minúsculas, <code class="docutils literal notranslate"><span class="pre">a1</span></code> y <code class="docutils literal notranslate"><span class="pre">A1</span></code> son identificadores diferentes. Las palabras clave como dejar de fumar no deben utilizarse como identificadores. Verá más palabras clave en las siguientes secciones.</p>
+<p>En la parte restante de este manual ignoraremos la diferencia entre las variables, sus nombres (identificadores) y los objetos a los que apuntan. Puede ser útil pensar de vez en cuando sobre lo que realmente se entiende por términos como «el entero w».</p>
+<p>Hay algunas variables predefinidas que vienen con <strong>GAP</strong>. Muchos de ellos los encontrará en los capítulos restantes de este manual, ya que las funciones también se denominan mediante identificadores.</p>
+<p>Puede obtener una descripción general de todas las variables <strong>GAP</strong> ingresando <code class="docutils literal notranslate"><span class="pre">NamesGVars()</span></code>. Muchos de estos están predefinidos. Si está interesado en las variables que ha definido usted mismo en la sesión actual de <strong>GAP</strong>, puede ingresar <code class="docutils literal notranslate"><span class="pre">NamesUserGVars()</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">NamesUserGVars</span><span class="p">()</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;w&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Este parece ser el lugar adecuado para establecer la siguiente regla:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>El nombre de cada variable global en la librería <strong>GAP</strong> comienza con una <strong>letra mayúscula</strong>. Por lo tanto, si elige solo nombres que comienzan con una letra minúscula para sus propias variables, no intentará sobrescribir ninguna variable predefinida. (Tenga en cuenta que la mayoría de las variables predefinidas son de solo lectura, y si intenta cambiar sus valores, aparecerá un mensaje de error).</p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>Hay otras variables interesantes, una de las cuales se presentará ahora.</p>
+<p>Siempre que <strong>GAP</strong> devuelve un objeto imprimiéndolo en la siguiente línea, este objeto se asigna a la última variable. Entonces, si calcularamos</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">(</span><span class="nv">9</span> <span class="o">-</span> <span class="nv">7</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">5</span> <span class="o">+</span> <span class="nv">6</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">22</span>
+</pre></div>
+</div>
+<p>y olvidamos asignar el objeto a la variable a para su uso posterior, aún puede hacerlo mediante la siguiente asignación.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">:=</span> <span class="nv">last</span><span class="o">;</span>
+<span class="nv">22</span>
+</pre></div>
+</div>
+<p>Además, hay variables <code class="docutils literal notranslate"><span class="pre">last2</span></code> y <code class="docutils literal notranslate"><span class="pre">last3</span></code>, puedes adivinar sus valores.</p>
+<p>En esta sección ha visto cómo asignar objetos a variables. Posteriormente se puede acceder a estos objetos a través del nombre de la variable, su identificador. También ha encontrado el concepto útil de las últimas variables que almacenan los últimos objetos devueltos. Y ha aprendido que un punto y coma doble evita que se imprima el resultado de una declaración.</p>
+</div>
+<div class="section" id="diferencia-entre-objetos-y-elementos">
+<h2><span class="section-number">1.5. </span>Diferencia entre Objetos y Elementos<a class="headerlink" href="#diferencia-entre-objetos-y-elementos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En la última sección mencionamos que el administrador de almacenamiento de <strong>GAP</strong> le asigna a cada objeto un lugar determinado en la memoria (aunque ese lugar puede cambiar en el transcurso de una sesión de <strong>GAP</strong>). En este sentido, los objetos en diferentes lugares de la memoria nunca son iguales, y si el objeto apuntado por la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> (para ser más precisos, la variable con el identificador <code class="docutils literal notranslate"><span class="pre">a</span></code>) es igual al objeto apuntado por la variable <code class="docutils literal notranslate"><span class="pre">b</span></code>, entonces Mejor debería decir que no solo son iguales sino idénticos. <strong>GAP</strong> proporciona la función IsIdenticalObj para probar si este es el caso.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">:=</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span> <span class="nv">IsIdenticalObj</span><span class="p">(</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">a</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">b</span><span class="o">:=</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span> <span class="nv">IsIdenticalObj</span><span class="p">(</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">b</span><span class="o">:=</span> <span class="nv">a</span><span class="o">;;</span> <span class="nv">IsIdenticalObj</span><span class="p">(</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Como indica el ejemplo anterior, los objetos <strong>GAP</strong> <code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code> pueden ser distintos aunque son iguales desde un punto de vista matemático, es decir, aunque deberíamos tener <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code>. Puede ser que los objetos <code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code> estén almacenados en diferentes lugares en la memoria, o puede ser que tengamos una relación de equivalencia definida en el conjunto de objetos bajo los cuales <code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code> pertenecen a la misma clase de equivalencia. Por ejemplo, si <span class="math notranslate nohighlight">\(a=x^{3}\)</span> y <span class="math notranslate nohighlight">\(b=x^{-5}\)</span> son palabras en el grupo presentado de forma finita <span class="math notranslate nohighlight">\(\langle x | x^{2}=1 \rangle\)</span>, tendríamos <span class="math notranslate nohighlight">\(a=b\)</span> en ese grupo.</p>
+<p><strong>GAP</strong> usa el <span class="underline">operador de igualdad</span> <code class="docutils literal notranslate"><span class="pre">=</span></code> para denotar tal igualdad matemática, no la identidad de los objetos. Por lo tanto, a menudo tenemos <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code> aunque <code class="docutils literal notranslate"><span class="pre">IsIdenticalObj(a,</span> <span class="pre">b)</span> <span class="pre">=</span> <span class="pre">false</span></code>. El operador <code class="docutils literal notranslate"><span class="pre">=</span></code> define una relación de equivalencia en el conjunto de todos los objetos <strong>GAP</strong>, y llamamos elementos de clases de equivalencia correspondientes. Expresándolo de manera diferente, el mismo elemento puede estar representado por varios objetos <strong>GAP</strong>.</p>
+<p>Los ejemplos no triviales de elementos que están representados por diferentes objetos (objetos que realmente se ven diferentes, no aquellos que simplemente están almacenados en diferentes lugares de memoria) ocurrirán solo cuando consideremos objetos compuestos como listas o dominios.</p>
+</div>
+<div class="section" id="funciones">
+<h2><span class="section-number">1.6. </span>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un programa escrito en el lenguaje GAP se llama función. Las funciones son objetos <strong>GAP</strong> especiales. La mayoría de ellos se comportan como funciones matemáticas. Se aplican a los objetos y devolverán un nuevo objeto según la entrada. La función <code class="docutils literal notranslate"><span class="pre">Factorial</span></code>, por ejemplo, se puede aplicar a un entero y devolverá el <em>factorial</em> de este entero.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Factorial</span><span class="p">(</span><span class="nv">17</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">355687428096000</span>
+</pre></div>
+</div>
+<p>Aplicar una función a argumentos significa escribir los argumentos entre paréntesis después de la función. Varios argumentos están separados por comas, como en la función <code class="docutils literal notranslate"><span class="pre">Gcd</span></code>, que calcula el <em>máximo común divisor</em> de dos números enteros.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Gcd</span><span class="p">(</span><span class="nv">1234</span><span class="o">,</span> <span class="nv">5678</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">2</span>
+</pre></div>
+</div>
+<p>Hay otras funciones que no devuelven un objeto, sino que solo producen un efecto secundario, por ejemplo, cambiar uno de sus argumentos. Estas funciones a veces se denominan procedimientos. La función <code class="docutils literal notranslate"><span class="pre">Print</span></code> solo se llama por el efecto secundario de imprimir algo en la pantalla.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Print</span><span class="p">(</span><span class="nv">1234</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">1234</span>
+</pre></div>
+</div>
+<p>Para poder componer texto arbitrario con Imprimir, esta función en sí misma no producirá un salto de línea después de la impresión. Por lo tanto, teníamos otro carácter de nueva línea «<code class="docutils literal notranslate"><span class="pre">\n</span></code>» impreso para comenzar una nueva línea. Algunas funciones cambiarán un argumento y devolverán un objeto como la función <code class="docutils literal notranslate"><span class="pre">Sortex</span></code> que ordena una lista y devuelve la permutación de los elementos de la lista que ha realizado. No comprenderá ahora mismo lo que significa cambiar un objeto. Volveremos a este tema varias veces en las próximas secciones.</p>
+<p>Una forma cómoda de definir una función nosotros mismos es el operador <code class="docutils literal notranslate"><span class="pre">maps-to</span></code> <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> que consta de un signo menos y un signo mayor sin espacios en blanco entre ellos. La función al cubo que asigna un número a su cubo se define en la siguiente línea.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">cubed</span><span class="o">:=</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">x</span><span class="o">^</span><span class="nv">3</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="nv">x</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+</pre></div>
+</div>
+<p>Una vez definida la función, ahora se puede aplicar</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">cubed</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">125</span>
+</pre></div>
+</div>
+<p>Las funciones más complicadas, especialmente las funciones con más de un argumento, no se pueden definir de esta manera. Verá cómo escribir sus propias funciones <strong>GAP</strong> en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">4.1</span></code>.</p>
+<p>En esta sección ha visto objetos <strong>GAP</strong> de tipo función. Ha aprendido a aplicar una función a argumentos. Esto produce como resultado un nuevo objeto o un efecto secundario. Un efecto secundario puede cambiar un argumento de la función. Además, ha visto una manera fácil de definir una función en <strong>GAP</strong> con el operador de mapas.</p>
+</div>
+<div class="section" id="help">
+<h2><span class="section-number">1.7. </span>Help<a class="headerlink" href="#help" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El contenido de los manuales de <strong>GAP</strong> también está disponible como ayuda en línea. Una sesión <strong>GAP</strong> carga una larga lista de entradas de índice. Por lo general, contiene todos los encabezados de capítulos y secciones, todos los nombres de funciones documentadas, operaciones, etc., así como algunas entradas de índice explícitas definidas en los manuales.</p>
+<p>El formato de una consulta es el siguiente.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span>?<span class="p">[</span><span class="nv">book</span>:<span class="p">][</span>?<span class="p">]</span> <span class="nv">topic</span>
+</pre></div>
+</div>
+<p>Un ejemplo simple sería escribir ayuda en el mensaje de GAP. Si hay una sola sección con un tema de entrada de índice, esto se muestra directamente.</p>
+<p>Si hay varias coincidencias, obtendrá una descripción general como en el siguiente ejemplo.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> ?<span class="nv">sets</span>
+<span class="nv">Help</span>: <span class="nv">several</span> <span class="nv">entries</span> <span class="nv">match</span> <span class="nv">this</span> <span class="nv">topic</span> <span class="o">-</span> <span class="nv">type</span> ?<span class="nv">2</span> <span class="nv">to</span> <span class="nv">get</span> <span class="nv">match</span> <span class="p">[</span><span class="nv">2</span><span class="p">]</span>
+<span class="p">[</span><span class="nv">1</span><span class="p">]</span> <span class="nv">Tutorial</span>: <span class="nv">Sets</span>
+<span class="p">[</span><span class="nv">2</span><span class="p">]</span> <span class="nv">Reference</span>: <span class="nv">Sets</span>
+<span class="p">[</span><span class="nv">3</span><span class="p">]</span> <span class="nv">Reference</span>: <span class="nv">sets</span>
+<span class="p">[</span><span class="nv">4</span><span class="p">]</span> <span class="nv">Reference</span>: <span class="nv">Sets</span> <span class="nv">of</span> <span class="nv">Subgroups</span>
+<span class="p">[</span><span class="nv">5</span><span class="p">]</span> <span class="nv">Reference</span>: <span class="nv">setstabilizer</span>
+</pre></div>
+</div>
+<p>Los manuales de <strong>GAP</strong> constan de varios libros, que se indican antes de los dos puntos en la lista anterior. Una consulta de ayuda se puede restringir a un libro usando el libro opcional: <code class="docutils literal notranslate"><span class="pre">part</span></code>. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">Tut:</span> <span class="pre">sets</span></code> mostrará la primera de estas secciones de ayuda. Más precisamente, las partes del libro de cuerdas que están separadas por espacios en blanco se interpretan como comienzos de las primeras palabras del nombre del libro. Pruebe <code class="docutils literal notranslate"><span class="pre">?books</span></code> para ver la lista de libros disponibles y sus nombres.</p>
+<p>La búsqueda de un <em>tema</em> coincidente (y un libro opcional) se realiza <strong>sin distinción entre mayúsculas y minúsculas</strong>. ¿Si hay otro? antes del <em>tema</em>, se realiza una búsqueda de subcadena para el <em>tema</em> en todas las entradas del índice. De lo contrario, las partes del <em>tema</em> que están separadas por espacios en blanco se consideran comienzos de las primeras palabras en una entrada de índice.</p>
+<p>El espacio en blanco se normaliza en la cadena de búsqueda (y las entradas del índice).</p>
+<p><strong>Ejemplos</strong>. Todas las consultas siguientes conducen al capítulo del manual de referencia que explica el uso del sistema de ayuda de GAP con más detalle.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> ?<span class="nv">Reference</span>: <span class="nv">The</span> <span class="nv">Help</span> <span class="nv">System</span>
+<span class="nv">gap</span><span class="o">&gt;</span> ? <span class="nv">REF</span> : <span class="nv">t</span> <span class="nv">h</span> <span class="nv">s</span>
+<span class="nv">gap</span><span class="o">&gt;</span> ?<span class="nv">ref</span>:? <span class="nv">help</span> <span class="nv">system</span>
+</pre></div>
+</div>
+<p>La consulta <code class="docutils literal notranslate"><span class="pre">??sets</span></code> muestran todas las secciones de ayuda en todos los libros cuyas entradas de índice contienen las subcadenas <code class="docutils literal notranslate"><span class="pre">sets</span></code>.</p>
+<p>Como se mencionó en el ejemplo anterior, una lista completa de comandos para el sistema de ayuda está disponible en la <code class="docutils literal notranslate"><span class="pre">?Ref:</span> <span class="pre">The</span> <span class="pre">Help</span> <span class="pre">System</span></code> - El Sistema de Ayuda - del manual de referencia. En particular, hay comandos para navegar a través de las secciones de ayuda, <code class="docutils literal notranslate"><span class="pre">?Ref:</span> <span class="pre">Browsing</span> <span class="pre">through</span> <span class="pre">the</span> <span class="pre">Sections</span></code> - Navegación por las secciones - y hay una manera de influir en la forma en que se muestran las secciones de ayuda, <code class="docutils literal notranslate"><span class="pre">?Ref:</span> <span class="pre">SetHelpViewer</span></code>. Por ejemplo, puede utilizar un programa de buscapersonas externo, un navegador web, dvi-previewer y/o pdf-viewer para leer la ayuda en línea de <strong>GAP</strong>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Minicurso de GAP en español!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

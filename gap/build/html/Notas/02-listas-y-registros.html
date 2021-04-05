@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. Listas y Registros &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="1. Inicializando y cerrando GAP" href="01-primeros-pasos-en-gap.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-primeros-pasos-en-gap.html">1. Inicializando y cerrando GAP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Listas y Registros</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#listas-planas">2.1. Listas Planas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#listas-identicas">2.2. Listas Identicas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inmutabilidad">2.3. Inmutabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sets">2.4. Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ranges">2.5. Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ciclos-for-y-while">2.6. Ciclos For y While</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#el-bucle-for">2.6.1. El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#el-bucle-while">2.6.2. El bucle <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#listas-de-operaciones">2.7. Listas de Operaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vectores-y-matrices">2.8. Vectores y Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registros-simples">2.9. Registros simples</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Listas y Registros</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/02-listas-y-registros.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="listas-y-registros">
+<h1><span class="section-number">2. </span>Listas y Registros<a class="headerlink" href="#listas-y-registros" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La matemática moderna, especialmente el álgebra, se basa en la teoría de conjuntos. Cuando los conjuntos se representan en una computadora, inadvertidamente se convierten en listas. Es por eso que comenzamos nuestro estudio de los diversos objetos que <strong>GAP</strong> puede manejar con una descripción de las listas y su manipulación. <strong>GAP</strong> considera los conjuntos como un tipo especial de listas, es decir, listas sin huecos o duplicados cuyas entradas están ordenadas con respecto a la relación de precedencia <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p>
+<p>Después de la introducción de las manipulaciones básicas con listas en <code class="docutils literal notranslate"><span class="pre">3.1</span></code>, algunas dificultades relacionadas con la identidad y mutabilidad de listas se discuten en <code class="docutils literal notranslate"><span class="pre">3.2</span></code> y <code class="docutils literal notranslate"><span class="pre">3.3</span></code>. Los conjuntos, rangos, vectores de fila y matrices se presentan como tipos especiales de listas en <code class="docutils literal notranslate"><span class="pre">3.4</span></code>, <code class="docutils literal notranslate"><span class="pre">3.5</span></code>, <code class="docutils literal notranslate"><span class="pre">3.8</span></code>. Las operaciones de lista útiles se muestran en <code class="docutils literal notranslate"><span class="pre">3.7</span></code>. Finalmente explicamos cómo usar registros en <code class="docutils literal notranslate"><span class="pre">3.9</span></code>.</p>
+<div class="section" id="listas-planas">
+<h2><span class="section-number">2.1. </span>Listas Planas<a class="headerlink" href="#listas-planas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una <span class="underline">lista</span> es una colección de objetos separados por comas y entre corchetes. Construyamos, por ejemplo, la lista de números primos de los primeros <span class="math notranslate nohighlight">\(10\)</span> números primos.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">:=</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Los dos números primos siguientes son <span class="math notranslate nohighlight">\(31\)</span> y <span class="math notranslate nohighlight">\(37\)</span>. Pueden agregarse a la lista existente mediante la función <code class="docutils literal notranslate"><span class="pre">Append</span></code>, que toma la lista existente como su primera lista y otra lista como segundo argumento. El segundo argumento se agrega a los números de la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code> y no se devuelve ningún valor. Tengamos en cuenta que al agregar otra lista, se los numeros del objeto <code class="docutils literal notranslate"><span class="pre">primes</span></code> son cambiados.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Append</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="p">[</span><span class="nv">31</span><span class="o">,</span> <span class="nv">37</span><span class="p">])</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="o">,</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">37</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>También puede agregar elementos nuevos individuales a las listas existentes mediante la función <code class="docutils literal notranslate"><span class="pre">Add</span></code>, que toma la lista existente como su primer argumento y un nuevo elemento como su segundo argumento. El nuevo elemento se agrega a los números primos de la lista y nuevamente no se devuelve ningún valor, pero se cambian los números la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Add</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="nv">41</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="o">,</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">37</span><span class="o">,</span> <span class="nv">41</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Los elementos individuales de una lista se denominan por su posición en la lista. Para obtener el valor del séptimo primo, que es la séptima entrada en nuestra lista de números primos, simplemente escriba</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="p">[</span><span class="nv">7</span><span class="p">]</span><span class="o">;</span>
+<span class="nv">17</span>
+</pre></div>
+</div>
+<p>Este valor puede manejarse como cualquier otro valor, por ejemplo multiplicado por <span class="math notranslate nohighlight">\(2\)</span> o asignado a una variable. Por otro lado, este mecanismo permite asignar un valor a una posición en una lista. Por lo tanto, el siguiente número primo <span class="math notranslate nohighlight">\(43\)</span> puede insertarse en la lista directamente después de la última posición ocupada de números primos en la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code>. Esta última posición ocupada es devuelta por la función <code class="docutils literal notranslate"><span class="pre">Length</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">primes</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">13</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="p">[</span><span class="nv">14</span><span class="p">]</span><span class="o">:=</span> <span class="nv">43</span><span class="o">;</span>
+<span class="nv">43</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="o">,</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">37</span><span class="o">,</span> <span class="nv">41</span><span class="o">,</span> <span class="nv">43</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que esta operación ha cambiado de nuevo los números primos de los objetos. La siguiente posición después del final de una lista no es la única posición capaz de tomar un nuevo valor. Si sabe que <span class="math notranslate nohighlight">\(71\)</span> es el vigésimo número primo, puede ingresarlo ahora mismo en la vigésima posición de los números primos. Esto dará como resultado una lista con agujeros que, sin embargo, sigue siendo una lista y ahora tiene una longitud de <span class="math notranslate nohighlight">\(20\)</span>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="p">[</span><span class="nv">20</span><span class="p">]</span><span class="o">:=</span> <span class="nv">71</span><span class="o">;</span>
+<span class="nv">71</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="o">,</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">37</span><span class="o">,</span> <span class="nv">41</span><span class="o">,</span> <span class="nv">43</span><span class="o">,,,,,,</span> <span class="nv">71</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">primes</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">20</span>
+</pre></div>
+</div>
+<p>Sin embargo, la lista en sí debe existir antes de que se pueda asignar un valor a una posición de la lista. Esta lista puede ser la lista vacía <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">lll</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">:=</span> <span class="nv">2</span><span class="o">;</span>
+<span class="nv">Variable</span>: &#39;<span class="nv">lll</span>&#39; <span class="nv">must</span> <span class="nv">have</span> <span class="nv">a</span> <span class="nv">value</span>
+
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">lll</span><span class="o">:=</span> <span class="p">[]</span><span class="o">;</span> <span class="nv">lll</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">:=</span> <span class="nv">2</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">]</span>
+<span class="nv">2</span>
+</pre></div>
+</div>
+<p>Por supuesto, este mecanismo también puede modificar las entradas existentes de una lista. No lo haremos aquí porque es posible que los números primos ya no sean una lista de números primos. Intente cambiar el <span class="math notranslate nohighlight">\(17\)</span> de la lista por un <span class="math notranslate nohighlight">\(9\)</span>.</p>
+<p>Para obtener la posición de <span class="math notranslate nohighlight">\(17\)</span> en los números primos de la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code>, utilice la función <code class="docutils literal notranslate"><span class="pre">Position</span></code>, que toma la lista como primer argumento y el elemento como segundo argumento y devuelve la posición de la primera aparición del elemento <span class="math notranslate nohighlight">\(17\)</span> en los números primos de la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code>. Si el elemento no está incluido en la lista, <code class="docutils literal notranslate"><span class="pre">Position</span></code> devolverá el objeto especial <code class="docutils literal notranslate"><span class="pre">fail</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Position</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="nv">17</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">7</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Position</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="nv">20</span><span class="p">)</span><span class="o">;</span>
+<span class="no">fail</span>
+</pre></div>
+</div>
+<p>En todos los cambios anteriores a los números primos de la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code>, la lista se ha redimensionado automáticamente. No es necesario que le digas a <strong>GAP</strong> qué tan grande quieres que sea una lista. Todo esto se hace de forma dinámica.</p>
+<p>No es necesario que los objetos recopilados en una lista sean del mismo tipo.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">lll</span><span class="o">:=</span> <span class="p">[</span><span class="no">true</span><span class="o">,</span> <span class="s">&quot;This is a String&quot;</span><span class="o">,,,</span> <span class="nv">3</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="no">true</span><span class="o">,</span> <span class="s">&quot;This is a String&quot;</span><span class="o">,,,</span> <span class="nv">3</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Del mismo modo, una lista puede formar parte de otra lista. Una lista puede incluso ser parte de sí misma.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">lll</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">:=</span> <span class="p">[</span><span class="nv">4</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">6</span><span class="p">]</span><span class="o">;;</span> <span class="nv">lll</span><span class="o">;</span>
+<span class="p">[</span> <span class="no">true</span><span class="o">,</span> <span class="s">&quot;This is a String&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span><span class="o">,,</span> <span class="nv">3</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">lll</span><span class="p">[</span><span class="nv">4</span><span class="p">]</span><span class="o">:=</span> <span class="nv">lll</span><span class="o">;</span>
+<span class="p">[</span> <span class="no">true</span><span class="o">,</span> <span class="s">&quot;This is a String&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span><span class="o">,</span> ~<span class="o">,</span> <span class="nv">3</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Ahora, la tilde en la cuarta posición de <code class="docutils literal notranslate"><span class="pre">lll</span></code> denota el objeto que se está imprimiendo actualmente. Tenga en cuenta que el resultado de la última operación es el valor real del objeto <code class="docutils literal notranslate"><span class="pre">lll</span></code> en el lado derecho de la asignación. De hecho, es idéntico al valor de toda la lista <code class="docutils literal notranslate"><span class="pre">lll</span></code> en el lado izquierdo de la tarea.</p>
+<p>Una cadena es un tipo especial de lista, es decir, una lista densa de caracteres, donde densa significa que la lista no tiene huecos. Aquí, los caracteres son objetos <strong>GAP</strong> especiales que representan un elemento del juego de caracteres del sistema operativo. La entrada de caracteres imprimibles es encerrándolos entre comillas simples «. Un literal de cadena puede ingresarse como la lista de caracteres o escribiendo los caracteres entre comillas dobles <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>. Las cadenas son manejadas especialmente por <code class="docutils literal notranslate"><span class="pre">Print</span></code>. Puede aprender mucho más sobre cadenas en el manual de referencia.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">s1</span> <span class="o">:=</span> <span class="p">[</span>’<span class="nv">H</span>’<span class="o">,</span>’<span class="nv">a</span>’<span class="o">,</span>’<span class="nv">l</span>’<span class="o">,</span>’<span class="nv">l</span>’<span class="o">,</span>’<span class="nv">o</span>’<span class="o">,</span>’ ’<span class="o">,</span>’<span class="nv">w</span>’<span class="o">,</span>’<span class="nv">o</span>’<span class="o">,</span>’<span class="nv">r</span>’<span class="o">,</span>’<span class="nv">l</span>’<span class="o">,</span>’<span class="nv">d</span>’<span class="o">,</span>’<span class="o">.</span>’<span class="p">]</span><span class="o">;</span>
+<span class="s">&quot;Hallo world.&quot;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">s1</span> <span class="o">=</span> <span class="s">&quot;Hallo world.&quot;</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">s1</span><span class="p">[</span><span class="nv">7</span><span class="p">]</span><span class="o">;</span>
+&#39;<span class="nv">w</span>&#39;
+</pre></div>
+</div>
+<p>Las sublistas de listas se pueden extraer y asignar fácilmente utilizando la lista de operadores <code class="docutils literal notranslate"><span class="pre">list{</span> <span class="pre">positions</span> <span class="pre">}</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sl</span> <span class="o">:=</span> <span class="nv">lll</span><span class="p">{</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">}</span><span class="o">;</span>
+<span class="p">[</span> <span class="no">true</span><span class="o">,</span> <span class="s">&quot;This is a String&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sl</span><span class="p">{</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">}</span> <span class="o">:=</span> <span class="p">[</span> <span class="s">&quot;New String&quot;</span><span class="o">,</span> <span class="no">false</span> <span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;New String&quot;</span><span class="o">,</span> <span class="no">false</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sl</span><span class="o">;</span>
+<span class="p">[</span> <span class="no">true</span><span class="o">,</span> <span class="s">&quot;New String&quot;</span><span class="o">,</span> <span class="no">false</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>De esta manera obtienes una nueva lista cuya <span class="math notranslate nohighlight">\(i\)</span>-ésima entrada es ese elemento de la lista original cuya posición es la <span class="math notranslate nohighlight">\(i\)</span>-ésima entrada del argumento entre llaves.</p>
+</div>
+<div class="section" id="listas-identicas">
+<h2><span class="section-number">2.2. </span>Listas Identicas<a class="headerlink" href="#listas-identicas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Esta segunda sección sobre listas está dedicada a la sutil diferencia entre <strong>igualdad</strong> e <strong>identidad</strong> de listas. Es realmente importante comprender esta diferencia para comprender cómo se realizan las estructuras de datos complejas en <strong>GAP</strong>. Esta sección se aplica a todos los objetos <strong>GAP</strong> que tienen subobjetos, por ejemplo, a listas y registros. Después de leer la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.9</span></code> sobre registros, debe volver a esta sección y traducirla al contexto del registro.</p>
+<p>Dos listas son <strong>iguales</strong> si todas sus entradas son iguales. Esto significa que el operador de igualdad <code class="docutils literal notranslate"><span class="pre">=</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> para la comparación de dos listas si y solo si estas dos listas tienen la misma longitud y para cada posición los valores en las listas respectivas son iguales.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">numbers</span> <span class="o">:=</span> <span class="nv">primes</span><span class="o">;;</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Asignamos los números primos de la lista a los números de variable <code class="docutils literal notranslate"><span class="pre">numbers</span></code> y, por supuesto, son iguales ya que tienen la misma longitud y las mismas entradas. Ahora cambiaremos el tercer número a <span class="math notranslate nohighlight">\(4\)</span> y volveremos a comparar el resultado con los números primos de <code class="docutils literal notranslate"><span class="pre">primes</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">numbers</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">:=</span> <span class="nv">4</span><span class="o">;;</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Si ve que los números y los números primos siguen siendo iguales, verifique esto imprimiendo el valor de <code class="docutils literal notranslate"><span class="pre">primes</span></code>. ¡La lista de números primos ya no es una lista de números primos! ¿Lo que ha sucedido? Lo cierto es que las listas <code class="docutils literal notranslate"><span class="pre">primes</span></code> y <code class="docutils literal notranslate"><span class="pre">numbers</span></code> no solo son iguales sino que también son <strong>idénticos</strong>. <code class="docutils literal notranslate"><span class="pre">primes</span></code> y <code class="docutils literal notranslate"><span class="pre">numbers</span></code> son dos variables que apuntan a la misma lista.</p>
+<p>Si cambia el valor del subobjeto <code class="docutils literal notranslate"><span class="pre">numbers[3]</span></code> de <code class="docutils literal notranslate"><span class="pre">numbers</span></code>, esto también cambiará <code class="docutils literal notranslate"><span class="pre">primes</span></code>. Las variables <strong>no apuntan</strong> a un determinado bloque de memoria de almacenamiento, pero sí apuntan a un objeto que ocupa la memoria de almacenamiento. Entonces, los números de asignación <code class="docutils literal notranslate"><span class="pre">numbers</span> <span class="pre">:=</span> <span class="pre">primes</span></code> <strong>no crearon</strong> una nueva lista en un lugar diferente de la memoria, sino que solo crearon los nuevos números de nombre para la misma lista anterior de primos.</p>
+<p>De esto vemos que <strong>un mismo objeto puede tener varios nombres</strong>.</p>
+<p>Si desea cambiar una lista con el contenido de <code class="docutils literal notranslate"><span class="pre">primes</span></code> independientemente de los números primos <code class="docutils literal notranslate"><span class="pre">primes</span></code>, tendrá que hacer una copia de <code class="docutils literal notranslate"><span class="pre">primes</span></code> mediante la función <code class="docutils literal notranslate"><span class="pre">ShallowCopy</span></code>, que toma un objeto como argumento y devuelve una copia del argumento. (Primero restauraremos el antiguo valor de los números primos <code class="docutils literal notranslate"><span class="pre">primes</span></code>).</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">:=</span> <span class="nv">5</span><span class="o">;;</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span><span class="o">,</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">37</span><span class="o">,</span> <span class="nv">41</span><span class="o">,</span> <span class="nv">43</span><span class="o">,,,,,,</span> <span class="nv">71</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">numbers</span><span class="o">:=</span> <span class="nv">ShallowCopy</span><span class="p">(</span><span class="nv">primes</span><span class="p">)</span><span class="o">;;</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">numbers</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">:=</span> <span class="nv">4</span><span class="o">;;</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="nv">primes</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+<p>Ahora <code class="docutils literal notranslate"><span class="pre">numbers</span></code> ya no son iguales a los números <code class="docutils literal notranslate"><span class="pre">primes</span></code> y <code class="docutils literal notranslate"><span class="pre">primes</span></code> siguen siendo una lista de números primos. Verifique esto imprimiendo los valores de <code class="docutils literal notranslate"><span class="pre">numbers</span></code> y <code class="docutils literal notranslate"><span class="pre">primes</span></code>.</p>
+<p>Las listas y los registros se pueden cambiar de esta manera porque los objetos <strong>GAP</strong> de estos tipos tienen subobjetos. Para aclarar esta afirmación, considere el siguiente ejemplo.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">i</span><span class="o">:=</span> <span class="nv">1</span><span class="o">;;</span> <span class="nv">j</span><span class="o">:=</span> <span class="nv">i</span><span class="o">;;</span> <span class="nv">i</span><span class="o">:=</span> <span class="nv">i</span><span class="o">+</span><span class="nv">1</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>Al sumar <span class="math notranslate nohighlight">\(1\)</span> a <span class="math notranslate nohighlight">\(i\)</span>, el valor de i ha cambiado. ¿Qué le pasa a <span class="math notranslate nohighlight">\(j\)</span>?. Después de la segunda instrucción <span class="math notranslate nohighlight">\(j\)</span> apunta al mismo objeto que <span class="math notranslate nohighlight">\(i\)</span>, es decir, al entero <span class="math notranslate nohighlight">\(1\)</span>. La suma no cambia el objeto <span class="math notranslate nohighlight">\(1\)</span> sino que crea un nuevo objeto de acuerdo con la instrucción <span class="math notranslate nohighlight">\(i+1\)</span>. En realidad, es la asignación la que cambia el valor de <span class="math notranslate nohighlight">\(i\)</span>. Por lo tanto, <span class="math notranslate nohighlight">\(j\)</span> todavía apunta al objeto <span class="math notranslate nohighlight">\(1\)</span>. Los enteros (como permutaciones y booleanos) no tienen subobjetos. Los objetos de este tipo no se pueden cambiar, solo se pueden reemplazar por otros objetos. Y un reemplazo no cambia los valores de otras variables. En el ejemplo anterior, una asignación de un nuevo valor a la variable <code class="docutils literal notranslate"><span class="pre">numbers</span></code> tampoco cambiaría el valor de <code class="docutils literal notranslate"><span class="pre">primes</span></code>.</p>
+<p>Por último, pruebe los siguientes ejemplos y explique los resultados.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">l</span><span class="o">:=</span> <span class="p">[]</span><span class="o">;;</span> <span class="nv">l</span><span class="o">:=</span> <span class="p">[</span><span class="nv">l</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">l</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">:=</span> <span class="nv">l</span><span class="o">;</span>
+<span class="p">[</span> ~ <span class="p">]</span>
+</pre></div>
+</div>
+<p>Ahora regrese a la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.1</span></code> y averigüe si las funciones <code class="docutils literal notranslate"><span class="pre">Add</span></code> y <code class="docutils literal notranslate"><span class="pre">Append</span></code> cambian sus argumentos.</p>
+</div>
+<div class="section" id="inmutabilidad">
+<h2><span class="section-number">2.3. </span>Inmutabilidad<a class="headerlink" href="#inmutabilidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>GAP</strong> tiene un mecanismo que protege las listas contra cambios como los que nos han molestado en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.2</span></code>. La función <code class="docutils literal notranslate"><span class="pre">Immutable</span></code> toma como argumento una lista y devuelve una copia inmutable de la misma, es decir, una lista que se ve exactamente como la anterior, pero tiene dos propiedades adicionales:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>La nueva lista es inmutable, es decir, la lista misma y su los subobjetos no se pueden cambiar.</p></li>
+<li><p>Al construir la copia, se ha copiado cada parte de la lista que se puede cambiar, de modo que los cambios en la lista anterior no afectarán a la nueva. En otras palabras, la nueva lista no tiene subobjetos mutables en común con la lista anterior.</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">list</span> <span class="o">:=</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="s">&quot;three&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span> <span class="nv">copy</span> <span class="o">:=</span> <span class="nv">Immutable</span><span class="p">(</span> <span class="nv">list</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">list</span><span class="p">[</span><span class="nv">3</span><span class="p">][</span><span class="nv">5</span><span class="p">]</span> <span class="o">:=</span> &#39;<span class="nv">w</span>&#39;<span class="o">;;</span> <span class="nv">list</span><span class="o">;</span> <span class="nv">copy</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="s">&quot;threw&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="s">&quot;three&quot;</span><span class="o">,</span> <span class="p">[</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">copy</span><span class="p">[</span><span class="nv">3</span><span class="p">][</span><span class="nv">5</span><span class="p">]</span> <span class="o">:=</span> &#39;<span class="nv">w</span>&#39;<span class="o">;</span>
+<span class="nv">Lists</span> <span class="nv">Assignment</span>: <span class="o">&lt;</span><span class="nv">list</span><span class="o">&gt;</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">a</span> <span class="nv">mutable</span> <span class="nv">list</span>
+<span class="ow">not</span> <span class="ow">in</span> <span class="nv">any</span> <span class="k">function</span>
+<span class="nv">Entering</span> <span class="k">break</span> <span class="nv">read</span><span class="o">-</span><span class="nv">eval</span><span class="o">-</span><span class="nv">print</span> <span class="nv">loop</span> <span class="o">...</span>
+<span class="nv">you</span> <span class="nv">can</span> &#39;<span class="k">quit</span><span class="o">;</span>&#39; <span class="nv">to</span> <span class="k">quit</span> <span class="nv">to</span> <span class="nv">outer</span> <span class="nv">loop</span><span class="o">,</span> <span class="ow">or</span>
+<span class="nv">you</span> <span class="nv">can</span> &#39;<span class="k">return</span><span class="o">;</span>&#39; <span class="ow">and</span> <span class="nv">ignore</span> <span class="nv">the</span> <span class="nv">assignment</span> <span class="nv">to</span> <span class="k">continue</span>
+<span class="nv">brk</span><span class="o">&gt;</span> <span class="k">quit</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Como consecuencia de estas reglas, en la copia inmutable de una lista que contiene una lista ya inmutable como subobjeto, este subobjeto inmutable no necesita ser copiado, porque es inmutable. Las listas inmutables son útiles en muchos objetos <strong>GAP</strong> complejos, por ejemplo, como generadores de listas de grupos. Al hacerlos inmutables, <strong>GAP</strong> garantiza que no se puedan agregar, eliminar o intercambiar generadores a la lista. Por supuesto, tales cambios conducirían a serias inconsistencias con otros conocimientos que pueden haber sido ya calculados para el grupo.</p>
+<p>Una función inversa a <code class="docutils literal notranslate"><span class="pre">Immutable</span></code> es <code class="docutils literal notranslate"><span class="pre">ShallowCopy</span></code>, que produce una nueva lista mutable cuya <span class="math notranslate nohighlight">\(i\)</span>-ésima entrada es la <span class="math notranslate nohighlight">\(i\)</span>-ésima entrada de la lista anterior. Las entradas individuales no se copian, simplemente se colocan en la nueva lista. Si la lista anterior es inmutable y, por lo tanto, las entradas de la lista son inmutables en sí mismas, el resultado de <code class="docutils literal notranslate"><span class="pre">ShallowCopy</span></code> es mutable solo en el nivel superior.</p>
+<p>Cabe señalar que también otros objetos que no sean listas pueden aparecer en forma mutable o inmutable. Los registros (consulte la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.9</span></code>) proporcionan otro ejemplo.</p>
+</div>
+<div class="section" id="sets">
+<h2><span class="section-number">2.4. </span>Sets<a class="headerlink" href="#sets" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>GAP</strong> conoce varios tipos especiales de listas. Un <strong>set</strong> en <strong>GAP</strong> es una lista que no contiene huecos (tal lista se llama densa) y cuyos elementos están estrictamente ordenados <code class="docutils literal notranslate"><span class="pre">w.r.t.</span> <span class="pre">&lt;;</span></code> en particular, un conjunto no puede contener duplicados. (Más precisamente, se requiere que los elementos de un conjunto en <strong>GAP</strong> pertenezcan a la misma familia, pero aproximadamente esto significa que se pueden comparar usando el operador <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>).</p>
+<p>Esto proporciona un modelo natural para conjuntos matemáticos cuyos elementos vienen dados por una enumeración explícita. <strong>GAP</strong> también llama a un conjunto una lista estrictamente ordenada, y la función <code class="docutils literal notranslate"><span class="pre">IsSSortedList</span></code> prueba si una lista dada es un conjunto. Devuelve un valor booleano. Para casi cualquier lista cuyos elementos estén contenidos en la misma familia, existe un conjunto correspondiente. Este conjunto es construido por la función <code class="docutils literal notranslate"><span class="pre">Set</span></code> que toma la lista como argumento y devuelve un conjunto obtenido de esta lista ignorando huecos y duplicados y ordenando los elementos.</p>
+<p>Los elementos de los conjuntos utilizados en los ejemplos de esta sección son cadenas.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fruits</span><span class="o">:=</span> <span class="p">[</span><span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;strawberry&quot;</span><span class="o">,</span> <span class="s">&quot;cherry&quot;</span><span class="o">,</span> <span class="s">&quot;plum&quot;</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;strawberry&quot;</span><span class="o">,</span> <span class="s">&quot;cherry&quot;</span><span class="o">,</span> <span class="s">&quot;plum&quot;</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsSSortedList</span><span class="p">(</span><span class="nv">fruits</span><span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fruits</span><span class="o">:=</span> <span class="nv">Set</span><span class="p">(</span><span class="nv">fruits</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;cherry&quot;</span><span class="o">,</span> <span class="s">&quot;plum&quot;</span><span class="o">,</span> <span class="s">&quot;strawberry&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que las <code class="docutils literal notranslate"><span class="pre">fruits</span></code> de la lista original no es modificado por la función <code class="docutils literal notranslate"><span class="pre">Set</span></code>. Tenemos que hacer una nueva asignación a la variable <code class="docutils literal notranslate"><span class="pre">fruits</span></code> para convertirla en un conjunto.</p>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">in</span></code> se usa para probar si un objeto es un elemento de un conjunto. Devuelve un valor booleano <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="s">&quot;apple&quot;</span> <span class="ow">in</span> <span class="nv">fruits</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="s">&quot;banana&quot;</span> <span class="ow">in</span> <span class="nv">fruits</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+<p>El operador en también se puede aplicar a listas ordinarias. Sin embargo, es mucho más rápido realizar una prueba de pertenencia para conjuntos, ya que los conjuntos siempre se ordenan y se puede utilizar una búsqueda binaria en lugar de una búsqueda lineal. Se pueden agregar nuevos elementos a un conjunto mediante la función <code class="docutils literal notranslate"><span class="pre">AddSet</span></code> que toma el conjunto <code class="docutils literal notranslate"><span class="pre">fruits</span></code> como su primer argumento y un elemento como su segundo argumento y agrega el elemento al conjunto si aún no estaba allí. Tenga en cuenta que el objeto <code class="docutils literal notranslate"><span class="pre">fruits</span></code> es cambiado.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AddSet</span><span class="p">(</span><span class="nv">fruits</span><span class="o">,</span> <span class="s">&quot;banana&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fruits</span><span class="o">;</span> <span class="c1"># The banana is inserted in the right place.</span>
+<span class="p">[</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;banana&quot;</span><span class="o">,</span> <span class="s">&quot;cherry&quot;</span><span class="o">,</span> <span class="s">&quot;plum&quot;</span><span class="o">,</span> <span class="s">&quot;strawberry&quot;</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AddSet</span><span class="p">(</span><span class="nv">fruits</span><span class="o">,</span> <span class="s">&quot;apple&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fruits</span><span class="o">;</span> <span class="c1"># fruits has not changed.</span>
+<span class="p">[</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;banana&quot;</span><span class="o">,</span> <span class="s">&quot;cherry&quot;</span><span class="o">,</span> <span class="s">&quot;plum&quot;</span><span class="o">,</span> <span class="s">&quot;strawberry&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que insertar elementos nuevos en un conjunto con <code class="docutils literal notranslate"><span class="pre">AddSet</span></code> suele ser más caro que simplemente agregar elementos nuevos al final de una lista.</p>
+<p>Los conjuntos pueden ser intersecados por la función <code class="docutils literal notranslate"><span class="pre">Intersection</span></code> y unidos por la función <code class="docutils literal notranslate"><span class="pre">Union</span></code>, que toman dos conjuntos como argumentos y devuelven la intersección resp. unión de los dos conjuntos como un nuevo objeto.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">breakfast</span><span class="o">:=</span> <span class="p">[</span><span class="s">&quot;tea&quot;</span><span class="o">,</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;egg&quot;</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;tea&quot;</span><span class="o">,</span> <span class="s">&quot;apple&quot;</span><span class="o">,</span> <span class="s">&quot;egg&quot;</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Intersection</span><span class="p">(</span><span class="nv">breakfast</span><span class="o">,</span> <span class="nv">fruits</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;apple&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Los argumentos de las funciones <code class="docutils literal notranslate"><span class="pre">Intersection</span></code> y <code class="docutils literal notranslate"><span class="pre">Union</span></code> pueden ser listas ordinarias, mientras que su resultado es siempre un conjunto. Tenga en cuenta que en el ejemplo anterior al menos un argumento de <code class="docutils literal notranslate"><span class="pre">Intersection</span></code> no era un conjunto. Las funciones <code class="docutils literal notranslate"><span class="pre">IntersectSet</span></code> y <code class="docutils literal notranslate"><span class="pre">UniteSet</span></code> también forman la intersección resp. unión de dos conjuntos. Sin embargo, no devolverán el resultado, sino que cambiarán su primer argumento para que sea el resultado. Pruébelos con cuidado.</p>
+</div>
+<div class="section" id="ranges">
+<h2><span class="section-number">2.5. </span>Ranges<a class="headerlink" href="#ranges" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un <em>range</em> es una progresión aritmética finita de números enteros. Este es otro tipo especial de lista. Un rango se describe mediante los dos primeros valores y el último valor de la progresión aritmética que se dan en la forma <em>[primero, segundo … último]</em>. En el caso habitual de una lista ascendente de enteros consecutivos, la segunda entrada puede omitirse</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">..</span><span class="nv">999999</span><span class="p">]</span><span class="o">;</span> <span class="c1"># a range of almost a million numbers</span>
+<span class="p">[</span> <span class="nv">1</span> <span class="o">..</span> <span class="nv">999999</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">..</span><span class="nv">999999</span><span class="p">]</span><span class="o">;</span> <span class="c1"># this is equivalent</span>
+<span class="p">[</span> <span class="nv">1</span> <span class="o">..</span> <span class="nv">999999</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">..</span><span class="nv">999999</span><span class="p">]</span><span class="o">;</span> <span class="c1"># here the step is 2</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span> <span class="o">..</span> <span class="nv">999999</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Length</span><span class="p">(</span> <span class="nv">last</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">500000</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span> <span class="nv">999999</span><span class="o">,</span> <span class="nv">999997</span> <span class="o">..</span> <span class="nv">1</span> <span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">999999</span><span class="o">,</span> <span class="nv">999997</span> <span class="o">..</span> <span class="nv">1</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Esta representación impresa compacta de una lista bastante larga corresponde a una representación interna compacta. La función <code class="docutils literal notranslate"><span class="pre">IsRange</span></code> prueba si un objeto es un rango, la función <code class="docutils literal notranslate"><span class="pre">ConvertToRangeRep</span></code> cambia la representación de una lista que de hecho es un rango a esta representación interna compacta.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="o">:=</span> <span class="p">[</span><span class="o">-</span><span class="nv">2</span><span class="o">,-</span><span class="nv">1</span><span class="o">,</span><span class="nv">0</span><span class="o">,</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="o">,</span><span class="nv">5</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="o">-</span><span class="nv">2</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">5</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsRange</span><span class="p">(</span> <span class="nv">a</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ConvertToRangeRep</span><span class="p">(</span> <span class="nv">a</span> <span class="p">)</span><span class="o">;;</span> <span class="nv">a</span><span class="o">;</span>
+<span class="p">[</span> <span class="o">-</span><span class="nv">2</span> <span class="o">..</span> <span class="nv">5</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">a</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">:=</span> <span class="nv">0</span><span class="o">;;</span> <span class="nv">IsRange</span><span class="p">(</span> <span class="nv">a</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que este cambio de representación <strong>no cambia</strong> el valor de la lista a. La lista a todavía se comporta en cualquier contexto de la misma manera que lo haría en la representación larga.</p>
+</div>
+<div class="section" id="ciclos-for-y-while">
+<h2><span class="section-number">2.6. </span>Ciclos For y While<a class="headerlink" href="#ciclos-for-y-while" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Dada una lista <code class="docutils literal notranslate"><span class="pre">pp</span></code> de permutaciones, podemos formar su producto por medio de un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> en lugar de escribir el producto explícitamente.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">pp</span><span class="o">:=</span> <span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">6</span><span class="o">,</span><span class="nv">8</span><span class="p">)(</span><span class="nv">4</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">9</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">6</span><span class="p">)(</span><span class="nv">2</span><span class="o">,</span><span class="nv">7</span><span class="o">,</span><span class="nv">8</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">7</span><span class="p">)(</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">8</span><span class="o">,</span><span class="nv">6</span><span class="p">)</span><span class="o">,</span>
+<span class="o">&gt;</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">8</span><span class="o">,</span><span class="nv">9</span><span class="p">)(</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">6</span><span class="o">,</span><span class="nv">4</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">9</span><span class="o">,</span><span class="nv">8</span><span class="o">,</span><span class="nv">6</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="o">,</span><span class="nv">7</span><span class="o">,</span><span class="nv">2</span><span class="p">)]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">prod</span><span class="o">:=</span> <span class="p">()</span><span class="o">;</span>
+<span class="p">()</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="k">for</span> <span class="nv">p</span> <span class="ow">in</span> <span class="nv">pp</span> <span class="k">do</span>
+<span class="o">&gt;</span> <span class="nv">prod</span><span class="o">:=</span> <span class="nv">prod</span><span class="o">*</span><span class="nv">p</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="k">od</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">prod</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">8</span><span class="o">,</span><span class="nv">4</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">6</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Primero se inicializa una nueva variable prod para la permutación de identidad <code class="docutils literal notranslate"><span class="pre">()</span></code>. Luego, la variable de ciclo <code class="docutils literal notranslate"><span class="pre">p</span></code> toma como valor una permutación tras otra de la lista <code class="docutils literal notranslate"><span class="pre">pp</span></code> y se multiplica por el valor actual de <code class="docutils literal notranslate"><span class="pre">prod</span></code>, lo que da como resultado un nuevo valor que luego se asigna a <code class="docutils literal notranslate"><span class="pre">prod</span></code>.</p>
+<div class="section" id="el-bucle-for">
+<h3><span class="section-number">2.6.1. </span>El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#el-bucle-for" title="Enlazar permanentemente con este título">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> tiene la siguiente sintaxis</p></li>
+</ul>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">var</span> <span class="ow">in</span> <span class="nv">list</span> <span class="k">do</span> <span class="nv">statements</span> <span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>El efecto del ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> es ejecutar las declaraciones para cada elemento de la lista. Un bucle for es una instrucción y, por lo tanto, termina con un punto y coma. La lista de declaraciones está encerrada por las palabras clave <code class="docutils literal notranslate"><span class="pre">do</span></code> y <code class="docutils literal notranslate"><span class="pre">od</span></code> (do inverso). Un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> no devuelve ningún valor. Por lo tanto, tuvimos que preguntar explícitamente por el valor de <code class="docutils literal notranslate"><span class="pre">prod</span></code> en el ejemplo anterior.</p>
+<p>El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> puede recorrer cualquier tipo de lista, incluso una lista con huecos. En muchos lenguajes de programación, el bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> tiene la forma</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">var</span> <span class="nv">from</span> <span class="nv">first</span> <span class="nv">to</span> <span class="nv">last</span> <span class="k">do</span> <span class="nv">statements</span> <span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>En <strong>GAP</strong>, este es simplemente un caso especial del bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> general como se define anteriormente, donde la lista en el cuerpo del bucle es un <code class="docutils literal notranslate"><span class="pre">range</span></code> (ver 3.5).</p>
+<ul class="simple">
+<li><p>Recurrer una lista:</p></li>
+</ul>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">var</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">first</span><span class="o">..</span> <span class="nv">last</span><span class="p">]</span> <span class="k">do</span> <span class="nv">statements</span> <span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>¡Por ejemplo, puede recorrer un rango para calcular el factorial <span class="math notranslate nohighlight">\(15\)</span>! del número <span class="math notranslate nohighlight">\(15\)</span> de la siguiente manera</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ff</span><span class="o">:=</span> <span class="nv">1</span><span class="o">;</span>
+<span class="nv">1</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span><span class="o">..</span><span class="nv">15</span><span class="p">]</span> <span class="k">do</span>
+<span class="o">&gt;</span> <span class="nv">ff</span><span class="o">:=</span> <span class="nv">ff</span> <span class="o">*</span> <span class="nv">i</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="k">od</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ff</span><span class="o">;</span>
+<span class="nv">1307674368000</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="el-bucle-while">
+<h3><span class="section-number">2.6.2. </span>El bucle <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#el-bucle-while" title="Enlazar permanentemente con este título">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>El bucle <code class="docutils literal notranslate"><span class="pre">while</span></code> tiene la siguiente sintaxis</p></li>
+</ul>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="nv">condition</span> <span class="k">do</span> <span class="nv">statements</span> <span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>El ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> recorre las declaraciones siempre que la condición se evalúe como verdadera. Al igual que el ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code>, el ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> termina con la palabra clave <code class="docutils literal notranslate"><span class="pre">od</span></code> seguida de un punto y coma.</p>
+<p>Podemos usar nuestra lista de números primos <code class="docutils literal notranslate"><span class="pre">primes</span></code> para realizar una factorización muy simple. Comenzamos inicializando una lista de factores a la lista vacía. En esta lista queremos recopilar los factores primos del número <span class="math notranslate nohighlight">\(1333\)</span>. Recuerde que debe existir una lista antes de que se puedan asignar valores a las posiciones de la lista. Luego recorreremos los números primos de la lista <code class="docutils literal notranslate"><span class="pre">primes</span></code> y probaremos para cada primo si divide el número. Si es así, dividiremos el número por ese primo, lo sumaremos a la lista de factores <code class="docutils literal notranslate"><span class="pre">factors</span></code> y continuaremos.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">n</span><span class="o">:=</span> <span class="nv">1333</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">factors</span><span class="o">:=</span> <span class="p">[]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="k">for</span> <span class="nv">p</span> <span class="ow">in</span> <span class="nv">primes</span> <span class="k">do</span>
+<span class="o">&gt;</span>        <span class="k">while</span> <span class="nv">n</span> <span class="ow">mod</span> <span class="nv">p</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">do</span>
+<span class="o">&gt;</span>            <span class="nv">n</span><span class="o">:=</span> <span class="nv">n</span><span class="o">/</span><span class="nv">p</span><span class="o">;</span>
+<span class="o">&gt;</span>            <span class="nv">Add</span><span class="p">(</span><span class="nv">factors</span><span class="o">,</span> <span class="nv">p</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">od</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">od</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">factors</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">31</span><span class="o">,</span> <span class="nv">43</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">n</span><span class="o">;</span>
+<span class="nv">1</span>
+</pre></div>
+</div>
+<p>Como <code class="docutils literal notranslate"><span class="pre">n</span></code> ahora tiene el valor <code class="docutils literal notranslate"><span class="pre">1</span></code>, se han encontrado todos los factores primos de <code class="docutils literal notranslate"><span class="pre">1333</span></code> y <code class="docutils literal notranslate"><span class="pre">factors</span></code> contienen una la factorización completa de <code class="docutils literal notranslate"><span class="pre">1333</span></code>. Esto, por supuesto, puede verificarse multiplicando <code class="docutils literal notranslate"><span class="pre">31</span></code> por <code class="docutils literal notranslate"><span class="pre">43</span></code>.</p>
+<p>Este ciclo se puede aplicar a números arbitrarios para encontrar factores primos. Pero como <code class="docutils literal notranslate"><span class="pre">primes</span></code> no es una lista completa de todos los números primos, este ciclo puede fallar en encontrar todos los factores primos de un número mayor que <code class="docutils literal notranslate"><span class="pre">2000</span></code>, digamos. Puede intentar mejorarlo de tal manera que se agreguen nuevos números primos a la lista si es necesario.</p>
+<p>Ya ha visto que los objetos de la lista se pueden cambiar. Por supuesto, esto también se aplica a la lista en un cuerpo de bucle. En la mayoría de los casos, debe tener cuidado de no cambiar esta lista, pero hay situaciones en las que esto es bastante útil. El siguiente ejemplo muestra una forma rápida de determinar los primos menores de 1000 mediante un método de tamiz. Aquí haremos uso de la función <code class="docutils literal notranslate"><span class="pre">Unbind</span></code> para eliminar entradas de una lista, y la declaración «<code class="docutils literal notranslate"><span class="pre">if</span></code>» cubierta en 4.2.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="o">:=</span> <span class="p">[]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">numbers</span><span class="o">:=</span> <span class="p">[</span><span class="nv">2</span><span class="o">..</span><span class="nv">1000</span><span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="k">for</span> <span class="nv">p</span> <span class="ow">in</span> <span class="nv">numbers</span> <span class="k">do</span>
+<span class="o">&gt;</span>        <span class="nv">Add</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="nv">p</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">for</span> <span class="nv">n</span> <span class="ow">in</span> <span class="nv">numbers</span> <span class="k">do</span>
+<span class="o">&gt;</span>            <span class="k">if</span> <span class="nv">n</span> <span class="ow">mod</span> <span class="nv">p</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span>
+<span class="o">&gt;</span>                <span class="k">Unbind</span><span class="p">(</span><span class="nv">numbers</span><span class="p">[</span><span class="nv">n</span><span class="o">-</span><span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+<span class="o">&gt;</span>            <span class="k">fi</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">od</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>El bucle interno elimina todas las entradas de <code class="docutils literal notranslate"><span class="pre">numbers</span></code> que son divisibles por el último primo detectado <code class="docutils literal notranslate"><span class="pre">p</span></code>. Esto se realiza mediante la función <code class="docutils literal notranslate"><span class="pre">Unbind</span></code>, que elimina la vinculación de la posición de la lista <code class="docutils literal notranslate"><span class="pre">numbers[n-1]</span></code> al valor <code class="docutils literal notranslate"><span class="pre">n</span></code>, de modo que posteriormente <code class="docutils literal notranslate"><span class="pre">numbers[n-1]</span></code> ya no tengan un valor asignado. El siguiente elemento encontrado en <code class="docutils literal notranslate"><span class="pre">numbers</span></code> por el bucle exterior es necesariamente el siguiente primo.</p>
+<p>De manera similar, es posible ampliar la lista que se repite. Esto produce un algoritmo de órbita agradable y corto para la acción de un grupo, por ejemplo.</p>
+<p>Puede encontrar más información sobre los bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code> en las <code class="docutils literal notranslate"><span class="pre">Secciones</span> <span class="pre">4.17</span></code> y <code class="docutils literal notranslate"><span class="pre">4.19</span></code> del manual de referencia.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="listas-de-operaciones">
+<h2><span class="section-number">2.7. </span>Listas de Operaciones<a class="headerlink" href="#listas-de-operaciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Existe una forma más cómoda que la que se dio en la sección anterior para calcular el producto de una lista de números o permutaciones.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Product</span><span class="p">([</span><span class="nv">1</span><span class="o">..</span><span class="nv">15</span><span class="p">])</span><span class="o">;</span>
+<span class="nv">1307674368000</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Product</span><span class="p">(</span><span class="nv">pp</span><span class="p">)</span><span class="o">;</span>
+<span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">8</span><span class="o">,</span><span class="nv">4</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">6</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La función <code class="docutils literal notranslate"><span class="pre">Product</span></code> toma una lista como argumento y calcula el producto de los elementos de la lista. Esto es posible siempre que se defina una multiplicación de los elementos de la lista. Entonces <code class="docutils literal notranslate"><span class="pre">Product</span></code> ejecuta un ciclo sobre todos los elementos de la lista.</p>
+<p>There are other often used loops available as functions. Guess what the function Sum does. The function List may take a list and a function as its arguments. It will then apply the function to each element of the list and return the corresponding list of results. A list of cubes is produced as follows with the function cubed from Section 4.</p>
+<p>Hay otros bucles de uso frecuente disponibles como funciones. Adivina qué hace la función <code class="docutils literal notranslate"><span class="pre">Sum</span></code>. La función <code class="docutils literal notranslate"><span class="pre">List</span></code> puede tomar una lista y una función como argumentos. Luego aplicará la función a cada elemento de la lista y devolverá la lista de resultados correspondiente. Se produce una lista de cubos de la siguiente manera con la función al cubo de la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">4</span></code>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">cubed</span><span class="o">:=</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">x</span><span class="o">^</span><span class="nv">3</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">List</span><span class="p">([</span><span class="nv">2</span><span class="o">..</span><span class="nv">10</span><span class="p">]</span><span class="o">,</span> <span class="nv">cubed</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">27</span><span class="o">,</span> <span class="nv">64</span><span class="o">,</span> <span class="nv">125</span><span class="o">,</span> <span class="nv">216</span><span class="o">,</span> <span class="nv">343</span><span class="o">,</span> <span class="nv">512</span><span class="o">,</span> <span class="nv">729</span><span class="o">,</span> <span class="nv">1000</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Para agregar todos estos cubos, podríamos aplicar la función <code class="docutils literal notranslate"><span class="pre">Sum</span></code> a la última lista. Pero también podemos dar la función <code class="docutils literal notranslate"><span class="pre">cubed</span></code> de <code class="docutils literal notranslate"><span class="pre">Sum</span></code> como argumento adicional.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Sum</span><span class="p">(</span><span class="nv">last</span><span class="p">)</span> <span class="o">=</span> <span class="nv">Sum</span><span class="p">([</span><span class="nv">2</span><span class="o">..</span><span class="nv">10</span><span class="p">]</span><span class="o">,</span> <span class="nv">cubed</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Los números primos menores que <span class="math notranslate nohighlight">\(30\)</span> se pueden recuperar de la lista de números primos <code class="docutils literal notranslate"><span class="pre">primes</span></code> de la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">3.1</span></code> mediante la función <code class="docutils literal notranslate"><span class="pre">Filtered</span></code>. Esta función toma la lista de números primos <code class="docutils literal notranslate"><span class="pre">primes</span></code> y una propiedad como sus argumentos y devolverá la lista de aquellos elementos de <code class="docutils literal notranslate"><span class="pre">primes</span></code> que tienen esta propiedad. Dicha propiedad estará representada por una función que devuelve un valor booleano. En este ejemplo, la propiedad de ser menor que <span class="math notranslate nohighlight">\(30\)</span> se puede representar mediante la función <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">30</span></code> ya que <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">30</span></code> se evaluará como <code class="docutils literal notranslate"><span class="pre">true</span></code> para valores <span class="math notranslate nohighlight">\(x\)</span> menores que <span class="math notranslate nohighlight">\(30\)</span> y <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso contrario.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Filtered</span><span class="p">(</span><span class="nv">primes</span><span class="o">,</span> <span class="nv">x</span><span class="o">-&gt;</span> <span class="nv">x</span> <span class="o">&lt;</span> <span class="nv">30</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Ya hemos mencionado el operador <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code> que forma sublistas. Toma una lista de posiciones como argumento y devolverá la lista de elementos de la lista original correspondiente a estas posiciones.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">primes</span><span class="p">{</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">10</span><span class="p">]</span> <span class="p">}</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">11</span><span class="o">,</span> <span class="nv">13</span><span class="o">,</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">29</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Finalmente, mencionamos la función <code class="docutils literal notranslate"><span class="pre">ForAll</span></code> que verifica si una propiedad es válida para todos los elementos de una lista. Toma como argumentos una lista y una función que devuelve un valor booleano. <code class="docutils literal notranslate"><span class="pre">ForAll</span></code> comprueba si la función devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> para todos los elementos de la lista.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">list</span><span class="o">:=</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ForAll</span><span class="p">(</span> <span class="nv">list</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">x</span> <span class="o">&gt;</span> <span class="nv">0</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ForAll</span><span class="p">(</span> <span class="nv">list</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">x</span> <span class="ow">in</span> <span class="nv">primes</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+<p>Encontrará más bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> predefinidos en el <code class="docutils literal notranslate"><span class="pre">Capítulo</span> <span class="pre">2.1</span></code> del manual de referencia.</p>
+</div>
+<div class="section" id="vectores-y-matrices">
+<h2><span class="section-number">2.8. </span>Vectores y Matrices<a class="headerlink" href="#vectores-y-matrices" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Esta sección describe cómo <strong>GAP</strong> usa listas para representar matrices y vectores de fila. Un <strong>vector de fila</strong> (row vector) es una lista densa de elementos de un campo común. Una <strong>matriz</strong> (matrix) es una lista densa de vectores de fila sobre un campo común y de igual longitud.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">v</span><span class="o">:=</span> <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">6</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">5</span><span class="o">/</span><span class="nv">2</span><span class="p">]</span><span class="o">;;</span> <span class="nv">IsRowVector</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Los vectores de fila se pueden sumar y multiplicar por escalares de su campo. La multiplicación de vectores de fila de igual longitud da como resultado su producto escalar.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">2</span> <span class="o">*</span> <span class="nv">v</span><span class="o">;</span> <span class="nv">v</span> <span class="o">*</span> <span class="nv">1</span><span class="o">/</span><span class="nv">3</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">6</span><span class="o">,</span> <span class="nv">12</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">5</span> <span class="p">]</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">/</span><span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">/</span><span class="nv">6</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">v</span> <span class="o">*</span> <span class="nv">v</span><span class="o">;</span> <span class="c1"># the scalar product of &#39;v&#39; with itself</span>
+<span class="nv">221</span><span class="o">/</span><span class="nv">4</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que la expresión <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">*</span> <span class="pre">1/3</span></code> se evalúa en realidad multiplicando primero <span class="math notranslate nohighlight">\(v\)</span> por <span class="math notranslate nohighlight">\(1\)</span> (lo que da de nuevo <span class="math notranslate nohighlight">\(v\)</span>) y luego dividiendo por <span class="math notranslate nohighlight">\(3\)</span>. Esta también es una operación escalar permitida. La expresión <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">/</span> <span class="pre">3</span></code> resultaría en el mismo valor.</p>
+<p>Tales operaciones aritméticas (si los resultados son nuevamente vectores) dan como resultado vectores mutables, excepto si la operación es binaria y ambos operandos son inmutables; por tanto, los vectores mostrados en los ejemplos anteriores son todos mutables.</p>
+<p>Entonces, si desea producir una lista mutable con <span class="math notranslate nohighlight">\(100\)</span> entradas iguales a <span class="math notranslate nohighlight">\(25\)</span>, simplemente puede decir <code class="docutils literal notranslate"><span class="pre">25</span> <span class="pre">+</span> <span class="pre">0</span> <span class="pre">*</span> <span class="pre">[1</span> <span class="pre">..</span> <span class="pre">100]</span></code>. Tenga en cuenta que los rangos también son vectores (sobre los racionales) y que <code class="docutils literal notranslate"><span class="pre">[1</span> <span class="pre">..</span> <span class="pre">100]</span></code> es mutable.</p>
+<p>Una matriz es una lista densa de vectores de fila de igual longitud.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">:=</span> <span class="p">[[</span><span class="nv">1</span><span class="o">,-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,-</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">]]</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="p">[</span><span class="nv">2</span><span class="p">][</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+<span class="nv">2</span>
+</pre></div>
+</div>
+<p>Sintácticamente, una matriz es una lista de listas. Entonces, el número <span class="math notranslate nohighlight">\(2\)</span> en la segunda fila y la primera columna de la matriz <span class="math notranslate nohighlight">\(2\)</span> se conoce como el primer elemento del segundo elemento de la lista <span class="math notranslate nohighlight">\(m\)</span> a través de <code class="docutils literal notranslate"><span class="pre">m[2][1]</span></code>.</p>
+<p>Una matriz se puede multiplicar por escalares, vectores de fila y otras matrices. (Si los vectores de fila y las matrices involucradas en dicha multiplicación no tienen las dimensiones adecuadas, las entradas «faltantes» se tratan como ceros, por lo que los resultados pueden parecer inesperados en tales casos).</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="p">]</span> <span class="o">*</span> <span class="nv">m</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span> <span class="o">*</span> <span class="nv">m</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span> <span class="o">*</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span> <span class="o">*</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que la multiplicación de un vector de fila con una matriz dará como resultado una combinación lineal de las filas de la matriz, mientras que la multiplicación de una matriz con un vector de fila da como resultado una combinación lineal de las columnas de la matriz. En el último caso, el vector de fila se considera un vector de columna.</p>
+<p>Un vector o matriz de números enteros también se puede multiplicar por un escalar de campo finito y viceversa. Tales productos dan como resultado una matriz sobre el campo finito con los números enteros mapeados en el campo finito de la manera obvia.</p>
+<p>Las matrices de campo finito son más agradables de leer cuando se muestran con un <code class="docutils literal notranslate"><span class="pre">Displayed</span></code> en lugar de impresas con <code class="docutils literal notranslate"><span class="pre">Printed</span></code>. (Aquí escribimos <code class="docutils literal notranslate"><span class="pre">Z(q)</span></code> para denotar <span class="underline">una raíz primitiva del campo finito con</span> <span class="math notranslate nohighlight">\(q\)</span> <span class="underline">elementos</span>).</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Display</span><span class="p">(</span> <span class="nv">m</span> <span class="o">*</span> <span class="nv">One</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">1</span> <span class="nv">4</span> <span class="nv">1</span>
+<span class="nv">2</span> <span class="o">.</span> <span class="nv">4</span>
+<span class="nv">1</span> <span class="nv">1</span> <span class="nv">1</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Display</span><span class="p">(</span> <span class="nv">m</span><span class="o">^</span><span class="nv">2</span> <span class="o">*</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="o">+</span> <span class="nv">m</span> <span class="o">*</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">z</span> <span class="o">=</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span>
+<span class="nv">z</span><span class="o">^</span><span class="nv">1</span> <span class="nv">z</span><span class="o">^</span><span class="nv">1</span> <span class="nv">z</span><span class="o">^</span><span class="nv">2</span>
+<span class="nv">1</span> <span class="nv">1</span> <span class="nv">z</span><span class="o">^</span><span class="nv">2</span>
+<span class="nv">z</span><span class="o">^</span><span class="nv">1</span> <span class="nv">z</span><span class="o">^</span><span class="nv">1</span> <span class="nv">z</span><span class="o">^</span><span class="nv">2</span>
+</pre></div>
+</div>
+<p>Las submatrices se pueden extraer fácilmente usando la expresión <code class="docutils literal notranslate"><span class="pre">mat{rows}{columns}</span></code>. También se pueden asignar, siempre que la matriz grande sea mutable (lo que no es así si es el resultado de una operación aritmética, ver más arriba).</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sm</span> <span class="o">:=</span> <span class="nv">m</span><span class="p">{</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">}{</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">}</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sm</span><span class="p">{</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">}{</span> <span class="p">[</span><span class="nv">2</span><span class="p">]</span> <span class="p">}</span> <span class="o">:=</span> <span class="p">[[</span><span class="o">-</span><span class="nv">2</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="nv">0</span><span class="p">]]</span><span class="o">;;</span> <span class="nv">sm</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Las primeras llaves contienen la selección de filas, la segunda la de columnas. Las matrices aparecen no solo en álgebra lineal, sino también como elementos de grupo, siempre que sean invertibles. Aquí tenemos la oportunidad de encontrar una función <span class="underline">teórica de grupo</span>, llamada <code class="docutils literal notranslate"><span class="pre">Order</span></code>, que calcula <span class="math notranslate nohighlight">\(\text{el orden de un elemento del grupo}\)</span>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Order</span><span class="p">(</span> <span class="nv">m</span> <span class="o">*</span> <span class="nv">One</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">8</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Order</span><span class="p">(</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">infinity</span>
+</pre></div>
+</div>
+<p>Para matrices cuyas entradas son objetos más complejos, por ejemplo, funciones racionales, es posible que los métodos <code class="docutils literal notranslate"><span class="pre">Order</span></code> de <strong>GAP</strong> no puedan probar que la matriz tiene un orden infinito, y uno recibe la siguiente advertencia.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1">#I Order: warning, order of &lt;mat&gt; might be infinite</span>
+</pre></div>
+</div>
+<p>En tal caso, si <span class="math notranslate nohighlight">\(\text{el orden de la matriz es realmente infinito}\)</span>, tendrá que interrumpir <strong>GAP</strong> presionando <code class="docutils literal notranslate"><span class="pre">ctrl-C</span></code> (seguido de <code class="docutils literal notranslate"><span class="pre">ctrl-D</span></code> o <code class="docutils literal notranslate"><span class="pre">quit;</span></code> para salir del ciclo de interrupción).</p>
+<p>Para demostrar que <span class="math notranslate nohighlight">\(\text{el orden de $m$ es infinito}\)</span>, también podríamos observar <span class="math notranslate nohighlight">\(\text{el polinomio}\)</span> <span class="math notranslate nohighlight">\(\text{mínimo de $m$ sobre los racionales}\)</span>.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">f</span><span class="o">:=</span> <span class="nv">MinimalPolynomial</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;;</span> <span class="nv">Factors</span><span class="p">(</span> <span class="nv">f</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">x_1</span><span class="o">-</span><span class="nv">2</span><span class="o">,</span> <span class="nv">x_1</span><span class="o">^</span><span class="nv">2</span><span class="o">+</span><span class="nv">3</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Factors</span></code> devuelve una lista de factores irreducibles del polinomio <code class="docutils literal notranslate"><span class="pre">f</span></code>. El primer factor irreductible <span class="math notranslate nohighlight">\(x_1 - 2\)</span> nos dice que <span class="math notranslate nohighlight">\(2\)</span> es un valor propio de <code class="docutils literal notranslate"><span class="pre">m</span></code>, por lo que <strong>su orden no puede ser finito</strong>.</p>
+</div>
+<div class="section" id="registros-simples">
+<h2><span class="section-number">2.9. </span>Registros simples<a class="headerlink" href="#registros-simples" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un registro proporciona otra forma de construir nuevas estructuras de datos. Como una lista, un registro contiene subobjetos. En un registro, los elementos, los denominados <strong>componentes del registro</strong> (record components), no están indexados por números sino por nombres.</p>
+<p>En esta sección verá cómo definir y cómo utilizar registros. Los registros se cambian por asignaciones a componentes de registro.</p>
+<p>Inicialmente, un registro se define como una lista separada por comas de asignaciones a sus componentes de registro.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">date</span><span class="o">:=</span> <span class="k">rec</span><span class="p">(</span><span class="nv">year</span><span class="o">:=</span> <span class="nv">1997</span><span class="o">,</span>
+<span class="o">&gt;</span> <span class="nv">month</span><span class="o">:=</span> <span class="s">&quot;Jul&quot;</span><span class="o">,</span>
+<span class="o">&gt;</span> <span class="nv">day</span><span class="o">:=</span> <span class="nv">14</span><span class="p">)</span><span class="o">;</span>
+<span class="k">rec</span><span class="p">(</span> <span class="nv">year</span> <span class="o">:=</span> <span class="nv">1997</span><span class="o">,</span> <span class="nv">month</span> <span class="o">:=</span> <span class="s">&quot;Jul&quot;</span><span class="o">,</span> <span class="nv">day</span> <span class="o">:=</span> <span class="nv">14</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>El valor de un componente de registro es accesible por el nombre de registro y el nombre del componente de registro separados por un punto como selector de componente de registro.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">date</span><span class="o">.</span><span class="nv">year</span><span class="o">;</span>
+<span class="nv">1997</span>
+</pre></div>
+</div>
+<p>Las asignaciones a nuevos componentes de registro son posibles de la misma manera. El registro cambia de tamaño automáticamente para contener el nuevo componente.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">date</span><span class="o">.</span><span class="nv">time</span><span class="o">:=</span> <span class="k">rec</span><span class="p">(</span><span class="nv">hour</span><span class="o">:=</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">minute</span><span class="o">:=</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">second</span><span class="o">:=</span> <span class="nv">12</span><span class="p">)</span><span class="o">;</span>
+<span class="k">rec</span><span class="p">(</span> <span class="nv">hour</span> <span class="o">:=</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">minute</span> <span class="o">:=</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">second</span> <span class="o">:=</span> <span class="nv">12</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">date</span><span class="o">;</span>
+<span class="k">rec</span><span class="p">(</span> <span class="nv">year</span> <span class="o">:=</span> <span class="nv">1997</span><span class="o">,</span> <span class="nv">month</span> <span class="o">:=</span> <span class="s">&quot;Jul&quot;</span><span class="o">,</span> <span class="nv">day</span> <span class="o">:=</span> <span class="nv">14</span><span class="o">,</span>
+<span class="nv">time</span> <span class="o">:=</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">hour</span> <span class="o">:=</span> <span class="nv">19</span><span class="o">,</span> <span class="nv">minute</span> <span class="o">:=</span> <span class="nv">23</span><span class="o">,</span> <span class="nv">second</span> <span class="o">:=</span> <span class="nv">12</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Podemos utilizar la función <code class="docutils literal notranslate"><span class="pre">Display</span></code> para ilustrar la jerarquía de los componentes del registro.</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Display</span><span class="p">(</span> <span class="nv">date</span> <span class="p">)</span><span class="o">;</span>
+<span class="k">rec</span><span class="p">(</span>
+    <span class="nv">year</span> <span class="o">:=</span> <span class="nv">1997</span><span class="o">,</span>
+    <span class="nv">month</span> <span class="o">:=</span> <span class="s">&quot;Jul&quot;</span><span class="o">,</span>
+    <span class="nv">day</span> <span class="o">:=</span> <span class="nv">14</span><span class="o">,</span>
+    <span class="nv">time</span> <span class="o">:=</span> <span class="k">rec</span><span class="p">(</span>
+        <span class="nv">hour</span> <span class="o">:=</span> <span class="nv">19</span><span class="o">,</span>
+        <span class="nv">minute</span> <span class="o">:=</span> <span class="nv">23</span><span class="o">,</span>
+        <span class="nv">second</span> <span class="o">:=</span> <span class="nv">12</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Los registros son objetos que pueden modificarse. Una asignación a un componente de registro cambia el objeto original. Las observaciones hechas en las <code class="docutils literal notranslate"><span class="pre">Secciones</span> <span class="pre">3.2</span></code> y <code class="docutils literal notranslate"><span class="pre">3.3</span></code> sobre la identidad y la mutabilidad de las listas también son válidas para los registros.</p>
+<p>A veces es interesante saber qué componentes de un determinado registro están vinculados. Esta información está disponible en la función <code class="docutils literal notranslate"><span class="pre">RecNames</span></code>, que toma un registro como argumento y devuelve una lista de nombres de todos los componentes vinculados de este registro como una lista de cadenas.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-recnames">
+<div class="code-block-caption"><span class="caption-text">Función RecNames</span><a class="headerlink" href="#funcion-recnames" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">RecNames</span><span class="p">(</span><span class="nv">date</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="s">&quot;year&quot;</span><span class="o">,</span> <span class="s">&quot;month&quot;</span><span class="o">,</span> <span class="s">&quot;day&quot;</span><span class="o">,</span> <span class="s">&quot;time&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Ahora bien, veamos a las <code class="docutils literal notranslate"><span class="pre">Secciones</span> <span class="pre">3.2</span></code> y <code class="docutils literal notranslate"><span class="pre">3.3</span></code> para ver que significan estas secciones para los registros.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="01-primeros-pasos-en-gap.html" class="btn btn-neutral float-left" title="1. Inicializando y cerrando GAP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5. Espacios Vectoriales y Álgebras &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="4. Grupos y Homomorfismos" href="04-grupos-y-homomorfismos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-primeros-pasos-en-gap.html">1. Inicializando y cerrando GAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-listas-y-registros.html">2. Listas y Registros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-funciones.html">3. Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-grupos-y-homomorfismos.html">4. Grupos y Homomorfismos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Espacios Vectoriales y Álgebras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#espacios-vectoriales">5.1. Espacios Vectoriales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algebras">5.2. Álgebras</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>Espacios Vectoriales y Álgebras</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/05-espacios-vectoriales-y-algebras.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="espacios-vectoriales-y-algebras">
+<h1><span class="section-number">5. </span>Espacios Vectoriales y Álgebras<a class="headerlink" href="#espacios-vectoriales-y-algebras" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Este capítulo contiene una introducción a los <strong>espacios vectoriales</strong> y <strong>álgebras</strong> en <strong>GAP</strong>.</p>
+<div class="section" id="espacios-vectoriales">
+<h2><span class="section-number">5.1. </span>Espacios Vectoriales<a class="headerlink" href="#espacios-vectoriales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un espacio vectorial sobre el campo F es un grupo aditivo que se cierra bajo multiplicación escalar con elementos en <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>. En <strong>GAP</strong>, solo aquellos dominios que se construyen como espacios vectoriales se consideran espacios vectoriales. En particular, un grupo aditivo que no conoce un dominio activo de escalares no se considera un espacio vectorial en <strong>GAP</strong>.</p>
+<p>Probablemente, los <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>-espacios vectoriales  más comunes en <strong>GAP</strong> son los llamados espacios de fila. Consisten en vectores de fila, es decir, listas cuyos elementos se encuentran en <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>. En el siguiente ejemplo calculamos el espacio vectorial generado por los vectores fila <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> y <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">2]</span></code> sobre los racionales.</p>
+<div class="literal-block-wrapper docutils container" id="vectores-fila">
+<div class="code-block-caption"><span class="caption-text">vectores fila</span><a class="headerlink" href="#vectores-fila" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">Rationals</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">F</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="ow">in</span> <span class="nv">V</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>El espacio de fila completo <span class="math notranslate nohighlight">\(\mathbb{F}^{n}\)</span> se crea mediante comandos como:</p>
+<div class="literal-block-wrapper docutils container" id="espacio-de-fila">
+<div class="code-block-caption"><span class="caption-text">El espacio de fila completo <span class="math notranslate nohighlight">\(\mathbb{F}^{n}\)</span></span><a class="headerlink" href="#espacio-de-fila" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">7</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">F</span><span class="o">^</span><span class="nv">3</span><span class="o">;</span> <span class="c1"># The full row space over F of dimension 3.</span>
+<span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">7</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="o">*</span> <span class="nv">One</span><span class="p">(</span> <span class="nv">F</span> <span class="p">)</span> <span class="ow">in</span> <span class="nv">V</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>De la misma forma también podemos crear espacios matriciales. Aquí se puede utilizar el campo de notación <code class="docutils literal notranslate"><span class="pre">field^[dim1</span> <span class="pre">,</span> <span class="pre">dim2]</span></code></p>
+<div class="literal-block-wrapper docutils container" id="espacio-de-fila-en-el-espacio-de-matrices">
+<div class="code-block-caption"><span class="caption-text">El espacio de fila completo <span class="math notranslate nohighlight">\(\mathbb{F}^{nxm}\)</span></span><a class="headerlink" href="#espacio-de-fila-en-el-espacio-de-matrices" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span> <span class="nv">m2</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m1</span><span class="o">,</span> <span class="nv">m2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">+</span><span class="nv">m2</span> <span class="ow">in</span> <span class="nv">V</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">W</span><span class="o">:=</span> <span class="nv">Rationals</span><span class="o">^</span><span class="p">[</span><span class="nv">3</span><span class="o">,</span><span class="nv">2</span><span class="p">]</span><span class="o">;</span>
+<span class="p">(</span> <span class="nv">Rationals</span><span class="o">^</span><span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">]</span> <span class="ow">in</span> <span class="nv">W</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Un campo es, naturalmente, un espacio vectorial sobre sí mismo.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-isvectorspace">
+<div class="code-block-caption"><span class="caption-text">función IsVectorSpace</span><a class="headerlink" href="#funcion-isvectorspace" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsVectorSpace</span><span class="p">(</span> <span class="nv">Rationals</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Si <span class="math notranslate nohighlight">\(\Phi\)</span> es una extensión algebraica de <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>, entonces <span class="math notranslate nohighlight">\(\Phi\)</span> también es un espacio vectorial sobre <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> (y de hecho sobre cualquier subcampo de <span class="math notranslate nohighlight">\(\Phi\)</span> que contenga <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>). Este campo <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> se almacena en el atributo <code class="docutils literal notranslate"><span class="pre">LeftActingDomain</span></code>. En <strong>GAP</strong>, el valor predeterminado es ver los campos como espacios de vectores sobre sus campos principales. Mediante la función <code class="docutils literal notranslate"><span class="pre">AsVectorSpace</span></code>, podemos ver campos como espacios vectoriales sobre campos distintos del campo principal.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-leftactingdomain">
+<div class="code-block-caption"><span class="caption-text">función LeftActingDomain</span><a class="headerlink" href="#funcion-leftactingdomain" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">16</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LeftActingDomain</span><span class="p">(</span> <span class="nv">F</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span><span class="o">:=</span> <span class="nv">AsVectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">4</span> <span class="p">)</span><span class="o">,</span> <span class="nv">F</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">AsField</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span> <span class="o">=</span> <span class="nv">G</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LeftActingDomain</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Un espacio vectorial tiene tres atributos importantes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>su campo de definición,</p></li>
+<li><p>su dimensión y</p></li>
+<li><p>una base.</p></li>
+</ul>
+</div></blockquote>
+<p>Ya encontramos la función <code class="docutils literal notranslate"><span class="pre">LeftActingDomain</span></code> en el ejemplo anterior. Extrae el campo de definición de un espacio vectorial. La función <code class="docutils literal notranslate"><span class="pre">Dimension</span></code> proporciona la dimensión del espacio. He aquí un ejemplo más.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-dimension">
+<div class="code-block-caption"><span class="caption-text">función Dimension</span><a class="headerlink" href="#funcion-dimension" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">9</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">F</span><span class="o">,</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">3</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">V</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">2</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">W</span><span class="o">:=</span> <span class="nv">AsVectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">3</span> <span class="p">)</span><span class="o">,</span> <span class="nv">V</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">4</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span> <span class="o">=</span> <span class="nv">W</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">W</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">4</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LeftActingDomain</span><span class="p">(</span> <span class="nv">W</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">GF</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Uno de los atributos más importantes es la <strong>base</strong>. Para una base dada <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> de <span class="math notranslate nohighlight">\(V\)</span>, cada vector <span class="math notranslate nohighlight">\(v\)</span> en <span class="math notranslate nohighlight">\(V\)</span> se puede expresar de forma única como <span class="math notranslate nohighlight">\(v = \displaystyle \sum_{b\in\mathcal{B}} c_{b}b\)</span>, con coeficientes <span class="math notranslate nohighlight">\(c_{b}\in\mathbb{F}\)</span>.</p>
+<p>En <strong>GAP</strong>, las bases son listas especiales de vectores. Se utilizan principalmente para el cálculo de coeficientes y combinaciones lineales.</p>
+<p>Dado un espacio vectorial <span class="math notranslate nohighlight">\(V\)</span>, se obtiene una base de V simplemente aplicando la función <code class="docutils literal notranslate"><span class="pre">Basis</span></code> a <span class="math notranslate nohighlight">\(V\)</span>. Los vectores que forman la base se extraen de la base mediante <code class="docutils literal notranslate"><span class="pre">BasisVectors</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-basisvectors">
+<div class="code-block-caption"><span class="caption-text">función BasisVectors</span><a class="headerlink" href="#funcion-basisvectors" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span> <span class="nv">m2</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m1</span><span class="o">,</span> <span class="nv">m2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">B</span><span class="o">:=</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">V</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">SemiEchelonBasis</span><span class="p">(</span> <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;,</span> <span class="o">...</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">BasisVectors</span><span class="p">(</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">V</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Los coeficientes de un vector con respecto a una base dada se encuentran mediante la función <code class="docutils literal notranslate"><span class="pre">Coefficients</span></code>. Además, las combinaciones lineales de los vectores básicos se construyen utilizando <code class="docutils literal notranslate"><span class="pre">LinearCombination</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-linearcombination">
+<div class="code-block-caption"><span class="caption-text">función LinearCombination</span><a class="headerlink" href="#funcion-linearcombination" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">B</span><span class="o">:=</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">V</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">SemiEchelonBasis</span><span class="p">(</span> <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;,</span> <span class="o">...</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">BasisVectors</span><span class="p">(</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">V</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Coefficients</span><span class="p">(</span> <span class="nv">B</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">2</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LinearCombination</span><span class="p">(</span> <span class="nv">B</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="o">-</span><span class="nv">2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>En los ejemplos anteriores, hemos visto que <strong>GAP</strong> a menudo elige la base con la que quiere trabajar. También es posible construir bases con vectores de base prescritos dando una lista de estos vectores como segundo argumento de <code class="docutils literal notranslate"><span class="pre">Basis</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-coefficients">
+<div class="code-block-caption"><span class="caption-text">Coefficients</span><a class="headerlink" href="#funcion-coefficients" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">B</span><span class="o">:=</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">V</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">SemiEchelonBasis</span><span class="p">(</span> <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;,</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Coefficients</span><span class="p">(</span> <span class="nv">B</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Podemos construir subespacios y espacios de cociente de espacios vectoriales. El mapa de proyección natural (construido por <code class="docutils literal notranslate"><span class="pre">NaturalHomomorphismBySubspace</span></code>) conecta un espacio vectorial con su espacio cociente.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-preimagesrepresentative">
+<div class="code-block-caption"><span class="caption-text">función PreImagesRepresentative</span><a class="headerlink" href="#funcion-preimagesrepresentative" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">V</span><span class="o">:=</span> <span class="nv">Rationals</span><span class="o">^</span><span class="nv">4</span><span class="o">;</span>
+<span class="p">(</span> <span class="nv">Rationals</span><span class="o">^</span><span class="nv">4</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">W</span><span class="o">:=</span> <span class="nv">Subspace</span><span class="p">(</span> <span class="nv">V</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">9</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">7</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">VmodW</span><span class="o">:=</span> <span class="nv">V</span><span class="o">/</span><span class="nv">W</span><span class="o">;</span>
+<span class="p">(</span> <span class="nv">Rationals</span><span class="o">^</span><span class="nv">2</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">h</span><span class="o">:=</span> <span class="nv">NaturalHomomorphismBySubspace</span><span class="p">(</span> <span class="nv">V</span><span class="o">,</span> <span class="nv">W</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">linear</span> <span class="nv">mapping</span> <span class="nv">by</span> <span class="nv">matrix</span><span class="o">,</span> <span class="p">(</span> <span class="nv">Rationals</span><span class="o">^</span><span class="nv">4</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span> <span class="nv">Rationals</span><span class="o">^</span><span class="nv">2</span> <span class="p">)</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Image</span><span class="p">(</span> <span class="nv">h</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">PreImagesRepresentative</span><span class="p">(</span> <span class="nv">h</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="algebras">
+<h2><span class="section-number">5.2. </span>Álgebras<a class="headerlink" href="#algebras" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si se define una multiplicación para los elementos de un espacio vectorial, y si el espacio vectorial se cierra bajo esta multiplicación, entonces se llama <strong>Álgebra</strong>. Por ejemplo, cada campo es un álgebra:</p>
+<div class="literal-block-wrapper docutils container" id="funcion-isalgebra">
+<div class="code-block-caption"><span class="caption-text">función IsAlgebra</span><a class="headerlink" href="#funcion-isalgebra" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">f</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">8</span><span class="p">)</span><span class="o">;</span> <span class="nv">IsAlgebra</span><span class="p">(</span> <span class="nv">f</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">3</span><span class="p">)</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Una de las clases más importantes de álgebras son <span class="underline">las subálgebras de álgebras matriciales</span>. En el conjunto de todas las matrices <span class="math notranslate nohighlight">\(n \times n\)</span> sobre un campo <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>, es posible definir una multiplicación de muchas formas. Las más frecuentes son la multiplicación de matrices ordinaria y la multiplicación de Lie.</p>
+<p>Cada matriz construida como <code class="docutils literal notranslate"><span class="pre">[fila1,</span> <span class="pre">fila2,</span> <span class="pre">...]</span></code> es considerada por <strong>GAP</strong> como una matriz ordinaria, su multiplicación es la multiplicación de matriz asociativa ordinaria. La suma y el producto de dos matrices ordinarias son nuevamente matrices ordinarias.</p>
+<p>El álgebra asociativa matricial completa se puede crear de la siguiente manera:</p>
+<div class="literal-block-wrapper docutils container" id="el-algebra-asociativa-matricial-completa">
+<div class="code-block-caption"><span class="caption-text">El álgebra asociativa matricial completa</span><a class="headerlink" href="#el-algebra-asociativa-matricial-completa" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span> <span class="nv">9</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">F</span><span class="o">^</span><span class="p">[</span><span class="nv">3</span><span class="o">,</span><span class="nv">3</span><span class="p">]</span><span class="o">;</span>
+<span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">3</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Se puede construir un álgebra a partir de generadores usando la función <code class="docutils literal notranslate"><span class="pre">Algebra</span></code>. Toma como argumentos el campo de coeficientes y una lista de generadores. Por supuesto, el campo de coeficientes y los generadores deben encajar; si queremos construir un álgebra de matrices ordinarias, podemos tomar el campo generado por las entradas de las matrices generadoras, o un subcampo o campo de extensión.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-algebra">
+<div class="code-block-caption"><span class="caption-text">función Algebra</span><a class="headerlink" href="#funcion-algebra" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span> <span class="nv">m2</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">Algebra</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m1</span><span class="o">,</span> <span class="nv">m2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Una clase interesante de álgebras para la que se implementan muchos algoritmos especiales es la clase de álgebras de Lie. Surgen, por ejemplo, como álgebras de matrices cuyo producto está definido por el corchete de Lie <span class="math notranslate nohighlight">\([A, B] = A \ast B - B \ast A\)</span>, donde ∗ denota el producto matricial ordinario.</p>
+<p>Dado que la multiplicación de objetos en GAP siempre se supone que es la operación <code class="docutils literal notranslate"><span class="pre">\*</span></code> (resp. El operador infijo <code class="docutils literal notranslate"><span class="pre">*</span></code>), y dado que ya existe el producto matricial «ordinario» definido para matrices ordinarias, como se mencionó anteriormente, debemos usar un construcción de matrices que ocurren como elementos de las álgebras de Lie. <code class="docutils literal notranslate"><span class="pre">LieObject</span></code> puede construir tales matrices de Lie a partir de matrices ordinarias, la suma y el producto de las matrices de Lie son nuevamente matrices de Lie.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-lieobject">
+<div class="code-block-caption"><span class="caption-text">función LieObject</span><a class="headerlink" href="#funcion-lieobject" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">:=</span> <span class="nv">LieObject</span><span class="p">(</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">LieObject</span><span class="p">(</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">*</span><span class="nv">m</span><span class="o">;</span>
+<span class="nv">LieObject</span><span class="p">(</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsOrdinaryMatrix</span><span class="p">(</span> <span class="nv">m1</span> <span class="p">)</span><span class="o">;</span> <span class="nv">IsOrdinaryMatrix</span><span class="p">(</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLieMatrix</span><span class="p">(</span> <span class="nv">m1</span> <span class="p">)</span><span class="o">;</span> <span class="nv">IsLieMatrix</span><span class="p">(</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Dado un campo <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> y una lista de mats de objetos de Lie sobre <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>, podemos construir el álgebra de Lie generada por mats usando la función <code class="docutils literal notranslate"><span class="pre">Algebra</span></code>. Alternativamente, si no queremos molestarnos con la función <code class="docutils literal notranslate"><span class="pre">LieObject</span></code>, podemos usar la función <code class="docutils literal notranslate"><span class="pre">LieAlgebra</span></code> que toma un campo y una lista de matrices ordinarias, y construye el álgebra de Lie generada por las matrices de Lie correspondientes. Tenga en cuenta que esto significa que las matrices ordinarias utilizadas en la llamada de <code class="docutils literal notranslate"><span class="pre">LieAlgebra</span></code> no están contenidas en el álgebra de Lie devuelta.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-liealgebra">
+<div class="code-block-caption"><span class="caption-text">función LieAlgebra</span><a class="headerlink" href="#funcion-liealgebra" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m2</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">L</span><span class="o">:=</span> <span class="nv">LieAlgebra</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m1</span><span class="o">,</span> <span class="nv">m2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">Lie</span> <span class="nv">algebra</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span> <span class="ow">in</span> <span class="nv">L</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+</div>
+<p>Una segunda forma de crear un álgebra es especificando una tabla de multiplicar. Sea <span class="math notranslate nohighlight">\(A\)</span> un álgebra de dimensión finita con base <span class="math notranslate nohighlight">\(\{x_{1},\dots , x_{n}\}\)</span>, entonces para <span class="math notranslate nohighlight">\(1 \leq i\)</span>, <span class="math notranslate nohighlight">\(j \leq n\)</span> el producto <span class="math notranslate nohighlight">\(x_{i}x_{j}\)</span> es una combinación lineal de elementos básicos, es decir, hay <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span> en el campo tal que</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+    x_{i}x_{j} = \displaystyle \sum_{k=1}^{n} c_{ij}^{k}x_{k}
+\end{equation}\]</div>
+<p>No es difícil demostrar que las constantes <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span> determinan la multiplicación por completo. Por lo tanto, las <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span> se denominan constantes de estructura. En <strong>GAP</strong> podemos crear un álgebra de dimensión finita especificando una matriz de constantes de estructura.</p>
+<p>En <strong>GAP</strong>, dicha tabla de constantes de estructura se representa mediante listas. La forma obvia de hacer esto sería construir una lista «tridimensional» <code class="docutils literal notranslate"><span class="pre">T</span></code> tal que <code class="docutils literal notranslate"><span class="pre">T[i][j][k]</span></code> sea igual a <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span>. Pero sucede a menudo que muchas de estas constantes desaparecen. Por tanto, se utiliza una estructura más complicada para poder omitir los ceros. Una tabla de multiplicar de un álgebra <span class="math notranslate nohighlight">\(n\)</span>-dimensional es una matriz <code class="docutils literal notranslate"><span class="pre">T</span></code> de <span class="math notranslate nohighlight">\(n\times n\)</span> tal que <code class="docutils literal notranslate"><span class="pre">T[i][j]</span></code> describe el producto del <span class="math notranslate nohighlight">\(i\)</span>-ésimo y el <span class="math notranslate nohighlight">\(j\)</span>-ésimo elemento base. Este producto está codificado de la siguiente manera. La entrada <code class="docutils literal notranslate"><span class="pre">T[i][j]</span></code> es una lista de dos elementos.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>El primero de ellos es una lista de índices <span class="math notranslate nohighlight">\(k\)</span> tal que <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span> es distinto de cero.</p></li>
+<li><p>La segunda lista contiene las constantes correspondientes <span class="math notranslate nohighlight">\(c_{ij}^{k}\)</span>. Supongamos, por ejemplo, que <code class="docutils literal notranslate"><span class="pre">S</span></code> es la tabla de un álgebra con base <span class="math notranslate nohighlight">\(\{x_{1},\dots, x_{8}\}\)</span> y que <code class="docutils literal notranslate"><span class="pre">S[3][7]</span></code> es igual a <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">[2,</span> <span class="pre">4,</span> <span class="pre">6],</span> <span class="pre">[1/2,</span> <span class="pre">2,</span> <span class="pre">2/3]</span> <span class="pre">]</span></code>. Entonces en el álgebra tenemos la relación</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+    x_{3}x_{7} = (1/2)x_{2} + 2x_{4} + (2/3)x_{6}
+\end{equation}\]</div>
+<p>Además, si <code class="docutils literal notranslate"><span class="pre">S[6][1]</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">[</span> <span class="pre">],</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">]</span></code> entonces el producto del sexto y primer elemento básico es cero.</p>
+<p>Finalmente se agregan dos números a la tabla. El primer número puede ser <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(-1\)</span> o <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Si es <span class="math notranslate nohighlight">\(1\)</span>, se sabe que la tabla es simétrica, es decir, <span class="math notranslate nohighlight">\(c_{ij}^{k} = c_{ji}^{k}\)</span>.</p></li>
+<li><p>Si este número es <span class="math notranslate nohighlight">\(-1\)</span>, entonces se sabe que la tabla es antisimétrica (esto sucede, por ejemplo, cuando el álgebra es un álgebra de Lie).</p></li>
+<li><p>El caso restante, <span class="math notranslate nohighlight">\(0\)</span>, ocurre en todos los demás casos. El segundo número que se suma es el elemento cero del campo sobre el que se define el álgebra.</p></li>
+</ul>
+</div></blockquote>
+<p>Las tablas de constantes de estructura vacías son creadas por la función <code class="docutils literal notranslate"><span class="pre">EmptySCTable</span></code>, que toma una dimensión <span class="math notranslate nohighlight">\(d\)</span>, un elemento cero <span class="math notranslate nohighlight">\(z\)</span> y, opcionalmente, una de las cadenas «simétrica», «antisimétrica», y devuelve una tabla de constantes de estructura vacía <code class="docutils literal notranslate"><span class="pre">T</span></code> correspondiente a una <span class="math notranslate nohighlight">\(d\)</span>-dimensional álgebra sobre un campo con elemento cero <span class="math notranslate nohighlight">\(z\)</span>. Las constantes de estructura se pueden ingresar en la tabla <code class="docutils literal notranslate"><span class="pre">T</span></code> usando la función <code class="docutils literal notranslate"><span class="pre">SetEntrySCTable</span></code>. Toma cuatro argumentos, a saber, <code class="docutils literal notranslate"><span class="pre">T</span></code>, dos índices <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>, y una lista de la forma <span class="math notranslate nohighlight">\([c_{ij}^{k_{1}}, k_{1}, c_{ij}^{k_{2}}, k_{2},\dots]\)</span>. En esta llamada a <code class="docutils literal notranslate"><span class="pre">SetEntrySCTable</span></code>, el producto del vector base <span class="math notranslate nohighlight">\(i\)</span>-ésimo y <span class="math notranslate nohighlight">\(j\)</span>-ésimo en cualquier álgebra descrita por <code class="docutils literal notranslate"><span class="pre">T</span></code> se establece en <span class="math notranslate nohighlight">\(\displaystyle\sum_{l}c_{ij}^{k_{l}} x_{k_{l}}\)</span>. (Nótese que en la tabla vacía, este producto era cero). Si <code class="docutils literal notranslate"><span class="pre">T</span></code> sabe que es (anti) simétrico, entonces al mismo tiempo también el producto del <span class="math notranslate nohighlight">\(j\)</span>-ésimo y el <span class="math notranslate nohighlight">\(i\)</span>-ésimo vector base se establece apropiadamente.</p>
+<p>En el siguiente ejemplo, aumentamos temporalmente el límite de longitud de línea de su valor predeterminado <span class="math notranslate nohighlight">\(80\)</span> a <span class="math notranslate nohighlight">\(82\)</span> para que la expresión de salida larga se ajuste a una línea.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-emptysctable">
+<div class="code-block-caption"><span class="caption-text">función EmptySCTable</span><a class="headerlink" href="#funcion-emptysctable" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SizeScreen</span><span class="p">([</span> <span class="nv">82</span><span class="o">,</span> <span class="p">])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">T</span><span class="o">:=</span> <span class="nv">EmptySCTable</span><span class="p">(</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="s">&quot;symmetric&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetEntrySCTable</span><span class="p">(</span> <span class="nv">T</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="p">[</span><span class="nv">1</span><span class="o">/</span><span class="nv">2</span><span class="o">,</span><span class="nv">1</span><span class="o">,</span><span class="nv">1</span><span class="o">/</span><span class="nv">3</span><span class="o">,</span><span class="nv">2</span><span class="p">]</span> <span class="p">)</span><span class="o">;</span> <span class="nv">T</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">/</span><span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">/</span><span class="nv">3</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+<span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">/</span><span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">/</span><span class="nv">3</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SizeScreen</span><span class="p">([</span> <span class="nv">80</span><span class="o">,</span> <span class="p">])</span><span class="o">;;</span>
+</pre></div>
+</div>
+</div>
+<p>Si hemos definido una tabla de constantes de estructura, entonces podemos construir el álgebra correspondiente mediante <code class="docutils literal notranslate"><span class="pre">AlgebraByStructureConstants</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-algebrabystructureconstant">
+<div class="code-block-caption"><span class="caption-text">función AlgebraByStructureConstant</span><a class="headerlink" href="#funcion-algebrabystructureconstant" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">AlgebraByStructureConstants</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">T</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">2</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Si sabemos que una tabla de constantes de estructura define un álgebra de Lie, entonces podemos construir el álgebra de Lie correspondiente mediante <code class="docutils literal notranslate"><span class="pre">LieAlgebraByStructureConstants</span></code>; el álgebra devuelta por esta función sabe que es un álgebra de Lie, por lo que <strong>GAP</strong> no necesita verificar la identidad de Jacobi.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-liealgebrabystructureconstants">
+<div class="code-block-caption"><span class="caption-text">función LieAlgebraByStructureConstants</span><a class="headerlink" href="#funcion-liealgebrabystructureconstants" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">T</span><span class="o">:=</span> <span class="nv">EmptySCTable</span><span class="p">(</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="s">&quot;antisymmetric&quot;</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetEntrySCTable</span><span class="p">(</span> <span class="nv">T</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="p">[</span><span class="nv">2</span><span class="o">/</span><span class="nv">3</span><span class="o">,</span><span class="nv">1</span><span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">L</span><span class="o">:=</span> <span class="nv">LieAlgebraByStructureConstants</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">T</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">Lie</span> <span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">2</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>En <strong>GAP</strong>, un álgebra es naturalmente un espacio vectorial. Por lo tanto, <span class="underline">toda la funcionalidad para espacios vectoriales también está disponible para álgebras</span>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-dimension-leftactingdomain-basis">
+<div class="code-block-caption"><span class="caption-text">función Dimension, LeftActingDomain, Basis para Álgebras</span><a class="headerlink" href="#funcion-dimension-leftactingdomain-basis" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">F</span><span class="o">:=</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">z</span><span class="o">:=</span> <span class="nv">Zero</span><span class="p">(</span> <span class="nv">F</span> <span class="p">)</span><span class="o">;;</span> <span class="nv">o</span><span class="o">:=</span> <span class="nv">One</span><span class="p">(</span> <span class="nv">F</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">T</span><span class="o">:=</span> <span class="nv">EmptySCTable</span><span class="p">(</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="s">&quot;antisymmetric&quot;</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetEntrySCTable</span><span class="p">(</span> <span class="nv">T</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="p">[</span> <span class="nv">o</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">o</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetEntrySCTable</span><span class="p">(</span> <span class="nv">T</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="p">[</span> <span class="nv">o</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetEntrySCTable</span><span class="p">(</span> <span class="nv">T</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="p">[</span> <span class="nv">o</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">AlgebraByStructureConstants</span><span class="p">(</span> <span class="nv">F</span><span class="o">,</span> <span class="nv">T</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">A</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">3</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LeftActingDomain</span><span class="p">(</span> <span class="nv">A</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Basis</span><span class="p">(</span> <span class="nv">A</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">CanonicalBasis</span><span class="p">(</span> <span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Las subálgebras y los ideales de un álgebra se pueden construir especificando un conjunto de generadores para la subálgebra o ideal. El espacio del cociente de un álgebra por un ideal es naturalmente un álgebra en sí.</p>
+<p><strong>Observación</strong>: En el siguiente ejemplo, aumentamos temporalmente el límite de longitud de línea de su valor predeterminado <span class="math notranslate nohighlight">\(80\)</span> a <span class="math notranslate nohighlight">\(81\)</span> para que la expresión de salida larga se ajuste a una línea.</p>
+<div class="literal-block-wrapper docutils container" id="subalgebras-e-ideales">
+<div class="code-block-caption"><span class="caption-text">subálgebras e ideales</span><a class="headerlink" href="#subalgebras-e-ideales" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">Algebra</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m</span> <span class="p">]</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">subA</span><span class="o">:=</span> <span class="nv">Subalgebra</span><span class="p">(</span> <span class="nv">A</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m</span><span class="o">-</span><span class="nv">m</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">1</span> <span class="nv">generators</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">subA</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">2</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SizeScreen</span><span class="p">([</span> <span class="nv">81</span><span class="o">,</span> <span class="p">])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">idA</span><span class="o">:=</span> <span class="nv">Ideal</span><span class="p">(</span> <span class="nv">A</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m</span><span class="o">-</span><span class="nv">m</span><span class="o">^</span><span class="nv">3</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">two</span><span class="o">-</span><span class="nv">sided</span> <span class="nv">ideal</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;,</span> <span class="p">(</span><span class="nv">1</span> <span class="nv">generators</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SizeScreen</span><span class="p">([</span> <span class="nv">80</span><span class="o">,</span> <span class="p">])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">idA</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">2</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">B</span><span class="o">:=</span> <span class="nv">A</span><span class="o">/</span><span class="nv">idA</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">1</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La llamada <code class="docutils literal notranslate"><span class="pre">B:=</span> <span class="pre">A/idA;</span></code> crea un nuevo álgebra que no «sabe» acerca de su conexión con <span class="math notranslate nohighlight">\(A\)</span>. Si queremos conectar un álgebra con su factor a través de un homomorfismo, primero tenemos que crear el homomorfismo (<code class="docutils literal notranslate"><span class="pre">NaturalHomomorphismByIdeal</span></code>). Después de esto creamos el álgebra de factores a partir del homomorfismo mediante la función <code class="docutils literal notranslate"><span class="pre">ImagesSource</span></code>. En el siguiente ejemplo dividimos un álgebra <span class="math notranslate nohighlight">\(A\)</span> por su radical y elevamos los idempotentes centrales del factor al álgebra original <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-naturalhomomorphismbyideal">
+<div class="code-block-caption"><span class="caption-text">función NaturalHomomorphismByIdeal</span><a class="headerlink" href="#funcion-naturalhomomorphismbyideal" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m1</span><span class="o">:=</span><span class="p">[[</span><span class="nv">1</span><span class="o">,</span><span class="nv">0</span><span class="o">,</span><span class="nv">0</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="nv">0</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">0</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="nv">0</span><span class="o">,</span><span class="nv">0</span><span class="o">,</span><span class="nv">3</span><span class="p">]]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m2</span><span class="o">:=</span><span class="p">[[</span><span class="nv">0</span><span class="o">,</span><span class="nv">1</span><span class="o">,</span><span class="nv">0</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="nv">0</span><span class="o">,</span><span class="nv">0</span><span class="o">,</span><span class="nv">2</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="nv">0</span><span class="o">,</span><span class="nv">0</span><span class="o">,</span><span class="nv">0</span><span class="p">]]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span><span class="o">:=</span> <span class="nv">Algebra</span><span class="p">(</span> <span class="nv">Rationals</span><span class="o">,</span> <span class="p">[</span> <span class="nv">m1</span><span class="o">,</span> <span class="nv">m2</span> <span class="p">]</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Dimension</span><span class="p">(</span> <span class="nv">A</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">6</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">R</span><span class="o">:=</span> <span class="nv">RadicalOfAlgebra</span><span class="p">(</span> <span class="nv">A</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">h</span><span class="o">:=</span> <span class="nv">NaturalHomomorphismByIdeal</span><span class="p">(</span> <span class="nv">A</span><span class="o">,</span> <span class="nv">R</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">linear</span> <span class="nv">mapping</span> <span class="nv">by</span> <span class="nv">matrix</span><span class="o">,</span> <span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span>
+<span class="nv">6</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AmodR</span><span class="o">:=</span> <span class="nv">ImagesSource</span><span class="p">(</span> <span class="nv">h</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">3</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">id</span><span class="o">:=</span> <span class="nv">CentralIdempotentsOfAlgebra</span><span class="p">(</span> <span class="nv">AmodR</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">v</span><span class="o">.</span><span class="nv">3</span><span class="o">,</span> <span class="nv">v</span><span class="o">.</span><span class="nv">2</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nv">3</span><span class="p">)</span><span class="o">*</span><span class="nv">v</span><span class="o">.</span><span class="nv">3</span><span class="o">,</span> <span class="nv">v</span><span class="o">.</span><span class="nv">1</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nv">2</span><span class="p">)</span><span class="o">*</span><span class="nv">v</span><span class="o">.</span><span class="nv">2</span><span class="o">+</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">*</span><span class="nv">v</span><span class="o">.</span><span class="nv">3</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">PreImagesRepresentative</span><span class="p">(</span> <span class="nv">h</span><span class="o">,</span> <span class="nv">id</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">PreImagesRepresentative</span><span class="p">(</span> <span class="nv">h</span><span class="o">,</span> <span class="nv">id</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">PreImagesRepresentative</span><span class="p">(</span> <span class="nv">h</span><span class="o">,</span> <span class="nv">id</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Las tablas de constantes de estructura para las álgebras de Lie simples están presentes en <strong>GAP</strong>. Se pueden construir usando la función <code class="docutils literal notranslate"><span class="pre">SimpleLieAlgebra</span></code>. Las álgebras de Lie construidas por esta función vienen con un sistema de raíces adjunto.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-simpleliealgebra">
+<div class="code-block-caption"><span class="caption-text">función SimpleLieAlgebra</span><a class="headerlink" href="#funcion-simpleliealgebra" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">L</span><span class="o">:=</span> <span class="nv">SimpleLieAlgebra</span><span class="p">(</span> <span class="s">&quot;G&quot;</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">Rationals</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">Lie</span> <span class="nv">algebra</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">14</span> <span class="nv">over</span> <span class="nv">Rationals</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">R</span><span class="o">:=</span> <span class="nv">RootSystem</span><span class="p">(</span> <span class="nv">L</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">root</span> <span class="nv">system</span> <span class="nv">of</span> <span class="nv">rank</span> <span class="nv">2</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">PositiveRoots</span><span class="p">(</span> <span class="nv">R</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="o">-</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">CartanMatrix</span><span class="p">(</span> <span class="nv">R</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="o">-</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Otro ejemplo de álgebras lo proporcionan las <strong>álgebras de cuaterniones</strong>. Definimos un álgebra de cuaternión sobre un campo de extensión de los racionales, es decir, el campo generado por <span class="math notranslate nohighlight">\(\sqrt{5}\)</span>. (El número <code class="docutils literal notranslate"><span class="pre">EB(</span> <span class="pre">5</span> <span class="pre">)</span></code> es igual a <span class="math notranslate nohighlight">\(1/2 (−1 + \sqrt{5})\)</span>. El campo se imprime como <code class="docutils literal notranslate"><span class="pre">NF(</span> <span class="pre">5,</span> <span class="pre">[1,</span> <span class="pre">4]</span> <span class="pre">)</span></code>.)</p>
+<div class="literal-block-wrapper docutils container" id="funcion-quaternionalgebra">
+<div class="code-block-caption"><span class="caption-text">función QuaternionAlgebra</span><a class="headerlink" href="#funcion-quaternionalgebra" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">b5</span><span class="o">:=</span> <span class="nv">EB</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">E</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">+</span><span class="nv">E</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">^</span><span class="nv">4</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">q</span><span class="o">:=</span> <span class="nv">QuaternionAlgebra</span><span class="p">(</span> <span class="nv">FieldByGenerators</span><span class="p">(</span> <span class="p">[</span> <span class="nv">b5</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="nv">algebra</span><span class="o">-</span><span class="nv">with</span><span class="o">-</span><span class="nv">one</span> <span class="nv">of</span> <span class="nv">dimension</span> <span class="nv">4</span> <span class="nv">over</span> <span class="nv">NF</span><span class="p">(</span><span class="nv">5</span><span class="o">,</span><span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span> <span class="p">])</span><span class="o">&gt;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">gens</span><span class="o">:=</span> <span class="nv">GeneratorsOfAlgebra</span><span class="p">(</span> <span class="nv">q</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">e</span><span class="o">,</span> <span class="nv">i</span><span class="o">,</span> <span class="nv">j</span><span class="o">,</span> <span class="nv">k</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">e</span><span class="o">:=</span> <span class="nv">gens</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;;</span> <span class="nv">i</span><span class="o">:=</span> <span class="nv">gens</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;;</span> <span class="nv">j</span><span class="o">:=</span> <span class="nv">gens</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">;;</span> <span class="nv">k</span><span class="o">:=</span> <span class="nv">gens</span><span class="p">[</span><span class="nv">4</span><span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsAssociative</span><span class="p">(</span> <span class="nv">q</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsCommutative</span><span class="p">(</span> <span class="nv">q</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">i</span><span class="o">*</span><span class="nv">j</span><span class="o">;</span> <span class="nv">j</span><span class="o">*</span><span class="nv">i</span><span class="o">;</span>
+<span class="nv">k</span>
+<span class="p">(</span><span class="o">-</span><span class="nv">1</span><span class="p">)</span><span class="o">*</span><span class="nv">k</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">One</span><span class="p">(</span> <span class="nv">q</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">e</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="04-grupos-y-homomorfismos.html" class="btn btn-neutral float-left" title="4. Grupos y Homomorfismos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

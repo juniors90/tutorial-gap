@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Funciones &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="4. Grupos y Homomorfismos" href="04-grupos-y-homomorfismos.html" />
+    <link rel="prev" title="2. Listas y Registros" href="02-listas-y-registros.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-primeros-pasos-en-gap.html">1. Inicializando y cerrando GAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-listas-y-registros.html">2. Listas y Registros</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Funciones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#escribiendo-funciones">3.1. Escribiendo Funciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sintaxis-de-una-funcion-en-gap">3.1.1. Sintaxis de una Función en GAP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#condicional-if">3.2. Condicional If</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-locales">3.3. Variables Locales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recursion">3.4. Recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-grupos-y-homomorfismos.html">4. Grupos y Homomorfismos</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Funciones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/03-funciones.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="funciones">
+<h1><span class="section-number">3. </span>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Ya ha visto cómo usar funciones en la librería <strong>GAP</strong>, es decir, cómo aplicarlas a argumentos.</p>
+<p>En esta sección verá cómo escribir funciones en el lenguaje <strong>GAP</strong>. También verá cómo usar la instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> y declarar variables locales con la instrucción local en la definición de la función. Las construcciones de bucle a través de <code class="docutils literal notranslate"><span class="pre">while</span></code> y <code class="docutils literal notranslate"><span class="pre">for</span></code> se analizan con más detalle, al igual que las funciones recursivas.</p>
+<div class="section" id="escribiendo-funciones">
+<h2><span class="section-number">3.1. </span>Escribiendo Funciones<a class="headerlink" href="#escribiendo-funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Escribiendo una función que imprima <em>hola, mundo</em>. en la pantalla es un ejercicio simple en <strong>GAP</strong>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-sayhello">
+<div class="code-block-caption"><span class="caption-text">Escribiendo una función</span><a class="headerlink" href="#funcion-sayhello" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sayhello</span><span class="o">:=</span> <span class="k">function</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;hello, world.\n&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="k">end</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<p>Esta función, cuando se llama, solo ejecutará la instrucción <code class="docutils literal notranslate"><span class="pre">Print</span></code> en la segunda línea. Esto imprimirá la cadena hola, mundo. en la pantalla seguido de un carácter de nueva línea <code class="docutils literal notranslate"><span class="pre">\n</span></code> que hace que el mensaje <strong>GAP</strong> aparezca en la siguiente línea en lugar de seguir inmediatamente a los caracteres impresos.</p>
+<div class="section" id="sintaxis-de-una-funcion-en-gap">
+<h3><span class="section-number">3.1.1. </span>Sintaxis de una Función en GAP<a class="headerlink" href="#sintaxis-de-una-funcion-en-gap" title="Enlazar permanentemente con este título">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>La definición de función tiene la siguiente sintaxis.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="sintaxis-de-una-funcion">
+<div class="code-block-caption"><span class="caption-text">Sintaxis de una función</span><a class="headerlink" href="#sintaxis-de-una-funcion" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="p">(</span> <span class="nv">arguments</span> <span class="p">)</span> <span class="nv">statements</span> <span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<p>La definición de una función comienza con la palabra reservada <code class="docutils literal notranslate"><span class="pre">function</span></code> seguida de los argumentos de la lista de parámetros formales entre paréntesis «<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>». La lista de parámetros formales puede estar vacía como en el ejemplo. Varios parámetros están separados por comas. Tenga en cuenta que no debe haber un punto y coma detrás del paréntesis de cierre. La definición de la función termina con la palabra reservada <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
+<p>Una función <strong>GAP</strong> es una expresión como un número entero, una suma o una lista. Por tanto, puede asignarse a una variable.</p>
+<p>El punto y coma de terminación en el ejemplo no pertenece a la definición de función, pero termina la asignación de la función al nombre <code class="docutils literal notranslate"><span class="pre">sayhello</span></code>. A diferencia del caso de los números enteros, sumas y listas, el valor de la función <code class="docutils literal notranslate"><span class="pre">sayhello</span></code> se repite en la función abreviada <code class="docutils literal notranslate"><span class="pre">fashion</span> <span class="pre">(</span> <span class="pre">)</span> <span class="pre">...</span> <span class="pre">end</span></code>. Esto muestra la parte más interesante de una función: su lista de parámetros formales (que está vacía en este ejemplo). El valor completo de <code class="docutils literal notranslate"><span class="pre">sayhello</span></code> se devuelve si usa la función <code class="docutils literal notranslate"><span class="pre">Print</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-print-sayhello">
+<div class="code-block-caption"><span class="caption-text">Escribiendo una función personalizada</span><a class="headerlink" href="#funcion-print-sayhello" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Print</span><span class="p">(</span><span class="nv">sayhello</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="k">function</span> <span class="p">(</span> <span class="p">)</span>
+    <span class="nv">Print</span><span class="p">(</span> <span class="s">&quot;hello, world.\n&quot;</span> <span class="p">)</span><span class="o">;</span>
+    <span class="k">return</span><span class="o">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<p>Tenga en cuenta el carácter de nueva línea adicional «<code class="docutils literal notranslate"><span class="pre">\n</span></code>» en la declaración de impresión. Se imprime después del objeto <code class="docutils literal notranslate"><span class="pre">sayhello</span></code> para comenzar una nueva línea. <strong>GAP</strong> inserta la declaración de retorno adicional para simplificar el proceso de ejecución de la función.</p>
+<p>La función recién definida <code class="docutils literal notranslate"><span class="pre">sayhello</span></code> se ejecuta llamando a <code class="docutils literal notranslate"><span class="pre">sayhello()</span></code> con una lista de argumentos vacía.</p>
+<div class="literal-block-wrapper docutils container" id="llamando-a-sayhello">
+<div class="code-block-caption"><span class="caption-text">Llamando una función sayhello</span><a class="headerlink" href="#llamando-a-sayhello" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sayhello</span><span class="p">()</span><span class="o">;</span>
+<span class="nv">hello</span><span class="o">,</span> <span class="nv">world</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<p>Sin embargo, este no es un ejemplo típico, ya que no se devuelve ningún valor, sino que solo se imprime una cadena.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="condicional-if">
+<h2><span class="section-number">3.2. </span>Condicional If<a class="headerlink" href="#condicional-if" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En el siguiente ejemplo definimos un signo de función que determina el signo de un número.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-de-uso-del-condicional-if">
+<div class="code-block-caption"><span class="caption-text">ejemplo de uso del condicional if</span><a class="headerlink" href="#ejemplo-de-uso-del-condicional-if" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sign</span><span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+<span class="o">&gt;</span>        <span class="k">if</span> <span class="nv">n</span> <span class="o">&lt;</span> <span class="nv">0</span> <span class="k">then</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="o">-</span><span class="nv">1</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">elif</span> <span class="nv">n</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="nv">0</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">else</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="nv">1</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">fi</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">end</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="nv">n</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">sign</span><span class="p">(</span><span class="nv">0</span><span class="p">)</span><span class="o">;</span> <span class="nv">sign</span><span class="p">(</span><span class="o">-</span><span class="nv">99</span><span class="p">)</span><span class="o">;</span> <span class="nv">sign</span><span class="p">(</span><span class="nv">11</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">0</span>
+<span class="o">-</span><span class="nv">1</span>
+<span class="nv">1</span>
+</pre></div>
+</div>
+</div>
+<p>Este ejemplo también presenta la instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> que se usa para ejecutar declaraciones dependiendo de una condición.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>La instrucción if tiene la siguiente sintaxis.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="sintaxis-condicional-if">
+<div class="code-block-caption"><span class="caption-text">sintaxis del condicional if</span><a class="headerlink" href="#sintaxis-condicional-if" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nv">condition</span> <span class="k">then</span> <span class="nv">statements</span> <span class="k">elif</span> <span class="nv">condition</span> <span class="k">then</span> <span class="nv">statements</span> <span class="k">else</span> <span class="nv">statements</span> <span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+<p>Puede haber varias partes <code class="docutils literal notranslate"><span class="pre">elif</span></code>. La parte <code class="docutils literal notranslate"><span class="pre">elif</span></code> así como la parte <code class="docutils literal notranslate"><span class="pre">else</span></code> de la instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> pueden omitirse. Una instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> no es una expresión y, por lo tanto, no se puede asignar a una variable. Además, una instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> no devuelve un valor.</p>
+<p>Los números de Fibonacci se definen recursivamente por <span class="math notranslate nohighlight">\(f (1) = f (2) = 1\)</span> y <span class="math notranslate nohighlight">\(f (n) = f (n −1) + f (n −2)\)</span> para <span class="math notranslate nohighlight">\(n \geq 3\)</span>. Dado que las funciones en <strong>GAP</strong> pueden llamarse a sí mismas, a la función <code class="docutils literal notranslate"><span class="pre">fib</span></code> que calcula los números de <em>Fibonacci</em> se puede implementar básicamente escribiendo las ecuaciones anteriores. (Sin embargo, tenga en cuenta que esta es una forma muy ineficiente de calcular <span class="math notranslate nohighlight">\(f(n)\)</span>.</p>
+<div class="literal-block-wrapper docutils container" id="sintaxis-fibonacci">
+<div class="code-block-caption"><span class="caption-text">función (recursiva) Fibonacci</span><a class="headerlink" href="#sintaxis-fibonacci" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fib</span><span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+<span class="o">&gt;</span>        <span class="k">if</span> <span class="nv">n</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span> <span class="k">then</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="nv">1</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">else</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="nv">fib</span><span class="p">(</span><span class="nv">n</span><span class="o">-</span><span class="nv">1</span><span class="p">)</span> <span class="o">+</span> <span class="nv">fib</span><span class="p">(</span><span class="nv">n</span><span class="o">-</span><span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">fi</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">end</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="nv">n</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">fib</span><span class="p">(</span><span class="nv">15</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">610</span>
+</pre></div>
+</div>
+</div>
+<p>Debería haber pruebas adicionales para que el argumento <code class="docutils literal notranslate"><span class="pre">n</span></code> sea un número entero positivo. Esta función <code class="docutils literal notranslate"><span class="pre">fib</span></code> puede dar lugar a resultados extraños si se llama con otros argumentos. Intente insertar las pruebas necesarias en este ejemplo.</p>
+</div></blockquote>
+</div>
+<div class="section" id="variables-locales">
+<h2><span class="section-number">3.3. </span>Variables Locales<a class="headerlink" href="#variables-locales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una función <code class="docutils literal notranslate"><span class="pre">gcd</span></code> que calcula el <em>máximo común divisor</em> de dos enteros mediante el <strong>algoritmo de Euclides</strong> necesitará una variable además de los argumentos formales.</p>
+<div class="literal-block-wrapper docutils container" id="sintaxis-maximo-comun-divisor">
+<div class="code-block-caption"><span class="caption-text">función máximo común divisor</span><a class="headerlink" href="#sintaxis-maximo-comun-divisor" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">gcd</span><span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="p">)</span>
+<span class="o">&gt;</span>       <span class="k">local</span> <span class="nv">c</span><span class="o">;</span>
+<span class="o">&gt;</span>       <span class="k">while</span> <span class="nv">b</span> <span class="o">&lt;&gt;</span> <span class="nv">0</span> <span class="k">do</span>
+<span class="o">&gt;</span>           <span class="nv">c</span><span class="o">:=</span> <span class="nv">b</span><span class="o">;</span>
+<span class="o">&gt;</span>           <span class="nv">b</span><span class="o">:=</span> <span class="nv">a</span> <span class="ow">mod</span> <span class="nv">b</span><span class="o">;</span>
+<span class="o">&gt;</span>           <span class="nv">a</span><span class="o">:=</span> <span class="nv">c</span><span class="o">;</span>
+<span class="o">&gt;</span>       <span class="k">od</span><span class="o">;</span>
+<span class="o">&gt;</span>       <span class="k">return</span> <span class="nv">c</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">end</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">gcd</span><span class="p">(</span><span class="nv">30</span><span class="o">,</span> <span class="nv">63</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">3</span>
+</pre></div>
+</div>
+</div>
+<p>La variable adicional <code class="docutils literal notranslate"><span class="pre">c</span></code> se declara como <strong>variable local</strong> en la declaración <code class="docutils literal notranslate"><span class="pre">local</span></code> de la definición de función. La declaración <code class="docutils literal notranslate"><span class="pre">local</span></code>, si está presente, debe ser la primera declaración de una definición de función. Cuando se declaran varias variables locales en una sola declaración local, se separan por comas.</p>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">c</span></code> es de hecho una variable local, que es local a la función <code class="docutils literal notranslate"><span class="pre">gcd</span></code>. Si intenta usar el valor de <code class="docutils literal notranslate"><span class="pre">c</span></code> en el ciclo principal, verá que <code class="docutils literal notranslate"><span class="pre">c</span></code> no tiene un valor asignado a menos que ya haya asignado un valor a la variable <code class="docutils literal notranslate"><span class="pre">c</span></code> en el ciclo principal. En este caso, la naturaleza local de <code class="docutils literal notranslate"><span class="pre">c</span></code> en la función <code class="docutils literal notranslate"><span class="pre">gcd</span></code> evita que se sobrescriba el valor de <code class="docutils literal notranslate"><span class="pre">c</span></code> en el bucle principal.</p>
+<div class="literal-block-wrapper docutils container" id="la-naturaleza-local">
+<div class="code-block-caption"><span class="caption-text">la naturaleza local de una variable</span><a class="headerlink" href="#la-naturaleza-local" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">c</span><span class="o">:=</span> <span class="nv">7</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">gcd</span><span class="p">(</span><span class="nv">30</span><span class="o">,</span> <span class="nv">63</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">3</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">c</span><span class="o">;</span>
+<span class="nv">7</span>
+</pre></div>
+</div>
+</div>
+<p>Decimos que en un ámbito dado un identificador identifica una variable única. Un <strong>alcance</strong> es una parte léxica de un texto de programa. Existe el ámbito global que incluye todo el texto del programa, y ​​hay ámbitos locales que van desde la palabra reservada <code class="docutils literal notranslate"><span class="pre">function</span></code>, que denota el comienzo de una definición de función, hasta la palabra clave final correspondiente. Un ámbito local introduce nuevas variables, cuyos identificadores se dan en la lista de argumentos formales y la declaración local de la función. El uso de un identificador en un texto de programa se refiere a la variable en el ámbito más interno que tiene este identificador como su nombre.</p>
+</div>
+<div class="section" id="recursion">
+<h2><span class="section-number">3.4. </span>Recursion<a class="headerlink" href="#recursion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ya hemos visto la recursividad en la función <code class="docutils literal notranslate"><span class="pre">fib</span></code> en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">4.2</span></code>. Aquí hay otro ejemplo un poco más complicado.</p>
+<p>Ahora escribiremos una función para determinar el número de particiones de un entero positivo. Una partición de un entero positivo es una lista descendente de números cuya suma es el entero dado. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> es una partición de <span class="math notranslate nohighlight">\(8\)</span>. Tenga en cuenta que solo hay una partición de <span class="math notranslate nohighlight">\(8\)</span>, es igual a la lista vacía <code class="docutils literal notranslate"><span class="pre">[]</span></code>. El conjunto completo de todas las particiones de un número entero <span class="math notranslate nohighlight">\(n\)</span> puede dividirse en subconjuntos con respecto al elemento más grande. Por lo tanto, el número de particiones de <span class="math notranslate nohighlight">\(n\)</span> es igual a la suma de los números de particiones de <span class="math notranslate nohighlight">\(n-i\)</span> con elementos menores o iguales que <span class="math notranslate nohighlight">\(i\)</span> para todos los <span class="math notranslate nohighlight">\(i\)</span> posibles. Más generalmente, el número de particiones de <span class="math notranslate nohighlight">\(n\)</span> con elementos menores que m es la suma de los números de particiones de <span class="math notranslate nohighlight">\(n-i\)</span> con elementos menores que <span class="math notranslate nohighlight">\(i\)</span> para <span class="math notranslate nohighlight">\(i\)</span> menores que <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span>. Esta descripción produce la siguiente función.</p>
+<div class="literal-block-wrapper docutils container" id="sintaxis-nrparts">
+<div class="code-block-caption"><span class="caption-text">función (recursiva) nrparts</span><a class="headerlink" href="#sintaxis-nrparts" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">nrparts</span><span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+<span class="o">&gt;</span>    <span class="k">local</span> <span class="nv">np</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="nv">np</span><span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="nv">m</span><span class="p">)</span>
+<span class="o">&gt;</span>        <span class="k">local</span> <span class="nv">i</span><span class="o">,</span> <span class="nv">res</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">if</span> <span class="nv">n</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span>
+<span class="o">&gt;</span>            <span class="k">return</span> <span class="nv">1</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">fi</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="nv">res</span><span class="o">:=</span> <span class="nv">0</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span><span class="o">..</span><span class="nv">Minimum</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span><span class="nv">m</span><span class="p">)]</span> <span class="k">do</span>
+<span class="o">&gt;</span>            <span class="nv">res</span><span class="o">:=</span> <span class="nv">res</span> <span class="o">+</span> <span class="nv">np</span><span class="p">(</span><span class="nv">n</span><span class="o">-</span><span class="nv">i</span><span class="o">,</span> <span class="nv">i</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">od</span><span class="o">;</span>
+<span class="o">&gt;</span>        <span class="k">return</span> <span class="nv">res</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">end</span><span class="o">;</span>
+<span class="o">&gt;</span>    <span class="k">return</span> <span class="nv">np</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span><span class="nv">n</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="k">end</span><span class="o">;</span>
+<span class="k">function</span><span class="p">(</span> <span class="nv">n</span> <span class="p">)</span> <span class="o">...</span> <span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<p>Queríamos escribir una función que tenga un argumento. Resolvimos el problema de determinar el número de particiones en términos de un procedimiento recursivo con dos argumentos. Entonces tuvimos que escribir dos funciones. La función <code class="docutils literal notranslate"><span class="pre">nrparts</span></code> que se puede usar para calcular el número de particiones, de hecho, solo toma un argumento. La función <code class="docutils literal notranslate"><span class="pre">np</span></code> toma dos argumentos y resuelve el problema de la forma indicada. La única tarea de la función <code class="docutils literal notranslate"><span class="pre">nrparts</span></code> es llamar a <code class="docutils literal notranslate"><span class="pre">np</span></code> con dos argumentos iguales.</p>
+<p>Hicimos <code class="docutils literal notranslate"><span class="pre">np</span></code> local para <code class="docutils literal notranslate"><span class="pre">nrparts</span></code>. Esto ilustra la posibilidad de tener funciones locales en <strong>GAP</strong>. Sin embargo, no es necesario ponerlo allí. <code class="docutils literal notranslate"><span class="pre">np</span></code> también podría definirse en el nivel principal, pero entonces el identificador <code class="docutils literal notranslate"><span class="pre">np</span></code> estaría vinculado y no podría usarse para otros propósitos, y si se usara, la función esencial <code class="docutils literal notranslate"><span class="pre">np</span></code> ya no estaría disponible para nrparts.</p>
+<p>Ahora eche un vistazo a la función <code class="docutils literal notranslate"><span class="pre">np</span></code>. Tiene dos variables locales <code class="docutils literal notranslate"><span class="pre">res</span></code> e <code class="docutils literal notranslate"><span class="pre">i</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">res</span></code> se usa para recolectar la suma e <code class="docutils literal notranslate"><span class="pre">i</span></code> es una variable del bucle. En el ciclo, la función <code class="docutils literal notranslate"><span class="pre">np</span></code> se vuelve a llamar a sí misma con otros argumentos. Sería muy perturbador si esta llamada de <code class="docutils literal notranslate"><span class="pre">np</span></code> fuera a usar la misma <code class="docutils literal notranslate"><span class="pre">res</span></code> e <code class="docutils literal notranslate"><span class="pre">i</span></code> que la llamada <code class="docutils literal notranslate"><span class="pre">np</span></code>. Dado que la nueva llamada de <code class="docutils literal notranslate"><span class="pre">np</span></code> crea un nuevo alcance con nuevas variables, afortunadamente, este no es el caso.</p>
+<p>Tenga en cuenta que los parámetros formales «<code class="docutils literal notranslate"><span class="pre">n</span></code>» y «<code class="docutils literal notranslate"><span class="pre">m</span></code>» de «<code class="docutils literal notranslate"><span class="pre">np</span></code>» se tratan como variables locales. (Independientemente de la estructura recursiva de un algoritmo, a menudo es más barato (en términos de tiempo de cálculo) evitar una implementación recursiva si es posible (y es posible en este caso), porque una llamada a función no es muy barata).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="04-grupos-y-homomorfismos.html" class="btn btn-neutral float-right" title="4. Grupos y Homomorfismos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02-listas-y-registros.html" class="btn btn-neutral float-left" title="2. Listas y Registros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

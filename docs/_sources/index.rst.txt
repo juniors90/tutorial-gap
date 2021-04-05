@@ -11,12 +11,3 @@ Minicurso de GAP en español!
    Notas/03-funciones
    Notas/04-grupos-y-homomorfismos
    Notas/05-espacios-vectoriales-y-algebras
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

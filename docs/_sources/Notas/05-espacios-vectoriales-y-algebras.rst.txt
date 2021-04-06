@@ -412,3 +412,83 @@ Otro ejemplo de álgebras lo proporcionan las **álgebras de cuaterniones**. Def
     (-1)*k
     gap> One( q );
     e
+
+Si el campo de coeficientes es un subcampo real de los números complejos, entonces el álgebra de cuaterniones es de hecho un anillo de división.
+
+.. code-block:: gap
+    :caption: funciones IsDivisionRing e Inverse
+    :name: funcion_IsDivisionRing_e_Inverse
+
+    gap> IsDivisionRing( q );
+    true
+    gap> Inverse( e+i+j );
+    (1/3)*e+(-1/3)*i+(-1/3)*j
+
+Entonces **GAP** conoce este hecho. Como en cualquier anillo, podemos mirar grupos de unidades. 
+
+.. note::
+    
+    La función ``StarCyc`` que se usa a continuación calcula el conjugado algebraico único de un elemento en un subcampo cuadrático de un campo ciclotómico.
+
+.. existe la palabra ciclotómico? 
+
+.. code-block:: gap
+    :caption: función StarCyc
+    :name: funcion_StarCyc
+    
+    gap> c5:= StarCyc( b5 );
+    E(5)^2+E(5)^3
+    gap> g1:= 1/2*( b5*e + i - c5*j );
+    (1/2*E(5)+1/2*E(5)^4)*e+(1/2)*i+(-1/2*E(5)^2-1/2*E(5)^3)*j
+    gap> Order( g1 );
+    5
+    gap> g2:= 1/2*( -c5*e + i + b5*k );
+    (-1/2*E(5)^2-1/2*E(5)^3)*e+(1/2)*i+(1/2*E(5)+1/2*E(5)^4)*k
+    gap> Order( g2 );
+    10
+    gap> g:=Group( g1, g2 );;
+    #I default ‘IsGeneratorsOfMagmaWithInverses’ method returns ‘true’ for
+    [ (1/2*E(5)+1/2*E(5)^4)*e+(1/2)*i+(-1/2*E(5)^2-1/2*E(5)^3)*j,
+    (-1/2*E(5)^2-1/2*E(5)^3)*e+(1/2)*i+(1/2*E(5)+1/2*E(5)^4)*k ]
+    gap> Size( g );
+    120
+    gap> IsPerfect( g );
+    true
+
+Dado que solo hay un grupo perfecto de orden :math:`120`, hasta el isomorfismo, vemos que el grupo ``g`` es isomorfo a :math:`SL_{2}(5)`. Como es habitual, se puede construir una representación de permutación del grupo utilizando una acción adecuada del grupo.
+
+.. code-block:: gap
+    :caption: función RightCosets
+    :name: funcion_RightCosets
+    
+    gap> cos:= RightCosets( g, Subgroup( g, [ g1 ] ) );;
+    gap> Length( cos );
+    24
+    gap> hom:= ActionHomomorphism( g, cos, OnRight );;
+    gap> im:= Image( hom );
+    Group([ (2,3,5,9,15)(4,7,12,8,14)(10,17,23,20,24)(11,19,22,16,13),
+            (1,2,4,8,3,6,11,20,17,19)(5,10,18,7,13,22,12,21,24,15)(9,16)(14,23) ])
+    gap> Size( im );
+    120
+
+Para obtener una representación matricial de ``g`` o de todo el álgebra ``q``, debemos especificar una base del espacio vectorial sobre el que actúa el álgebra y calcular la acción lineal de los elementos ``w.r.t.`` esta base.
+
+.. code-block:: gap
+    :caption: función OperationAlgebraHomomorphism
+    :name: funcion_OperationAlgebraHomomorphism
+
+    gap> bas:= CanonicalBasis( q );;
+    gap> BasisVectors( bas );
+    [ e, i, j, k ]
+    gap> op:= OperationAlgebraHomomorphism( q, bas, OnRight );
+    <op. hom. AlgebraWithOne( NF(5,[ 1, 4 ]),
+    [ e, i, j, k ] ) -> matrices of dim. 4>
+    gap> ImagesRepresentative( op, e );
+    [ [ 1, 0, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 0, 0, 1 ] ]
+    gap> ImagesRepresentative( op, i );
+    [ [ 0, 1, 0, 0 ], [ -1, 0, 0, 0 ], [ 0, 0, 0, -1 ], [ 0, 0, 1, 0 ] ]
+    gap> ImagesRepresentative( op, g1 );
+    [ [ 1/2*E(5)+1/2*E(5)^4, 1/2, -1/2*E(5)^2-1/2*E(5)^3, 0 ],
+      [ -1/2, 1/2*E(5)+1/2*E(5)^4, 0, -1/2*E(5)^2-1/2*E(5)^3 ],
+      [ 1/2*E(5)^2+1/2*E(5)^3, 0, 1/2*E(5)+1/2*E(5)^4, -1/2 ],
+      [ 0, 1/2*E(5)^2+1/2*E(5)^3, 1/2, 1/2*E(5)+1/2*E(5)^4 ] ]

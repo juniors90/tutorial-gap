@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>6. Dominios &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7. Operaciones y Métodos" href="07-operaciones-y-metodos.html" />
+    <link rel="prev" title="5. Espacios Vectoriales y Álgebras" href="05-espacios-vectoriales-y-algebras.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-primeros-pasos-en-gap.html">1. Inicializando y cerrando GAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-listas-y-registros.html">2. Listas y Registros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-funciones.html">3. Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-grupos-y-homomorfismos.html">4. Grupos y Homomorfismos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-espacios-vectoriales-y-algebras.html">5. Espacios Vectoriales y Álgebras</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Dominios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dominios-como-conjuntos">6.1. Dominios como conjuntos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#estructura-algebraica">6.2. Estructura Algebraica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nociones-de-generacion">6.3. Nociones de Generación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constructores-de-dominio">6.4. Constructores de dominio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formacion-de-cierres-de-dominios">6.5. Formación de cierres de dominios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cambiar-la-estructura">6.6. Cambiar la estructura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subdominios">6.7. Subdominios</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07-operaciones-y-metodos.html">7. Operaciones y Métodos</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>Dominios</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/06-dominios.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dominios">
+<h1><span class="section-number">6. </span>Dominios<a class="headerlink" href="#dominios" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Dominio es el nombre que otorga <strong>GAP</strong> a los conjuntos estructurados (ver). Ya vimos ejemplos de dominios en los <code class="docutils literal notranslate"><span class="pre">Capítulos</span> <span class="pre">5</span></code> y <code class="docutils literal notranslate"><span class="pre">6</span></code>: los grupos <code class="docutils literal notranslate"><span class="pre">s8</span></code> y <code class="docutils literal notranslate"><span class="pre">a8</span></code> en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">5.1</span></code> son dominios, de la misma manera el campo <code class="docutils literal notranslate"><span class="pre">f</span></code> y el espacio vectorial <code class="docutils literal notranslate"><span class="pre">v</span></code> en la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">6.1</span></code> son dominios. Fueron construidos por funciones como <code class="docutils literal notranslate"><span class="pre">Group</span></code> y <code class="docutils literal notranslate"><span class="pre">GF</span></code>, y podrían pasarse como argumentos a otras funciones como <code class="docutils literal notranslate"><span class="pre">DerivedSubgroup</span></code> y <code class="docutils literal notranslate"><span class="pre">Dimension</span></code>.</p>
+<div class="section" id="dominios-como-conjuntos">
+<h2><span class="section-number">6.1. </span>Dominios como conjuntos<a class="headerlink" href="#dominios-como-conjuntos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En primer lugar, un dominio <span class="math notranslate nohighlight">\(D\)</span> es un conjunto.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(D\)</span> es finito, entonces se puede calcular una lista con los elementos de este conjunto con las funciones <code class="docutils literal notranslate"><span class="pre">AsList</span></code> y <code class="docutils literal notranslate"><span class="pre">AsSortedList</span></code>.</p></li>
+<li><p>Para <span class="math notranslate nohighlight">\(D\)</span> infinito, <code class="docutils literal notranslate"><span class="pre">Enumerator</span></code> y <code class="docutils literal notranslate"><span class="pre">EnumeratorSorted</span></code> pueden funcionar, pero también es posible que se obtengamos un mensaje de error.</p></li>
+</ul>
+</div></blockquote>
+<p>Los dominios se pueden utilizar como argumentos de funciones de conjunto como <code class="docutils literal notranslate"><span class="pre">Intersection</span></code> y <code class="docutils literal notranslate"><span class="pre">Union</span></code>. <strong>GAP</strong> intenta devolver un dominio en estos casos, además intenta devolver un dominio con la mayor estructura posible. Por ejemplo, la intersección de dos grupos está (ya sea vacía o) nuevamente un grupo, y <strong>GAP</strong> intentará devolverlo como un grupo.</p>
+<p>Para <code class="docutils literal notranslate"><span class="pre">Union</span></code>, la situación es diferente porque la unión de dos grupos en general no es un grupo.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-intersection">
+<div class="code-block-caption"><span class="caption-text">función Intersection</span><a class="headerlink" href="#funcion-intersection" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="p">)</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">h</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="p">(</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">5</span><span class="o">,</span><span class="nv">6</span><span class="p">)</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Intersection</span><span class="p">(</span> <span class="nv">g</span><span class="o">,</span> <span class="nv">h</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Group</span><span class="p">([</span> <span class="p">(</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="p">)</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Dos dominios se consideran igual <code class="docutils literal notranslate"><span class="pre">w.r.t.</span></code> según el operador «<code class="docutils literal notranslate"><span class="pre">=</span></code>» si y solo si son iguales como conjuntos, independientemente de la estructura adicional de los dominios.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="igualdad-de-dominios">
+<div class="code-block-caption"><span class="caption-text">igualdad de Dominios</span><a class="headerlink" href="#igualdad-de-dominios" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">mats</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span>             <span class="p">[</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Ring</span><span class="p">(</span> <span class="nv">mats</span> <span class="p">)</span> <span class="o">=</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">mats</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Un dominio se considera igual a la lista ordenada de sus elementos.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="dominios-segun-la-lista-ordenada-de-sus-elementos">
+<div class="code-block-caption"><span class="caption-text">Dominios según la lista ordenada de sus elementos</span><a class="headerlink" href="#dominios-segun-la-lista-ordenada-de-sus-elementos" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">l</span><span class="o">:=</span> <span class="nv">AsSortedList</span><span class="p">(</span> <span class="nv">g</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">()</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span> <span class="o">=</span> <span class="nv">l</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsGroup</span><span class="p">(</span> <span class="nv">l</span> <span class="p">)</span><span class="o">;</span> <span class="nv">IsList</span><span class="p">(</span> <span class="nv">g</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estructura-algebraica">
+<h2><span class="section-number">6.2. </span>Estructura Algebraica<a class="headerlink" href="#estructura-algebraica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La estructura adicional de <span class="math notranslate nohighlight">\(D\)</span> está constituida por los hechos de que se sabe que <span class="math notranslate nohighlight">\(D\)</span> está cerrado bajo ciertas operaciones como la suma o la multiplicación, y que estas operaciones tienen propiedades adicionales. Por ejemplo, si <span class="math notranslate nohighlight">\(D\)</span> es un grupo, entonces se cierra al multiplicar (<span class="math notranslate nohighlight">\(D \times D \to D\)</span>, <span class="math notranslate nohighlight">\((g, h) \mapsto g \ast h\)</span>), al tomar inversas (<span class="math notranslate nohighlight">\(D \to D\)</span>, <span class="math notranslate nohighlight">\(g \mapsto g^{-1}\)</span>) y tomando la identidad <span class="math notranslate nohighlight">\(g^{0}\)</span> de cada elemento <span class="math notranslate nohighlight">\(g\)</span> en <span class="math notranslate nohighlight">\(D\)</span>; además, la multiplicación en <span class="math notranslate nohighlight">\(D\)</span> es asociativa.</p>
+<p>El mismo conjunto de elementos puede contener diferentes estructuras algebraicas. Por ejemplo, un semigrupo se define como cerrado bajo una multiplicación asociativa, por lo que cada grupo es también un semigrupo. Asimismo, un monoide se define como un semigrupo <span class="math notranslate nohighlight">\(D\)</span> en el que la identidad <span class="math notranslate nohighlight">\(g^{0}\)</span> se define para cada elemento <span class="math notranslate nohighlight">\(g\)</span>, por lo que cada grupo es un monoide y cada monoide es un semigrupo.</p>
+<p>Otros ejemplos de dominios son los espacios vectoriales, que se definen como grupos aditivos que se cierran bajo la multiplicación (izquierda) con elementos en un cierto dominio de escalares. También las clases de conjugación en un grupo <span class="math notranslate nohighlight">\(D\)</span> son dominios, están cerrados bajo la acción de conjugación de <span class="math notranslate nohighlight">\(D\)</span>.</p>
+</div>
+<div class="section" id="nociones-de-generacion">
+<h2><span class="section-number">6.3. </span>Nociones de Generación<a class="headerlink" href="#nociones-de-generacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hemos visto que un dominio se cierra bajo determinadas operaciones. Por lo general, un dominio se construye como el cierre de algunos elementos bajo estas operaciones. En esta situación, decimos que los elementos generan el dominio.</p>
+<p>Por ejemplo, se puede utilizar una lista de matrices de la misma forma sobre un campo común para generar un grupo aditivo o un espacio vectorial sobre un campo adecuado.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si las matrices son cuadradas, también podemos usar las matrices como</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>generadores de un semigrupo,</p></li>
+<li><p>generadores de un anillo o</p></li>
+<li><p>generadores de un álgebra.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>Ilustramos algunas de estas posibilidades:</p>
+<div class="literal-block-wrapper docutils container" id="elementos-que-generan-el-dominio">
+<div class="code-block-caption"><span class="caption-text">Elementos que generan el dominio</span><a class="headerlink" href="#elementos-que-generan-el-dominio" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">mats</span><span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span>               <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span>             <span class="p">[</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span>
+<span class="o">&gt;</span>               <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">AdditiveMagma</span><span class="p">(</span> <span class="nv">mats</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">4</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">VectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">8</span><span class="p">)</span><span class="o">,</span> <span class="nv">mats</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">64</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">Algebra</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">mats</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">4</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">Group</span><span class="p">(</span> <span class="nv">mats</span> <span class="p">)</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">2</span>
+</pre></div>
+</div>
+</div>
+<p>Cada combinación de operaciones bajo las cuales se podría cerrar un dominio da una noción de generación. Entonces, cada grupo tiene generadores de grupo, y dado que es un monoide, también se pueden solicitar generadores de monoide de un grupo.</p>
+<p>Nótese que no se puede simplemente preguntar por «los generadores de un dominio», siempre es necesario especificar qué noción de generación se entiende. El acceso a los diferentes generadores se proporciona mediante funciones con nombres de la forma <code class="docutils literal notranslate"><span class="pre">GeneratorsOfSomething</span></code>. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">GeneratorsOfGroup</span></code> denota generadores de grupo, <code class="docutils literal notranslate"><span class="pre">GeneratorsOfMonoid</span></code> denota generadores monoide, etc. El resultado de <code class="docutils literal notranslate"><span class="pre">GeneratorsOfVectorSpace</span></code>, por supuesto, debe entenderse en relación con el campo de escalares del espacio vectorial en cuestión.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-generatorsofvectorspace">
+<div class="code-block-caption"><span class="caption-text">función GeneratorsOfVectorSpace</span><a class="headerlink" href="#funcion-generatorsofvectorspace" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">GeneratorsOfVectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">v</span><span class="o">:=</span> <span class="nv">AsVectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">GeneratorsOfVectorSpace</span><span class="p">(</span> <span class="nv">v</span> <span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span><span class="o">,</span>
+<span class="p">[</span> <span class="nv">0</span><span class="o">*</span><span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="nv">Z</span><span class="p">(</span><span class="nv">2</span><span class="o">^</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="constructores-de-dominio">
+<h2><span class="section-number">6.4. </span>Constructores de dominio<a class="headerlink" href="#constructores-de-dominio" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un grupo se puede construir a partir de una lista de generadores de grupos gens por <code class="docutils literal notranslate"><span class="pre">Group(</span> <span class="pre">gens</span> <span class="pre">)</span></code>, así mismo se pueden construir anillos y álgebras con las funciones <code class="docutils literal notranslate"><span class="pre">Ring</span></code> y <code class="docutils literal notranslate"><span class="pre">Algebra</span></code>.</p>
+<p>Tenga en cuenta que no siempre o completamente se comprueba que gens sea de hecho una lista válida de generadores de grupo, por ejemplo, si los elementos de gens se pueden multiplicar o si son invertibles. Esto significa que <strong>GAP</strong> confía en usted, al menos hasta cierto punto, que el dominio deseado <code class="docutils literal notranslate"><span class="pre">Something(</span> <span class="pre">gens</span> <span class="pre">)</span></code> existe.</p>
+</div>
+<div class="section" id="formacion-de-cierres-de-dominios">
+<h2><span class="section-number">6.5. </span>Formación de cierres de dominios<a class="headerlink" href="#formacion-de-cierres-de-dominios" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Además de construir dominios a partir de generadores, también se puede formar el cierre de un dominio dado con un elemento u otro dominio. Existen diferentes nociones de cierre, uno tiene que especificar una de acuerdo con el resultado deseado y la estructura del dominio dado. Las funciones para calcular cierres tienen nombres como <code class="docutils literal notranslate"><span class="pre">ClosureSomething</span></code>. Por ejemplo, si <span class="math notranslate nohighlight">\(D\)</span> es un grupo y se quiere construir el grupo generado por <span class="math notranslate nohighlight">\(D\)</span> y un elemento <span class="math notranslate nohighlight">\(g\)</span>, entonces se puede usar <code class="docutils literal notranslate"><span class="pre">ClosureGroup(</span> <span class="pre">D,</span> <span class="pre">g</span> <span class="pre">)</span></code>.</p>
+</div>
+<div class="section" id="cambiar-la-estructura">
+<h2><span class="section-number">6.6. </span>Cambiar la estructura<a class="headerlink" href="#cambiar-la-estructura" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El mismo conjunto de elementos puede tener diferentes estructuras algebraicas. Por ejemplo, puede suceder que un monoide <span class="math notranslate nohighlight">\(M\)</span> contenga de hecho las inversas de todos sus elementos y, por tanto, <span class="math notranslate nohighlight">\(M\)</span> sea igual al grupo formado por los elementos de <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-de-diferentes-estructuras-algebraicas">
+<div class="code-block-caption"><span class="caption-text">ejemplo de diferentes estructuras algebraicas</span><a class="headerlink" href="#ejemplo-de-diferentes-estructuras-algebraicas" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span><span class="o">:=</span> <span class="nv">Monoid</span><span class="p">(</span> <span class="nv">mats</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span> <span class="o">=</span> <span class="nv">Group</span><span class="p">(</span> <span class="nv">mats</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsGroup</span><span class="p">(</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+</div>
+<p>El último resultado del ejemplo anterior puede resultar sorprendente. Pero el monoide m no se considera un grupo en <strong>GAP</strong> y, además, no hay forma de convertir <span class="math notranslate nohighlight">\(m\)</span> en un grupo. Formulemos esto como regla:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>El conjunto de operaciones bajo las cuales se cierra el dominio se fija en la construcción de un dominio y no puede ser modificado posteriormente.</strong></p></li>
+</ul>
+</div></blockquote>
+<p>(Contrario a esto, un dominio puede adquirir conocimiento sobre propiedades tales como si la multiplicación es asociativa o conmutativa).</p>
+<p>Si se necesita un dominio con una estructura diferente a la dada, se puede construir un nuevo dominio con la estructura requerida. Las funciones que hacen estas construcciones tienen nombres como <code class="docutils literal notranslate"><span class="pre">AsSomething</span></code>, devuelven un dominio que tiene los mismos elementos que el argumento en cuestión pero la estructura <code class="docutils literal notranslate"><span class="pre">Something</span></code>. En la situación anterior, se puede usar <code class="docutils literal notranslate"><span class="pre">AsGroup</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-de-funcion-asgroup">
+<div class="code-block-caption"><span class="caption-text">función AsGroup</span><a class="headerlink" href="#ejemplo-de-funcion-asgroup" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">AsGroup</span><span class="p">(</span> <span class="nv">m</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">m</span> <span class="o">=</span> <span class="nv">g</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsGroup</span><span class="p">(</span> <span class="nv">g</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Si es imposible construir el dominio deseado, el retorno de las funciones <code class="docutils literal notranslate"><span class="pre">AsSomething</span></code> falla.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-de-funcion-asvectorspace">
+<div class="code-block-caption"><span class="caption-text">función AsVectorSpace</span><a class="headerlink" href="#ejemplo-de-funcion-asvectorspace" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AsVectorSpace</span><span class="p">(</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">,</span> <span class="nv">GF</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">)</span><span class="o">;</span>
+<span class="no">fail</span>
+</pre></div>
+</div>
+</div>
+<p>Las funciones <code class="docutils literal notranslate"><span class="pre">AsList</span></code> y <code class="docutils literal notranslate"><span class="pre">AsSortedList</span></code> mencionadas anteriormente no devuelven dominios, pero encajan en el patrón general en el sentido de que olvidan toda la estructura del argumento, incluido el hecho de que es un dominio, y devuelven una lista con los mismos elementos que el argumento tiene.</p>
+</div>
+<div class="section" id="subdominios">
+<h2><span class="section-number">6.7. </span>Subdominios<a class="headerlink" href="#subdominios" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es posible construir un dominio como un subconjunto de un dominio existente. Las funciones respectivas tienen nombres como <code class="docutils literal notranslate"><span class="pre">Subsomething</span></code>, devuelven dominios con la estructura <code class="docutils literal notranslate"><span class="pre">Something</span></code>. (Tenga en cuenta que la segunda <span class="math notranslate nohighlight">\(s\)</span> en <code class="docutils literal notranslate"><span class="pre">Subsomething</span></code> no está en mayúscula). Por ejemplo, si uno quiere tratar con el subgrupo del dominio <span class="math notranslate nohighlight">\(D\)</span> que es generado por los elementos en la lista gens, podemos usar <code class="docutils literal notranslate"><span class="pre">Subgroup(</span> <span class="pre">D,</span> <span class="pre">gens</span> <span class="pre">)</span></code>. No se requiere que <span class="math notranslate nohighlight">\(D\)</span> sea en sí mismo un grupo, solo que el grupo generado por gens debe ser un subconjunto de <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>Se puede acceder al superconjunto de un dominio <span class="math notranslate nohighlight">\(S\)</span> que fue construido por una función <code class="docutils literal notranslate"><span class="pre">Subsomething</span></code> como <code class="docutils literal notranslate"><span class="pre">Parent(</span> <span class="pre">S</span> <span class="pre">)</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-de-funcion-parent">
+<div class="code-block-caption"><span class="caption-text">función Parent</span><a class="headerlink" href="#ejemplo-de-funcion-parent" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">gens</span><span class="o">:=</span> <span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="o">,</span><span class="nv">4</span><span class="p">)</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">s</span><span class="o">:=</span> <span class="nv">Subgroup</span><span class="p">(</span> <span class="nv">g</span><span class="o">,</span> <span class="nv">gens</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">h</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="nv">gens</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">h</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Parent</span><span class="p">(</span> <span class="nv">s</span> <span class="p">)</span> <span class="o">=</span> <span class="nv">g</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+</div>
+<p>Muchas funciones devuelven subdominios de sus argumentos, por ejemplo, el resultado de <code class="docutils literal notranslate"><span class="pre">SylowSubgroup(</span> <span class="pre">G</span> <span class="pre">)</span></code> es un grupo con el grupo padre <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<p>Si está seguro de que el dominio <code class="docutils literal notranslate"><span class="pre">Something(</span> <span class="pre">gens</span> <span class="pre">)</span></code> está contenido en el dominio <span class="math notranslate nohighlight">\(D\)</span>, también puede llamar a <code class="docutils literal notranslate"><span class="pre">SubsomethingNC(</span> <span class="pre">D,</span> <span class="pre">gens</span> <span class="pre">)</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">Subsomething(</span> <span class="pre">D,</span> <span class="pre">gens</span> <span class="pre">)</span></code>. <code class="docutils literal notranslate"><span class="pre">NC</span></code> significa «sin verificación» y las funciones cuyos nombres terminan con <code class="docutils literal notranslate"><span class="pre">NC</span></code> omiten la verificación de contención.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="07-operaciones-y-metodos.html" class="btn btn-neutral float-right" title="7. Operaciones y Métodos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="05-espacios-vectoriales-y-algebras.html" class="btn btn-neutral float-left" title="5. Espacios Vectoriales y Álgebras" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

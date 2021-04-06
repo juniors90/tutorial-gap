@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7. Operaciones y Métodos &mdash; documentación de Minicurso de GAP en español - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="6. Dominios" href="06-dominios.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minicurso de GAP en español
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-primeros-pasos-en-gap.html">1. Inicializando y cerrando GAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-listas-y-registros.html">2. Listas y Registros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-funciones.html">3. Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-grupos-y-homomorfismos.html">4. Grupos y Homomorfismos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-espacios-vectoriales-y-algebras.html">5. Espacios Vectoriales y Álgebras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-dominios.html">6. Dominios</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Operaciones y Métodos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#atributos">7.1. Atributos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resumen">7.1.1. Resumen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#propiedades-y-filtros">7.2. Propiedades y Filtros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">7.2.1. Resumen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#metodos-immediate-y-true">7.3. Métodos Immediate y True</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operaciones-y-metodo-de-seleccion">7.4. Operaciones y Método de Selección</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.4.1. Resumen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minicurso de GAP en español</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>Operaciones y Métodos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/07-operaciones-y-metodos.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="operaciones-y-metodos">
+<h1><span class="section-number">7. </span>Operaciones y Métodos<a class="headerlink" href="#operaciones-y-metodos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="atributos">
+<h2><span class="section-number">7.1. </span>Atributos<a class="headerlink" href="#atributos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En los capítulos anteriores, hemos visto cómo obtener información sobre objetos matemáticos en <strong>GAP</strong>: <span class="underline">tenemos que pasar el objeto como argumento a una función</span>. <strong>Por ejemplo</strong>, si <span class="math notranslate nohighlight">\(G\)</span> es un grupo, se puede llamar a <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">G</span> <span class="pre">)</span></code>, y la función devolverá un valor, en nuestro ejemplo un número entero que es del tamaño de <span class="math notranslate nohighlight">\(G\)</span>. Calcular el tamaño de un grupo generalmente requiere una cantidad sustancial de trabajo, por lo tanto, parece deseable almacenar el tamaño en algún lugar una vez que se haya calculado. Debe imaginar que <strong>GAP</strong> almacena el tamaño en algún lugar asociado con el objeto <span class="math notranslate nohighlight">\(G\)</span> cuando <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">G</span> <span class="pre">)</span></code> se ejecuta por primera vez, y si esta llamada a la función se ejecuta nuevamente más tarde, el tamaño simplemente se busca y se devuelve, sin más cálculos.</p>
+<p>Esto significa que el comportamiento de la función Tamaño debe depender de si el tamaño del argumento <span class="math notranslate nohighlight">\(G\)</span> ya se conoce y, en caso contrario, el tamaño debe almacenarse después de que se haya calculado. Estas dos tareas adicionales se realizan mediante otras dos funciones que acompañan a <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">G</span> <span class="pre">)</span></code>, a saber, el probador <code class="docutils literal notranslate"><span class="pre">HasSize(</span> <span class="pre">G</span> <span class="pre">)</span></code> y el configurador <code class="docutils literal notranslate"><span class="pre">SetSize(</span> <span class="pre">G,</span> <span class="pre">size</span> <span class="pre">)</span></code>. El probador devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code> según <span class="math notranslate nohighlight">\(G\)</span> ya haya almacenado su tamaño, y el colocador coloca el tamaño en un lugar desde donde <span class="math notranslate nohighlight">\(G\)</span> puede buscarlo directamente. La función <code class="docutils literal notranslate"><span class="pre">Size</span></code> en sí se llama <code class="docutils literal notranslate"><span class="pre">getter</span></code>, y de la discusión anterior vemos que realmente debe haber al menos dos métodos para el <code class="docutils literal notranslate"><span class="pre">getter</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Un método se usa cuando el probador devuelve <code class="docutils literal notranslate"><span class="pre">false</span></code>; es el método que primero hace el cálculo real y luego ejecuta el <code class="docutils literal notranslate"><span class="pre">setter</span></code> con el valor calculado.</p></li>
+<li><p>Se utiliza un segundo método cuando el probador devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code>; simplemente devuelve el valor almacenado. Este segundo método también se denomina <code class="docutils literal notranslate"><span class="pre">getter</span></code> del sistema. Las funciones <strong>GAP</strong> para las que pueden estar disponibles varios métodos se denominan operaciones, por lo que <code class="docutils literal notranslate"><span class="pre">Size</span></code> es un ejemplo de una operación.</p></li>
+</ul>
+</div></blockquote>
+<p>Lo conveniente para el usuario es que <strong>GAP</strong> elige automáticamente el método correcto para el <code class="docutils literal notranslate"><span class="pre">getter</span></code>, es decir, llama a un <code class="docutils literal notranslate"><span class="pre">getter</span></code> de trabajo real como máximo una vez y al <code class="docutils literal notranslate"><span class="pre">getter</span></code> del sistema en todas las ocurrencias posteriores. A lo sumo una vez porque el valor de una llamada de función como <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">G</span> <span class="pre">)</span></code> también se puede establecer para <span class="math notranslate nohighlight">\(G\)</span> antes de que se llame al <code class="docutils literal notranslate"><span class="pre">getter</span></code>; por ejemplo, se puede llamar directamente al colocador si se conoce el tamaño.</p>
+<p>El tamaño de un grupo es un ejemplo de una clase de cosas que en <strong>GAP</strong> se denominan <span class="underline">atributos</span>. Cada atributo en GAP está representado por un triple de un <code class="docutils literal notranslate"><span class="pre">getter</span></code>, un <code class="docutils literal notranslate"><span class="pre">setter</span></code> y un <code class="docutils literal notranslate"><span class="pre">tester</span></code>. Cuando se declara un nuevo atributo, las tres funciones se crean juntas y el <code class="docutils literal notranslate"><span class="pre">getter</span></code> contiene referencias a las otras dos. Esto es necesario porque cuando se llama al <code class="docutils literal notranslate"><span class="pre">getter</span></code>, primero debe consultar al probador y tal vez ejecutar el <code class="docutils literal notranslate"><span class="pre">setter</span></code> al final.</p>
+<p>Por lo tanto, el <code class="docutils literal notranslate"><span class="pre">getter</span></code> podría implementarse de la siguiente manera:</p>
+<div class="literal-block-wrapper docutils container" id="getter">
+<div class="code-block-caption"><span class="caption-text">implementación de getter</span><a class="headerlink" href="#getter" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">getter</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span> <span class="nv">obj</span> <span class="p">)</span>
+    <span class="k">local</span> <span class="nv">value</span><span class="o">;</span>
+    <span class="k">if</span> <span class="nv">tester</span><span class="p">(</span> <span class="nv">obj</span> <span class="p">)</span> <span class="k">then</span>
+        <span class="nv">value</span> <span class="o">:=</span> <span class="nv">system_getter</span><span class="p">(</span> <span class="nv">obj</span> <span class="p">)</span><span class="o">;</span>
+    <span class="k">else</span>
+        <span class="nv">value</span> <span class="o">:=</span> <span class="nv">real_work_getter</span><span class="p">(</span> <span class="nv">obj</span> <span class="p">)</span><span class="o">;</span>
+        <span class="nv">setter</span><span class="p">(</span> <span class="nv">obj</span><span class="o">,</span> <span class="nv">value</span> <span class="p">)</span><span class="o">;</span>
+    <span class="k">fi</span><span class="o">;</span>
+    <span class="k">return</span> <span class="nv">value</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La única función que depende de la naturaleza matemática del atributo es el <code class="docutils literal notranslate"><span class="pre">getter</span></code> de trabajo real, y esto es, por supuesto, lo que debe instalar el programador de un atributo. En ambos casos, el <code class="docutils literal notranslate"><span class="pre">getter</span></code> devuelve el mismo valor, que también llamamos el valor del atributo (correctamente: el valor del atributo para el objeto <code class="docutils literal notranslate"><span class="pre">obj</span></code>).</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los nombres para <code class="docutils literal notranslate"><span class="pre">setter</span></code> y probador de un atributo siempre se componen del prefijo <code class="docutils literal notranslate"><span class="pre">Set</span></code> resp. Tiene y el nombre del <code class="docutils literal notranslate"><span class="pre">getter</span></code>.</p>
+</div>
+<p>Como ejemplo (no típico), tenga en cuenta que la función <code class="docutils literal notranslate"><span class="pre">Random</span></code> de <strong>GAP</strong>, aunque solo toma un argumento, por supuesto no es un atributo, porque de lo contrario el primer elemento aleatorio de un grupo sería almacenado por el establecedor y devuelto una y otra vez. por el captador del sistema cada vez que se llama a <code class="docutils literal notranslate"><span class="pre">Random</span></code> en la secuela).</p>
+<p>Existe una regla general importante sobre los atributos: una vez que se ha establecido el valor de un atributo para un objeto, no se puede restablecer, es decir, no se puede cambiar más. Esto se logra al tener dos métodos no solo para el captador sino también para el configurador: si un objeto ya tiene un valor de atributo almacenado, es decir, si el probador devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code>, el configurador simplemente no hace nada.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-setsize">
+<div class="code-block-caption"><span class="caption-text">función SetSize</span><a class="headerlink" href="#funcion-setsize" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span><span class="nv">8</span><span class="p">)</span><span class="o">;;</span> <span class="nv">Size</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">40320</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">SetSize</span><span class="p">(</span> <span class="nv">G</span><span class="o">,</span> <span class="nv">0</span> <span class="p">)</span><span class="o">;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">40320</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resumen">
+<h3><span class="section-number">7.1.1. </span>Resumen<a class="headerlink" href="#resumen" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En esta sección hemos introducido atributos como ternas de <code class="docutils literal notranslate"><span class="pre">getter</span></code>, <code class="docutils literal notranslate"><span class="pre">setter</span></code> y <code class="docutils literal notranslate"><span class="pre">tester</span></code> y tenemos
+explicó cómo estas tres funciones trabajan juntas detrás de escena para proporcionar almacenamiento automático y búsqueda de valores que se han calculado una vez. Hemos visto que pueden existir varios métodos para el mismo
+función entre las cuales <strong>GAP</strong> selecciona automáticamente una apropiada.</p>
+</div>
+</div>
+<div class="section" id="propiedades-y-filtros">
+<h2><span class="section-number">7.2. </span>Propiedades y Filtros<a class="headerlink" href="#propiedades-y-filtros" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ciertos atributos, como <code class="docutils literal notranslate"><span class="pre">IsAbelian</span></code>, tienen un valor booleano. Dichos atributos se conocen en <strong>GAP</strong> como propiedades, porque sus valores se almacenan de una manera ligeramente diferente. Una propiedad también tiene un <code class="docutils literal notranslate"><span class="pre">getter</span></code>, un <code class="docutils literal notranslate"><span class="pre">setter</span></code> y un <code class="docutils literal notranslate"><span class="pre">tester</span></code>, pero en este caso, tanto el <code class="docutils literal notranslate"><span class="pre">getter</span></code> como el <code class="docutils literal notranslate"><span class="pre">tester</span></code> devuelven un valor booleano. Por lo tanto, <strong>GAP</strong> almacena ambos valores de la misma manera, es decir, como bits en una lista booleana, tratando así a los <code class="docutils literal notranslate"><span class="pre">getter</span></code>’s de propiedades y a todos los <code class="docutils literal notranslate"><span class="pre">tester</span></code>’s (de atributos o propiedades) de manera uniforme. <span class="underline">Estas funciones con valores booleanos se denominan filtros</span> (<code class="docutils literal notranslate"><span class="pre">filters</span></code>). Puede imaginar un filtro como un conmutador que se establece en <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. Para cada objeto <strong>GAP</strong> hay una lista booleana que ha reservado un bit para cada filtro que conoce <strong>GAP</strong>. Estrictamente hablando, hay un bit para cada <strong>filtro simple</strong>, y estos filtros simples se pueden combinar con <code class="docutils literal notranslate"><span class="pre">and</span></code> para formar otros filtros (que son <code class="docutils literal notranslate"><span class="pre">true</span></code> si y solo si todos los bits correspondientes se establecen en <code class="docutils literal notranslate"><span class="pre">true</span></code>). Por ejemplo, el filtro <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code> e <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> se compone de varios filtros simples.</p>
+<p>Dado que solo permiten dos valores, los bits que representan filtros se pueden comparar muy rápidamente, y el esquema por el cual <strong>GAP</strong> elige el método, por ejemplo, para un <code class="docutils literal notranslate"><span class="pre">getter</span></code> o un <code class="docutils literal notranslate"><span class="pre">setter</span></code> (como hemos visto en la sección anterior), se basa principalmente en en el examen de filtros, no en el examen de otros valores de atributo.</p>
+<p>Los detalles de esta selección de método se describen en el <code class="docutils literal notranslate"><span class="pre">Capítulo</span> <span class="pre">2</span></code> de «Programación en GAP».</p>
+<p>Aquí solo presentamos la siguiente regla empírica: Cada método instalado para un atributo, digamos <code class="docutils literal notranslate"><span class="pre">Size</span></code>, tiene un «filtro requerido», que se compone de ciertos filtros simples que deben ceder verdadero para que el argumento <code class="docutils literal notranslate"><span class="pre">obj</span></code> para que este método sea aplicable. Para ejecutar una llamada de <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">obj</span> <span class="pre">)</span></code>, <strong>GAP</strong> selecciona entre todos los métodos aplicables aquel cuyo filtro requerido combina los filtros más simples; la idea detrás es que cuanto más requiere un algoritmo de <code class="docutils literal notranslate"><span class="pre">obj</span></code>, más eficiente se espera que sea. Por ejemplo, si <code class="docutils literal notranslate"><span class="pre">obj</span></code> es un grupo de permutación que no es (se sabe que es) solucionable, no es aplicable un método con el filtro requerido <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code> e <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code>, mientras que se puede elegir un método con el filtro requerido <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code>. Por otro lado, si se supiera que <code class="docutils literal notranslate"><span class="pre">obj</span></code> se puede resolver, el método con el filtro requerido <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code> e <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> sería preferible al método con el filtro requerido <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code>.</p>
+<p>Puede suceder que un método sea aplicable para un argumento dado pero no pueda calcular el valor deseado. En tales casos, el método ejecutará la instrucción <code class="docutils literal notranslate"><span class="pre">TryNextMethod()</span></code>; y <strong>GAP</strong> llama al siguiente método aplicable. Por ejemplo, <a class="reference external" href="https://core.ac.uk/download/pdf/82747608.pdf">[Sim90]</a> describe un algoritmo para calcular el tamaño de un grupo de permutación resoluble, que también puede usarse para decidir si un grupo de permutación es resoluble o no. Supongamos que la función <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">solvable</span></code> implementa este algoritmo, y que devuelve el orden del grupo si se puede resolver y falla en caso contrario. Luego, podemos instalar el siguiente método para Tamaño con el filtro requerido <code class="docutils literal notranslate"><span class="pre">IsPermGroup</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="funcion-trynextmethod">
+<div class="code-block-caption"><span class="caption-text">función TryNextMethod()</span><a class="headerlink" href="#funcion-trynextmethod" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span>
+    <span class="k">local</span> <span class="nv">value</span><span class="o">;</span>
+    <span class="nv">value</span> <span class="o">:=</span> <span class="nv">size_solvable</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span><span class="o">;</span>
+    <span class="k">if</span> <span class="nv">value</span> <span class="o">&lt;&gt;</span> <span class="no">fail</span> <span class="k">then</span>
+        <span class="k">return</span> <span class="nv">value</span><span class="o">;</span>
+    <span class="k">else</span>
+        <span class="k">TryNextMethod</span><span class="p">()</span><span class="o">;</span>
+    <span class="k">fi</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Este método se puede probar en cada grupo de permutación (ya sea que se sepa que se puede resolver o no), e incluiría una prueba de solubilidad obligatoria.</p>
+<p>Si no se encuentra ningún método aplicable (o ningún método aplicable siguiente), <strong>GAP</strong> se detiene con un mensaje de error de la forma</p>
+<div class="literal-block-wrapper docutils container" id="mensaje-de-error">
+<div class="code-block-caption"><span class="caption-text">mensaje de error</span><a class="headerlink" href="#mensaje-de-error" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">Error</span><span class="o">,</span> <span class="nv">no</span> <span class="nv">method</span> <span class="nv">found</span>! <span class="nv">For</span> <span class="nv">debugging</span> <span class="nv">hints</span> <span class="nv">type</span> ?<span class="nv">Recovery</span> <span class="nv">from</span> <span class="nv">NoMethodFound</span>
+<span class="nv">Error</span><span class="o">,</span> <span class="nv">no</span> <span class="nv">1st</span> <span class="nv">choice</span> <span class="nv">method</span> <span class="nv">found</span> <span class="k">for</span> ‘<span class="nv">Size</span>’ <span class="nv">on</span> <span class="nv">1</span> <span class="nv">arguments</span> <span class="nv">called</span> <span class="nv">from</span>
+<span class="o">...</span> <span class="nv">lines</span> <span class="nv">deleted</span> <span class="nv">here</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>Recibirá un mensaje de error como el anterior si solicita <code class="docutils literal notranslate"><span class="pre">Size(</span> <span class="pre">1</span> <span class="pre">)</span></code>. El mensaje simplemente dice que no hay ningún método instalado para calcular el tamaño de <span class="math notranslate nohighlight">\(1\)</span>. La <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">7.1</span></code> del manual de referencia contiene más información sobre cómo tratar estos mensajes.</p>
+<div class="section" id="id1">
+<h3><span class="section-number">7.2.1. </span>Resumen<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En esta sección hemos introducido propiedades como atributos especiales y filtros como el concepto general detrás de las propiedades de getters y de los atributos testers. Los valores de los filtros de un objeto gobiernan cómo se trata el objeto en la selección de métodos para las operaciones.</p>
+</div>
+</div>
+<div class="section" id="metodos-immediate-y-true">
+<h2><span class="section-number">7.3. </span>Métodos Immediate y True<a class="headerlink" href="#metodos-immediate-y-true" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En el ejemplo de la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">8.2</span></code>, hemos mencionado que la operación <code class="docutils literal notranslate"><span class="pre">Size</span></code> tiene un método para grupos de permutación resolubles que es tan superior al método para grupos de permutación generales que parece que vale la pena intentarlo incluso si no se sabe nada sobre la solubilidad del grupo. del cual se calculará el <code class="docutils literal notranslate"><span class="pre">Size</span></code>. Hay otros ejemplos en los que ciertos métodos son incluso «más económicos» de ejecutar. Por ejemplo, si se conoce el tamaño de un grupo, es fácil comprobar si es impar y, de ser así, el teorema de <em>Feit-Thompson</em> nos permite establecer <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> en <code class="docutils literal notranslate"><span class="pre">true</span></code> para este grupo. <strong>GAP</strong> utiliza este celebrado teorema al tener un método inmediato para <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> con el filtro requerido HasSize que verifica la paridad del tamaño y establece <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> o no hace nada, es decir, llama a <code class="docutils literal notranslate"><span class="pre">TryNextMethod()</span></code>. Estos métodos inmediatos se ejecutan automáticamente para un objeto cada vez que cambia el valor de un filtro, por lo que la capacidad de solución de un grupo se detectará automáticamente cuando se haya calculado un tamaño impar para él (y, por lo tanto, el valor de HasSize para ese grupo ha cambiado a <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p>
+<p>Algunos métodos son incluso más inmediatos, porque no requieren ningún cálculo en absoluto: permiten establecer un filtro si también se establece otro filtro. En otras palabras, modelan una implicación matemática como <code class="docutils literal notranslate"><span class="pre">IsGroup</span></code> e <code class="docutils literal notranslate"><span class="pre">IsCyclic</span></code> <span class="math notranslate nohighlight">\(\Rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> y tales implicaciones se pueden instalar en <strong>GAP</strong> como métodos <code class="docutils literal notranslate"><span class="pre">true</span></code>. Para ejecutar métodos <code class="docutils literal notranslate"><span class="pre">true</span></code>, <strong>GAP</strong> solo necesita hacer una contabilidad con sus filtros, por lo tanto, los métodos verdaderos son mucho más rápidos que los métodos inmediatos.</p>
+</div>
+<div class="section" id="operaciones-y-metodo-de-seleccion">
+<h2><span class="section-number">7.4. </span>Operaciones y Método de Selección<a class="headerlink" href="#operaciones-y-metodo-de-seleccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La selección de método no solo se usa para seleccionar métodos para atributos <code class="docutils literal notranslate"><span class="pre">getters</span></code>, sino también para operaciones arbitrarias, que pueden tener más de un argumento. En este caso, hay un filtro requerido para cada argumento (que debe dar <code class="docutils literal notranslate"><span class="pre">true</span></code> para los argumentos correspondientes).</p>
+<p>Además, un método con al menos dos argumentos puede requerir una cierta relación entre los argumentos, que se expresa en términos de las familias de los argumentos. Por ejemplo, los métodos para <code class="docutils literal notranslate"><span class="pre">ConjugateGroup(</span> <span class="pre">grp,</span> <span class="pre">elm</span> <span class="pre">)</span></code> requieren que elm pertenezca a la familia de elementos a partir de la cual está hecho <code class="docutils literal notranslate"><span class="pre">grp</span></code>, es decir, que la familia de <code class="docutils literal notranslate"><span class="pre">elm</span></code> sea igual a la «familia de elementos» de <code class="docutils literal notranslate"><span class="pre">grp</span></code>.</p>
+<p>Para los grupos de permutación, la situación es bastante fácil: todas las permutaciones forman una familia, <code class="docutils literal notranslate"><span class="pre">PermutationsFamily</span></code>, y cada colección de permutaciones, por ejemplo, cada grupo de permutación, cada clase lateral de un grupo de permutación, o cada lista densa de permutaciones, se encuentra en <code class="docutils literal notranslate"><span class="pre">CollectionsFamily(</span> <span class="pre">PermutationsFamily</span> <span class="pre">)</span></code>.</p>
+<p>Para otros tipos de elementos de grupo, la situación puede ser diferente. Cada llamada de FreeGroup construye una nueva familia de elementos de grupo libres. <strong>GAP</strong> se niega a calcular <code class="docutils literal notranslate"><span class="pre">One(</span> <span class="pre">FreeGroup(</span> <span class="pre">1</span> <span class="pre">)</span> <span class="pre">)</span> <span class="pre">*</span> <span class="pre">One(</span> <span class="pre">FreeGroup(</span> <span class="pre">1</span> <span class="pre">)</span> <span class="pre">)</span></code> porque los dos operandos de la multiplicación se encuentran en familias diferentes y no se instala ningún método para este caso.</p>
+<p>Para obtener más información sobre las relaciones familiares, consulte <code class="docutils literal notranslate"><span class="pre">13.1</span></code> en el manual de referencia.</p>
+<p>Si desea saber qué propiedades ya se conocen para un objeto obj, o qué propiedades se sabe que son verdaderas, puede usar las funciones <code class="docutils literal notranslate"><span class="pre">KnownPropertiesOfObject(obj)</span></code> resp. <code class="docutils literal notranslate"><span class="pre">KnownTruePropertiesOfObject(</span> <span class="pre">obj</span> <span class="pre">)</span></code>. Esto imprimirá una lista de nombres de propiedades. Estos nombres también son los identificadores de los captadores de propiedades, mediante los cuales puede recuperar el valor de las propiedades (y confirmar que son realmente <code class="docutils literal notranslate"><span class="pre">true</span></code>). De manera análoga, existe la función <code class="docutils literal notranslate"><span class="pre">KnownAttributesOfObject</span></code> que enumera los nombres de los atributos conocidos, omitiendo las propiedades.</p>
+<p>Dado que <strong>GAP</strong> le permite saber lo que ya sabe sobre un objeto, es natural que también le permita saber qué métodos considera aplicables para un determinado método y en qué orden los probará (en caso de que ocurra <code class="docutils literal notranslate"><span class="pre">TryNextMethod()</span></code>). <code class="docutils literal notranslate"><span class="pre">ApplicableMethod(</span> <span class="pre">opr,</span> <span class="pre">[arg1,</span> <span class="pre">arg2,...]</span> <span class="pre">)</span></code> Devuelve el primer método aplicable para la llamada <code class="docutils literal notranslate"><span class="pre">opr(</span> <span class="pre">arg1,</span> <span class="pre">arg2,...</span> <span class="pre">)</span></code>. De manera más general, <code class="docutils literal notranslate"><span class="pre">ApplicableMethod(</span> <span class="pre">opr,</span> <span class="pre">[...],</span> <span class="pre">0,</span> <span class="pre">nr</span> <span class="pre">)</span></code> devuelve el <span class="math notranslate nohighlight">\(n\)</span>-ésimo método aplicable (es decir, el que se elegiría después de <code class="docutils literal notranslate"><span class="pre">nr</span> <span class="pre">-</span> <span class="pre">1</span></code> <code class="docutils literal notranslate"><span class="pre">TryNextMethods</span></code>) y si <code class="docutils literal notranslate"><span class="pre">nr</span> <span class="pre">=</span> <span class="pre">&quot;all&quot;</span></code>, la lista ordenada de todos se devuelven los métodos aplicables. Para obtener más información, consulte <code class="docutils literal notranslate"><span class="pre">2.3</span></code> en “Programación en GAP”.</p>
+<p>Si desea ver qué métodos se eligen para ciertas operaciones mientras se ejecuta el código <strong>GAP</strong>, puede llamar a la función <code class="docutils literal notranslate"><span class="pre">TraceMethods</span></code> con una lista de estas operaciones como argumentos.</p>
+<div class="literal-block-wrapper docutils container" id="tracemethods">
+<div class="code-block-caption"><span class="caption-text">TraceMethods</span><a class="headerlink" href="#tracemethods" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TraceMethods</span><span class="p">(</span> <span class="p">[</span> <span class="nv">Size</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">)</span><span class="o">;;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">g</span> <span class="p">)</span><span class="o">;</span>
+<span class="c1">#I Size: for a permutation group</span>
+<span class="c1">#I Setter(Size): system setter</span>
+<span class="c1">#I Size: system getter</span>
+<span class="c1">#I Size: system getter</span>
+<span class="nv">6</span>
+</pre></div>
+</div>
+</div>
+<p>El <code class="docutils literal notranslate"><span class="pre">getter</span></code> del sistema se llama una vez para recuperar el valor recién calculado y devolverlo al usuario. La segunda llamada se activa mediante un método inmediato. Para averiguar por cuál, podemos rastrear los métodos inmediatos diciendo <code class="docutils literal notranslate"><span class="pre">TraceImmediateMethods(</span> <span class="pre">true</span> <span class="pre">)</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="traceimmediatemethods">
+<div class="code-block-caption"><span class="caption-text">TraceImmediateMethods( true )</span><a class="headerlink" href="#traceimmediatemethods" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TraceImmediateMethods</span><span class="p">(</span> <span class="no">true</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">g</span><span class="o">:=</span> <span class="nv">Group</span><span class="p">(</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">)</span><span class="o">;;</span>
+<span class="c1">#I immediate: Size</span>
+<span class="c1">#I immediate: IsCyclic</span>
+<span class="c1">#I immediate: IsCommutative</span>
+<span class="c1">#I immediate: IsTrivial</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Size</span><span class="p">(</span> <span class="nv">g</span> <span class="p">)</span><span class="o">;</span>
+<span class="c1">#I Size: for a permutation group</span>
+<span class="c1">#I immediate: IsNonTrivial</span>
+<span class="c1">#I immediate: Size</span>
+<span class="c1">#I immediate: IsNonTrivial</span>
+<span class="c1">#I immediate: GeneralizedPcgs</span>
+<span class="c1">#I Setter(Size): system setter</span>
+<span class="c1">#I Size: system getter</span>
+<span class="c1">#I immediate: IsPerfectGroup</span>
+<span class="c1">#I Size: system getter</span>
+<span class="c1">#I immediate: IsEmpty</span>
+<span class="nv">6</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TraceImmediateMethods</span><span class="p">(</span> <span class="no">false</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">UntraceMethods</span><span class="p">(</span> <span class="p">[</span> <span class="nv">Size</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<p>Las dos últimas líneas desactivan el rastreo de nuevo. Ahora vemos que el getter del sistema fue llamado por el método inmediato para <code class="docutils literal notranslate"><span class="pre">IsPerfectGroup</span></code>. Además, el método inmediato mencionado anteriormente para <code class="docutils literal notranslate"><span class="pre">IsSolvableGroup</span></code> no se utilizó porque la solubilidad de <span class="math notranslate nohighlight">\(g\)</span> ya se descubrió durante el cálculo del tamaño (véase el ejemplo de la <code class="docutils literal notranslate"><span class="pre">Sección</span> <span class="pre">8.2</span></code>).</p>
+<div class="section" id="id2">
+<h3><span class="section-number">7.4.1. </span>Resumen<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En esta sección y en la última hemos mirado un poco más detrás de escena y hemos visto que <strong>GAP</strong> ejecuta automáticamente métodos inmediatos y verdaderos para deducir información sobre objetos que está disponible a bajo costo. Hemos visto cómo esto se puede supervisar rastreando los métodos.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="06-dominios.html" class="btn btn-neutral float-left" title="6. Dominios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

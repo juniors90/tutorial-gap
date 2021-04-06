@@ -11,3 +11,5 @@ Minicurso de GAP en español!
    Notas/03-funciones
    Notas/04-grupos-y-homomorfismos
    Notas/05-espacios-vectoriales-y-algebras
+   Notas/06-dominios
+   Notas/07-operaciones-y-metodos
